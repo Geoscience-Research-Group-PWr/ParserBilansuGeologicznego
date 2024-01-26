@@ -10,14 +10,14 @@ def exportdata(filename):
             d= [row for row in table if any(row)]
             data.extend(d)
         df = pd.DataFrame(data)
-    df.to_csv(f'{name}.csv',index=False,header=None)
+    df.to_csv(f'{name}.csv',index=False)
 
 def normalcsv(filepath):
     df = pd.read_csv(filepath, encoding='UTF-8')
     if 'H E L' in filepath:
         new_column_names=['Lp.','Nazwa','Stan','Zas. wyd. bil. Razem','Zas. wyd. bil. A+B','Zas. wyd. bil. C','Wydobycie']
     elif 'M E T A N  P O K Ł A D Ó W  W ĘG L A' in filepath:
-        new_column_names=['Lp.','Nazwa','Stan','Zasoby wydobywalne bilansowe''Zasoby wydobywalne pozabilansowe','Zasoby przemyslowe','Emisja z wentylacja','Wydobycie']
+        new_column_names=['Lp.','Nazwa','Stan','Zasoby wydobywalne bilansowe','Zasoby wydobywalne pozabilansowe','Zasoby przemyslowe','Emisja z wentylacja','Wydobycie']
     elif 'WĘGLE  KAMIENNE' in filepath:
         new_column_names=['Lp.','Nazwa','Stan','Zasoby geologiczne bilansowe Razem','Zasoby geologiczne bilansowe A+B+C1','Zasoby wydobywalne bilansowe C2+D','Zasoby przemyslowe','Wydobycie']
     elif 'SOLANKI, WODY LECZNICZE I TERMALNE' in filepath:
@@ -34,13 +34,13 @@ def normalcsv(filepath):
     df.to_csv(filepath,index=False)
 
 
-directory=os.listdir('C:\\Users\\DELL\\PycharmProjects\\parserpdf\\y2010')
+directory=os.listdir('D:\PyCharm\PyCharm 2023.2.4\parserpdf\year2012')
 filespdf=[file for file in directory if file.endswith('.pdf')]
 for ffs in filespdf:
-    fpath=f'C:\\Users\\DELL\\PycharmProjects\\parserpdf\\y2010\\{ffs}'
+    fpath=f'D:\PyCharm\PyCharm 2023.2.4\parserpdf\year2012\\{ffs}'
     exportdata(fpath)
 
 filescsv=[file for file in directory if file.endswith('.csv')]
 for filecsv in filescsv:
-    fpath = f'C:\\Users\\DELL\\PycharmProjects\\parserpdf\\y2010\\{filecsv}'
+    fpath = f'D:\PyCharm\PyCharm 2023.2.4\parserpdf\year2012\\{filecsv}'
     normalcsv(fpath)
