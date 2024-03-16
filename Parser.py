@@ -12,7 +12,9 @@ class Parser:
         self.file=file
         self.path=os.getcwd()
         self.year=self.file[7:11]
-
+        self.client = pymongo.MongoClient('mongodb+srv://<USERNAME>:<PASSWORD>@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority')  # zmienic password i username na swoje
+        self.db = self.client['parser']
+        self.collection = self.db['Kopalnie']
     def make_directories(self):
         os.mkdir(f"{self.path}\Parsed_{self.year}")
         os.mkdir(f"{self.path}\Split_{self.year}")
@@ -44,7 +46,6 @@ class Parser:
                     break
             z.add(header)
         for items in z:
-            print(items)
             zi.append(items)
         return zi
 
@@ -58,7 +59,6 @@ class Parser:
                 occurance.append(j)
         c.append(min(occurance))
         c.append(max(occurance))
-        print(c)
         return c
 
     def parse_parsed(self):
@@ -70,7 +70,6 @@ class Parser:
             for i in range(0, len(z)):
                 writer = PdfWriter()
                 header = z[i]
-                print(header)
                 limits = self.get_pages(filename, header)
                 pages = reader.pages[limits[0]:limits[-1] + 1]
                 if '/' in header:
@@ -126,5 +125,88 @@ class Parser:
             df.columns = new_column_names
             df = df.dropna()
             df.to_csv(filename, index=False)
+    def add_to_db(self):
+        for files in os.listdir(f"{self.path}\CSV_{self.year}"):
+            filename = f"{self.path}\CSV_{self.year}\{files}"
+            df = pd.read_csv(filename, encoding='UTF-8')
+            type = files[:-9]
+            year = files[-8:-4]
+            for i in range(0, df.shape[0]):
+                if 'H E L' in files:
+                    d = {
+                        'name': df.at[i, "Nazwa"],
+                        'year': year,
+                        'type': type,
+                        'more': {
+                            'stan': df.at[i, "Stan"],
+                            'Zas. wyd. bil. Razem': df.at[i, 'Zas. wyd. bil. Razem'],
+                            'Zas. wyd. bil. A+B': df.at[i, 'Zas. wyd. bil. A+B'],
+                            'Zas. wyd. bil. C': df.at[i, 'Zas. wyd. bil. C'],
+                            'wydobycie': df.at[i, 'Wydobycie']
+                        }
+                    }
+                elif 'M E T A N  P O K Ł A D Ó W  W ĘG L A' in files:
+                    d = {
+                        'name': df.at[i, "Nazwa"],
+                        'year': year,
+                        'type': type,
+                        'more': {
+                            'stan': df.at[i, "Stan"],
+                            'Zasoby wydobywalne bilansowe': df.at[i, 'Zasoby wydobywalne bilansowe'],
+                            'Zasoby wydobywalne pozabilansowe': df.at[i, 'Zasoby wydobywalne pozabilansowe'],
+                            'Zasoby przemyslowe': df.at[i, 'Zasoby przemyslowe'],
+                            'Emisja z wentylacja': df.at[i, 'Emisja z wentylacja'],
+                            'wydobycie': df.at[i, 'Wydobycie']
+                        }
+                    }
+                elif 'WĘGLE  KAMIENNE' in files:
+                    d = {
+                        'name': df.at[i, "Nazwa"],
+                        'year': year,
+                        'type': type,
+                        'more': {
+                            'stan': df.at[i, "Stan"],
+                            'Zasoby geologiczne bilansowe Razem': df.at[i, 'Zasoby geologiczne bilansowe Razem'],
+                            'Zasoby geologiczne bilansowe A+B+C1': df.at[i, 'Zasoby geologiczne bilansowe A+B+C1'],
+                            'Zasoby wydobywalne bilansowe C2+D': df.at[i, 'Zasoby wydobywalne bilansowe C2+D'],
+                            'Zasoby przemyslowe': df.at[i, 'Zasoby przemyslowe'],
+                            'wydobycie': df.at[i, 'Wydobycie']
+                        }
+                    }
+                elif 'SOLANKI, WODY LECZNICZE I TERMALNE' in files:
+                    d = {
+                        'name': df.at[i, "Nazwa"],
+                        'year': year,
+                        'type': type,
+                        'more': {
+                            'Typ wody': df.at[i, "Typ wody"],
+                            'Zasoby geologiczne bilansowe dyspozycyjne': df.at[
+                                i, 'Zasoby geologiczne bilansowe dyspozycyjne'],
+                            'Zasoby geologiczne bilansowe eksploatacyjne': df.at[
+                                i, 'Zasoby geologiczne bilansowe eksploatacyjne'],
+                            'Pobor': df.at[i, 'Pobor'],
+                            'Powiat': df.at[i, 'Powiat']
+                        }
+                    }
+                else:
+                    d = {
+                        'name': df.at[i, "Nazwa"],
+                        'year': year,
+                        'type': type,
+                        'more': {
+                            'stan': df.at[i, "Stan"],
+                            'Zasoby wydobywalne bilansowe': str(df.at[i, 'Zasoby wydobywalne bilansowe']),
+                            'Zasoby przemyslowe': df.at[i, 'Zasoby przemyslowe'],
+                            'Wydobycie': df.at[i, 'Wydobycie'],
+                            'Powiat': df.at[i, 'Powiat']
+                        }
+                    }
+                self.collection.insert_one(d)
+'''Przykład użycia:
 p=Parser("Bilans_2011.pdf")
+p.make_directories()
 p.parse()
+p.parse_parsed()
+p.export_data()
+p.clean_csv()
+p.add_to_db()'''
