@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-<p>{{ name }}</p>
+<p>{{ mine }}</p>
+    <form action="{%  url "output" %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+    <input type="submit" value="Submit">
+</form>
+
 </body>
 </html>
