@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django import forms
-from django.http import HttpResponse
 
 tasks=['x','y','z']
 class DataForm(forms.Form):
