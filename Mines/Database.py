@@ -15,7 +15,9 @@ class Database:
             result.append(results)
         return result
     def get_data(self,results,headers):
-        temp=results[0]
-        data=[(temp[0]["name"],temp[0]["year"],temp[0]["type"],temp[0]["more"][headers[0]],temp[0]["more"][headers[1]],temp[0]["more"][headers[2]],temp[0]["more"][headers[3]],temp[0]["more"][headers[4]])]
+        data=[]
+        for i in range(len(results[0])):
+            temp=results[0]
+            data.append((temp[i]["name"],temp[i]["year"],temp[i]["type"],temp[i]["more"][headers[0]],temp[i]["more"][headers[1]],temp[i]["more"][headers[2]],temp[i]["more"][headers[3]],temp[i]["more"][headers[4]]))
         return data
 

@@ -16,8 +16,11 @@ def index1(request):
     form = DataForm(request.POST or None)
     if request.method=="POST" and form.is_valid():
         name=form.cleaned_data["name"]
+        start=form.cleaned_data["start"]
+        end=form.cleaned_data["end"]
         tasks.clear()
         tasks.append(db.search(str(name)))
+        return HttpResponseRedirect("results")
     else:
         return render(request,"MinesAPP/index1.html",{"form":form})
     return render(request,"MinesAPP/index1.html",{"form":DataForm()})
