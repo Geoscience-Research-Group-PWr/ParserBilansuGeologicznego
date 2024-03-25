@@ -8,11 +8,14 @@ class Database:
         self.collection=self.db['Kopalnie']
 
     def search(self,name,start=0,end=datetime.date.today().year):
+        result=[]
         query={"$and":[{"name":name},{"year":{"$gt":f'{start}'}},{"year":{"$lt":f'{end}'}}]}
-        return self.collection.find(query)
+        output=self.collection.find(query)
+        for results in output:
+            result.append(results)
+        return result
 
 s=Database()
 res=s.search("Jedlinka",2010,2024)
 
-for x in res:
-    print(x)
+print(res)

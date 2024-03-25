@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mine search</title>
 </head>
 <body>
-{{ name }}
-<form action="{%  url 'output' %}" method="post">
+<form action="{%  url 'add' %}" method="POST">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
 </form>
-
 </body>
 </html>
