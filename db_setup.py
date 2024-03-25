@@ -14,11 +14,11 @@ for files in filescsv:
     for i in range(0,df.shape[0]):
         if 'H E L' in files:
             d={
-                'name':df.at[i,"Nazwa"],
-                'year':year,
-                'type':type,
-                'more':{
-                    'stan':df.at[i,"Stan"],
+                'Name':df.at[i,"Nazwa"],
+                'Year':year,
+                'Type':type,
+                'More':{
+                    'Stan':df.at[i,"Stan"],
                     'Zas. wyd. bil. Razem':df.at[i,'Zas. wyd. bil. Razem'],
                     'Zas. wyd. bil. A+B':df.at[i,'Zas. wyd. bil. A+B'],
                     'Zas. wyd. bil. C':df.at[i,'Zas. wyd. bil. C'],

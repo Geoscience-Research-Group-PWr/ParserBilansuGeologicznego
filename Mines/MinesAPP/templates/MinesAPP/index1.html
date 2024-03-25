@@ -5,10 +5,13 @@
     <title>Mine search</title>
 </head>
 <body>
-<form action="{%  url 'add' %}" method="POST">
+<h1>Enter mine data</h1>
+<p>Select a mine and date range for production statistics</p>
+<form action="{%  url 'index' %}" method="POST">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
 </form>
+<a href="results">See results</a>
 </body>
 </html>

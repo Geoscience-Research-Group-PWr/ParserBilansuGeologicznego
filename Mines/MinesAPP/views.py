@@ -2,11 +2,14 @@ from django.shortcuts import render
 from django import forms
 from django.http import HttpResponseRedirect
 from Database import Database
+import datetime
 
 db=Database()
 tasks=[]
 class DataForm(forms.Form):
-    name=forms.CharField(initial="Name")
+    name=forms.CharField(label="Mine name")
+    start=forms.CharField(label="From",initial=str(datetime.date.today().year-10))
+    end=forms.CharField(label="To",initial=str(datetime.date.today().year))
 
 
 def index1(request):
@@ -20,4 +23,15 @@ def index1(request):
     return render(request,"MinesAPP/index1.html",{"form":DataForm()})
 
 def results(request):
-    return render(request,"MinesAPP/results.html",{"items":tasks})
+    data=[]
+    if tasks:
+        columns=[]
+        headers1=list(tasks[0][0].keys())
+        headers1=headers1[1:-1]
+        headers2=list(tasks[0][0]["more"].keys())
+        columns=headers1+headers2
+        data=db.get_data(tasks,headers2)
+    else:
+        columns=[]
+        data=[]
+    return render(request,"MinesAPP/results.html",{"items":tasks,"columns":columns,"data":data})
