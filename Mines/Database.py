@@ -16,8 +16,15 @@ class Database:
         return result
     def get_data(self,results,headers):
         data=[]
+        s=0 # suma wydobycia
         for i in range(len(results[0])):
             temp=results[0]
             data.append((temp[i]["name"],temp[i]["year"],temp[i]["type"],temp[i]["more"][headers[0]],temp[i]["more"][headers[1]],temp[i]["more"][headers[2]],temp[i]["more"][headers[3]],temp[i]["more"][headers[4]]))
-        return data
+            a=temp[i]["more"][headers[1]]
+            a=a.replace(" ","")
+            if a.isnumeric():
+                s+=float(a)
+            else:
+                s+=0
+        return data,s
 

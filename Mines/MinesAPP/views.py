@@ -33,8 +33,9 @@ def results(request):
         headers1=headers1[1:-1]
         headers2=list(tasks[0][0]["more"].keys())
         columns=headers1+headers2
-        data=db.get_data(tasks,headers2)
+        data=db.get_data(tasks,headers2)[0]
+        s=db.get_data(tasks,headers2)[1]
     else:
         columns=[]
         data=[]
-    return render(request,"MinesAPP/results.html",{"items":tasks,"columns":columns,"data":data})
+    return render(request,"MinesAPP/results.html",{"items":tasks,"columns":columns,"data":data,"suma":s})
