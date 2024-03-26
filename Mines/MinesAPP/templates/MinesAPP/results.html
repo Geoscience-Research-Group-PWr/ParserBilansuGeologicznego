@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>a</title>
+    <title>Query results</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+    </style>
 </head>
 <body>
+    <h1>Query results for {{ name }}</h1>
     <table>
         <thead>
             <tr>
@@ -21,6 +35,16 @@
                     {% endfor %}
                 </tr>
             {% endfor %}
+                <tr>
+                    <td>Sumy</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    {% for element in suma %}
+                        <td>{{ element }}</td>
+                    {% endfor %}
+                    <td></td>
+                </tr>
         </tbody>
     </table>
     <p>Suma wydobycia = {{ suma }}</p>

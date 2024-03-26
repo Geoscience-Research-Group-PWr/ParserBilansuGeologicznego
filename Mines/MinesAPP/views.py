@@ -27,15 +27,17 @@ def index1(request):
 
 def results(request):
     data=[]
-    if tasks:
+    sums=[]
+    if tasks[0]:
         columns=[]
         headers1=list(tasks[0][0].keys())
         headers1=headers1[1:-1]
         headers2=list(tasks[0][0]["more"].keys())
         columns=headers1+headers2
         data=db.get_data(tasks,headers2)[0]
-        s=db.get_data(tasks,headers2)[1]
+        sums=[db.get_data(tasks,headers2)[1],db.get_data(tasks,headers2)[2],db.get_data(tasks,headers2)[3]]
     else:
         columns=[]
-        data=[]
-    return render(request,"MinesAPP/results.html",{"items":tasks,"columns":columns,"data":data,"suma":s})
+        data=[[' ']]
+        sums=[]
+    return render(request,"MinesAPP/results.html",{"items":tasks,"columns":columns,"data":data,"suma":sums,"name":data[0][0]})
