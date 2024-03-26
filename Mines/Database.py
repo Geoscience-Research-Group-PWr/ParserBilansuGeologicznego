@@ -3,7 +3,7 @@ import datetime
 
 class Database:
     def __init__(self):
-        self.connection=pymongo.MongoClient('mongodb+srv://mikolajsiewruk222:Mikis2003@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority&appName=parser')
+        self.connection=pymongo.MongoClient('mongodb+srv://mikolajsiewruk222:*****@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority&appName=parser')
         self.db=self.connection['parser']
         self.collection=self.db['Kopalnie']
 
