@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Mine search</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MinesAPP/styles.css' %}">
 </head>
 <body>
-<h1>Enter mine data</h1>
-<p>Select a mine and date range for production statistics</p>
-<form action="{%  url 'index' %}" method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
-<a href="results">See results</a>
+    <div id="header">
+        <h1 align="center">Enter mine data</h1>
+        <p align="center">Select a mine and date range for production statistics</p>
+    </div>
+    <div align="center">
+        <form action="{%  url 'index' %}" method="POST">
+            {% csrf_token %}
+            {{ form.name.label }}<br>
+            {{ form.name }}<br><br>
+            {{ form.start.label }}<br>
+            {{ form.start }}<br><br>
+            {{ form.end.label }}<br>
+            {{ form.end }}<br><br>
+            <input type="submit" value="Submit">
+        </form><br>
+        <a href="results">See results</a>
+    </div>
 </body>
 </html>

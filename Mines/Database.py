@@ -3,13 +3,13 @@ import datetime
 
 class Database:
     def __init__(self):
-        self.connection=pymongo.MongoClient('mongodb+srv://mikolajsiewruk222:xdxdxd@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority&appName=parser')
+        self.connection=pymongo.MongoClient('mongodb+srv://mikolajsiewruk222:parser420@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority&appName=parser')
         self.db=self.connection['parser']
         self.collection=self.db['Kopalnie']
 
     def search_by_name(self,name,start=0,end=datetime.date.today().year):
         result=[]
-        query={"$and":[{"name":name},{"year":{"$gt":str(start)}},{"year":{"$lt":str(end)}}]}
+        query={"$and":[{"name":name},{"year":{"$gte":str(start)}},{"year":{"$lte":str(end)}}]}
         output=self.collection.find(query)
         for results in output:
             result.append(results)

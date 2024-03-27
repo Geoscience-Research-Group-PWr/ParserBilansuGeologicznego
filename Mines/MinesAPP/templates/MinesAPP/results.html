@@ -3,22 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Query results</title>
-    <style>
-        table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MinesAPP/styles.css' %}">
 </head>
 <body>
-    <h1>Query results for {{ name }}</h1>
+    <h1 align="center">Query results for {{ name }}</h1>
     <table>
         <thead>
             <tr>
@@ -35,7 +24,7 @@
                     {% endfor %}
                 </tr>
             {% endfor %}
-                <tr>
+                <tr id="sum">
                     <td>Sumy</td>
                     <td></td>
                     <td></td>
@@ -46,8 +35,7 @@
                     <td></td>
                 </tr>
         </tbody>
-    </table>
-    <p>Suma wydobycia = {{ suma }}</p>
+    </table><br>
     <a href="/">Back to search</a>
 </body>
 </html>

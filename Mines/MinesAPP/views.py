@@ -7,15 +7,15 @@ import datetime
 db=Database()
 output=[]
 class NameForm(forms.Form):
-    name=forms.CharField(label="Mine name")
-    start=forms.CharField(label="From",initial=str(datetime.date.today().year-10))
-    end=forms.CharField(label="To",initial=str(datetime.date.today().year))
+    name=forms.CharField(label="Mine name :")
+    start=forms.CharField(label="From :",initial=str(datetime.date.today().year-10))
+    end=forms.CharField(label="To :",initial=str(datetime.date.today().year))
 
 # dodac wyszukiwanie po kopalinie
 class TypeForm(forms.Form):
     types=forms.CharField(label="Mineral type")
-    start1 = forms.CharField(label="From", initial=str(datetime.date.today().year - 10))
-    end1 = forms.CharField(label="To", initial=str(datetime.date.today().year))
+    start1 = forms.CharField(label="From:", initial=str(datetime.date.today().year - 10))
+    end1 = forms.CharField(label="To:", initial=str(datetime.date.today().year))
 
 
 def index1(request):
