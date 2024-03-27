@@ -3,7 +3,7 @@ import datetime
 
 class Database:
     def __init__(self):
-        self.connection=pymongo.MongoClient('mongodb+srv://mikolajsiewruk222:*****@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority&appName=parser')
+        self.connection=pymongo.MongoClient('mongodb+srv://mikolajsiewruk222:Mikis2003@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority&appName=parser')
         self.db=self.connection['parser']
         self.collection=self.db['Kopalnie']
 
@@ -28,11 +28,11 @@ class Database:
             zas_wyd_bil_col=zas_wyd_bil_col.replace(" ","")
             zas_przem_col=zas_przem_col.replace(" ","")
             wyd_col = wyd_col.replace(" ", "")
-            if zas_wyd_bil_col.isnumeric():
+            if zas_wyd_bil_col[0].isnumeric():
                 zas_wyd_bil+=float(zas_wyd_bil_col)
-            if zas_przem_col.isnumeric():
+            if zas_przem_col[0].isnumeric():
                 zas_przem+=float(zas_przem_col)
-            if wyd_col.isnumeric():
+            if wyd_col[0].isnumeric():
                 wyd+=float(wyd_col)
         return data,zas_wyd_bil,zas_przem,wyd
 
