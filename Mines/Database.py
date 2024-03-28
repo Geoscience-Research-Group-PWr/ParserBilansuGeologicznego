@@ -9,7 +9,7 @@ class Database:
 
     def search_by_name(self,name,start=0,end=datetime.date.today().year):
         result=[]
-        query={"$and":[{"name":name},{"year":{"$gte":str(start)}},{"year":{"$lte":str(end)}}]}
+        query={"$and":[{"Name":name},{"Year":{"$gte":str(start)}},{"Year":{"$lte":str(end)}}]}
         output=self.collection.find(query)
         for results in output:
             result.append(results)
@@ -17,7 +17,7 @@ class Database:
 
     def search_by_type(self,t,start=0,end=datetime.date.today().year):
         result = []
-        query = {"$and": [{"type": t}, {"year": {"$gt": str(start)}}, {"year": {"$lt": str(end)}}]}
+        query = {"$and": [{"ype": t}, {"Year": {"$gt": str(start)}}, {"Year": {"$lt": str(end)}}]}
         output = self.collection.find(query)
         for results in output:
             result.append(results)
@@ -29,10 +29,10 @@ class Database:
         wyd=0
         for i in range(len(results[0])):
             temp=results[0]
-            data.append((temp[i]["name"],temp[i]["year"],temp[i]["type"],temp[i]["more"][headers[0]],temp[i]["more"][headers[1]],temp[i]["more"][headers[2]],temp[i]["more"][headers[3]],temp[i]["more"][headers[4]]))
-            zas_wyd_bil_col=temp[i]["more"][headers[1]]
-            zas_przem_col=temp[i]["more"][headers[2]]
-            wyd_col=temp[i]["more"][headers[3]]
+            data.append((temp[i]["Name"],temp[i]["Year"],temp[i]["Type"],temp[i]["More"][headers[0]],temp[i]["More"][headers[1]],temp[i]["More"][headers[2]],temp[i]["More"][headers[3]],temp[i]["More"][headers[4]]))
+            zas_wyd_bil_col=temp[i]["More"][headers[1]]
+            zas_przem_col=temp[i]["More"][headers[2]]
+            wyd_col=temp[i]["More"][headers[3]]
             zas_wyd_bil_col=zas_wyd_bil_col.replace(" ","")
             zas_przem_col=zas_przem_col.replace(" ","")
             wyd_col = wyd_col.replace(" ", "")

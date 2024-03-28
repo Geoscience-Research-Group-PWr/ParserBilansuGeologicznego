@@ -38,7 +38,7 @@ def results(request):
         columns=[]
         headers1=list(output[0][0].keys())
         headers1=headers1[1:-1]
-        headers2=list(output[0][0]["more"].keys())
+        headers2=list(output[0][0]["More"].keys())
         columns=headers1+headers2
         data=db.get_data(output, headers2)[0]
         sums=[db.get_data(output, headers2)[1], db.get_data(output, headers2)[2], db.get_data(output, headers2)[3]]
