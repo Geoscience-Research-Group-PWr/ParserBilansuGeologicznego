@@ -312,7 +312,7 @@ class Parser:
                         df.at[i, "Wydobycie"] = df.at[i, "Wydobycie"][1:]
             df.to_csv(filename, index=False)
             
-        def add_to_db(self):
+    def add_to_db(self):
         """
         Adds content of CSV files to MongoDB database.
         :return:
