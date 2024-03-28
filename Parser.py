@@ -126,6 +126,10 @@ class Parser:
             df = df.dropna()
             df.to_csv(filename, index=False)
     def search_csv_for_errors(self):
+        """
+        Corrects conversion errors in CSV files. (unwanted letters or chars in columns)
+        :return:
+        """
         for files in os.listdir(f"{self.path}\CSV_{self.year}"):
             filename=f"{self.path}\CSV_{self.year}\\{files}"
             df = pd.read_csv(filename, encoding='UTF-8')
