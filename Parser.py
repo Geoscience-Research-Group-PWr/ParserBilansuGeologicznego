@@ -15,11 +15,21 @@ class Parser:
         self.client = pymongo.MongoClient('mongodb+srv://mikolajsiewruk222:parser420@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority')  # zmienic password i username na swoje
         self.db = self.client['parser']
         self.collection = self.db['Kopalnie']
+
     def make_directories(self):
+        """
+        Creates necessary directories for organizing parsing results.
+        :return:
+        """
         os.mkdir(f"{self.path}\Parsed_{self.year}")
         os.mkdir(f"{self.path}\Split_{self.year}")
         os.mkdir(f"{self.path}\CSV_{self.year}")
+
     def parse(self):
+        """
+        From source .pdf file extracts a PDF with tables only. Moves the file to a dir created with make_directories()
+        :return:
+        """
         reader = PdfReader(self.file)
         writer = PdfWriter()
         name = str(self.file)[:-4]
@@ -30,7 +40,12 @@ class Parser:
                     writer.write(file)
         shutil.move(f'{name}parsed.pdf',f"{self.path}\Parsed_{self.year}")
 
-    def headers(self,filename):
+    def headers(self,filename: str) -> list:
+        """
+        Extracts mineral names from page header.
+        :param filename:a PDF file with tables only - created with parse()
+        :return:a list with all minerals names within the input PDF file
+        """
         header = ''
         zi = []
         z = set()
@@ -49,7 +64,13 @@ class Parser:
             zi.append(items)
         return zi
 
-    def get_pages(self,filename, header):
+    def get_pages(self,filename:str, header:str)->list:
+        """
+        Given a mineral name returns first and last page that a given mineral appears at.
+        :param filename:a PDF file with tables only - created with parse()
+        :param header: minerals name
+        :return: a 2 element list with first and last appearance of the mineral name
+        """
         occurance = []
         c = []
         reader = PdfReader(filename)
@@ -62,6 +83,10 @@ class Parser:
         return c
 
     def parse_parsed(self):
+        """
+        Splits a PDF file with tables only.
+        :return: Dir of PDF files with tables belonging to the same mineral name
+        """
         for files in os.listdir(f"{self.path}\Parsed_{self.year}"):
             filename=f"{self.path}\Parsed_{self.year}\\{files}"
             reader = PdfReader(filename)
@@ -83,6 +108,10 @@ class Parser:
                 shutil.move(f'{header}_{year}.pdf',f"{self.path}\Split_{self.year}")
 
     def export_data(self):
+        """
+        Converts PDF files to CSV.
+        :return:
+        """
         for files in os.listdir(f"{self.path}\Split_{self.year}"):
             filename=f"{self.path}\Split_{self.year}\{files}"
             name = str(filename)[:-4]
@@ -97,6 +126,10 @@ class Parser:
             shutil.move(f'{name}.csv',f"{self.path}\CSV_{self.year}")
 
     def clean_csv(self):
+        """
+        Changes headers of CSV files to adequate for each mineral type
+        :return:
+        """
         for files in os.listdir(f"{self.path}\CSV_{self.year}"):
             filename=f"{self.path}\CSV_{self.year}\\{files}"
             df = pd.read_csv(filename, encoding='UTF-8')
@@ -125,11 +158,13 @@ class Parser:
             df.columns = new_column_names
             df = df.dropna()
             df.to_csv(filename, index=False)
+            
     def search_csv_for_errors(self):
         """
         Corrects conversion errors in CSV files. (unwanted letters or chars in columns)
         :return:
         """
+      
         for files in os.listdir(f"{self.path}\CSV_{self.year}"):
             filename=f"{self.path}\CSV_{self.year}\\{files}"
             df = pd.read_csv(filename, encoding='UTF-8')
@@ -276,7 +311,12 @@ class Parser:
                     if df.at[i, "Wydobycie"][0].islower() or df.at[i, "Wydobycie"][0] == '.':
                         df.at[i, "Wydobycie"] = df.at[i, "Wydobycie"][1:]
             df.to_csv(filename, index=False)
-    def add_to_db(self): # logi
+            
+        def add_to_db(self):
+        """
+        Adds content of CSV files to MongoDB database.
+        :return:
+        """
         for files in os.listdir(f"{self.path}\CSV_{self.year}"):
             print(files)
             filename = f"{self.path}\CSV_{self.year}\{files}"
@@ -355,46 +395,16 @@ class Parser:
                     }
                 print(d)
                 self.collection.insert_one(d)
-'''Przykład użycia:
+
+'''
+Przykład użycia:
 p=Parser("Bilans_2011.pdf")
 p.make_directories()
 p.parse()
 p.parse_parsed()
 p.export_data()
 p.clean_csv()
+
 p.search_csv_for_errors()
 p.add_to_db()'''
-p=Parser("Bilans_2010.pdf")
-'''p.make_directories()
-p.parse()
-p.parse_parsed()
-p.export_data()
-p.clean_csv()
-p.search_csv_for_errors()'''
-p.add_to_db()
-'''df=pd.read_csv("CSV_2011/ROPA  NAFTOWA_2011.csv")
-for i in range(0, len(df)):
-    if not df.at[i, "Nazwa"][0].isupper():
-        df.at[i, "Nazwa"] = df.at[i, "Nazwa"][1:]
 
-    if not df.at[i, "Stan"][0].isupper():
-        df.at[i, "Stan"] = df.at[i, "Stan"][1:]
-
-    if str(df.at[i, "Zasoby wydobywalne bilansowe"]) == "tylko pzb.":
-        pass
-    elif str(df.at[i, "Zasoby wydobywalne bilansowe"])[0].islower() or str(df.at[i, "Zasoby wydobywalne bilansowe"])[0] == '.':
-        df.at[i, "Zasoby wydobywalne bilansowe"] = df.at[i, "Zasoby wydobywalne bilansowe"][1:]
-
-    if df.at[i, "Zasoby przemyslowe"] == "tylko pzb.":
-        pass
-    elif df.at[i, "Zasoby przemyslowe"][0].islower() or df.at[i, "Zasoby przemyslowe"][0] == '.':
-        df.at[i, "Zasoby przemyslowe"] = df.at[i, "Zasoby przemyslowe"][1:]
-
-    if df.at[i, "Wydobycie"][0].islower() or df.at[i, "Wydobycie"][0] == '.':
-        df.at[i, "Wydobycie"] = df.at[i, "Wydobycie"][1:]
-
-for i in range(0,len(df)):
-    if not df.at[i,"Zasoby przemyslowe"][0].isnumeric():
-        df.at[i,"Zasoby przemyslowe"]=df.at[i,"Zasoby przemyslowe"][1:]
-df.to_csv('CSV_2011/ROPA  NAFTOWA_2011.csv',index=False)
-'''
