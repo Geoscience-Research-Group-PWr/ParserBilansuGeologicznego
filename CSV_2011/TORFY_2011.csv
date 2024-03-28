@@ -3,41 +3,37 @@ Lp.,Nazwa,Stan,Zasoby wydobywalne bilansowe,Zasoby przemyslowe,Wydobycie,Powiat
 1,BoŜenkowo I,R,30,-,-,bydgoski
 2,Chrośna I,T,33,-,-,bydgoski
 3,Chrośna II,R,280,-,-,bydgoski
-4,CzarŜe I,R,7,"g
+4,CzarŜe I,R,7,"
 -",-,bydgoski
 5,Dąbrówka I,T,50,-,-,bydgoski
 6,Iwiec I,R,108,-,-,tucholski
 7,Janowiec I,R,20,-,-,Ŝniński
-8,Kaniewo,Z,".
+8,Kaniewo,Z,"
 275",-,-,włocławski
 9,Kaniewo II,Z,59,-,-,włocławski
-10,Krąpiewo,E,"i
+10,Krąpiewo,E,"
 33",33,8,bydgoski
 11,Krąpiewo I,E,21,-,1,bydgoski
 12,Lisi Ogon I,R,205,-,-,bydgoski
-13,Nowe Dąbie VI,R,"g
+13,Nowe Dąbie VI,R,"
 42",-,-,Ŝniński
 14,Nowe Dąbie VII,R,142,-,-,Ŝniński
 15,Otorowo I,E,37,-,0,bydgoski
 16,Pawłówek I,E,88,82,5,bydgoski
 17,Pawłówek II,R,7,-,-,bydgoski
-18,Pawłówek III,"p
-R",23,-,-,bydgoski
+18,Pawłówek III,R,23,-,-,bydgoski
 19,Piastoszyn I,T,33,33,-,tucholski
 20,Rudaw,R,133,-,-,"golubsko-
 dobrzyński"
-21,".
-Sienno I",R,36,-,-,bydgoski
+21,Sienno I,R,36,-,-,bydgoski
 22,Słończ Górny I,T,8,-,-,bydgoski
 23,Sokołowo Parcele,T,11,-,-,włocławski
 24,Ułomie I,R,29,-,-,radziejowski
-25,"w
-Wieniec-A,B,C*",E,52,52,1,włocławski
+25,"Wieniec-A,B,C*",E,52,52,1,włocławski
 26,Wojdal V*,E,15,13,0,inowrocławski
 1,Andrzejów,E,125,117,14,włodawski
 2,Chojno dz.171,T,16,16,-,chełmski
-3,"w
-Dodatki-Rzeka",R,287,814,-,łęczyński
+3,Dodatki-Rzeka,R,287,814,-,łęczyński
 4,Grabniak I,Z,37,-,-,włodawski
 5,Grabówka,Z,9,-,-,opolski
 7,Kolechowice III,E,27,-,5,lubartowski
@@ -45,26 +41,26 @@ Dodatki-Rzeka",R,287,814,-,łęczyński
 włodawski"
 9,Kozia Góra,R,20,20,-,chełmski
 10,Krasew I,Z,13,-,-,radzyński
-11,Krowie Bagno II,M,14,-,"v
+11,Krowie Bagno II,M,14,-,"
 -",włodawski
 12,Krowie Bagno III,E,28,-,27,włodawski
 13,Krowie Bagno IV,E,54,-,20,włodawski
 14,Krowie Bagno V,E,57,-,20,włodawski
 15,Lubowierz,T,12,-,-,włodawski
-16,Ludwin II,Z,8,"o
+16,Ludwin II,Z,8,"
 -",-,łęczyński
 17,Ludwinek,E,127,127,6,łęczyński
 18,Majdan Wielki I*,R,192,-,-,zamojski
 19,Mogielnica I,R,482,-,-,chełmski
 20,Oleśniki,P,4 543,-,-,świdnicki
-21,Osowa dz. nr 353,R,10,"g
+21,Osowa dz. nr 353,R,10,"
 -",-,włodawski
 22,Rudnik I,T,57,-,-,kraśnicki
 23,Rudnik II,R,18,13,-,kraśnicki
-24,Stary Majdan,P,".
+24,Stary Majdan,P,"
 9",-,-,włodawski
 25,Stoczek,E,2 578,2 428,118,radzyński
-26,Wilkołaz,R,"i
+26,Wilkołaz,R,"
 91",-,-,kraśnicki
 27,Wytyczno,Z,279,-,-,włodawski
 28,Wytyczno I,E,-,-,52,włodawski
@@ -72,66 +68,59 @@ włodawski"
 1,Bargów*,T,13,-,-,sulęciński
 2,Brzeźno,R,84,-,-,gorzowski
 3,Czarnowo,E,0,-,1,krośnieński
-4,Gajec,"p
-R",35,-,-,słubicki
+4,Gajec,R,35,-,-,słubicki
 5,Grabin,E,14,-,2,krośnieński
 6,Gronów,E,40,-,4,krośnieński
-7,".
-Karszyn CA",E,212,198,16,zielonogórski
+7,Karszyn CA,E,212,198,16,zielonogórski
 8,Konotop III,E,45,-,12,nowosolski
 9,Lgiń II,R,126,126,-,wschowski
 10,Lgiń V,T,5,-,-,wschowski
-11,"w
-Lgiń VI",E,8,-,0,wschowski
+11,Lgiń VI,E,8,-,0,wschowski
 12,Lubiechnia Mała,R,23,-,-,słubicki
 13,Lubięcin,R,65,-,-,nowosolski
 14,Lubięcin I,R,52,-,-,nowosolski
 15,Ośno*,P,888,-,-,słubicki
 16,Trzebule,E,36,-,3,krośnieński
-17,"w
-śytowań RC",Z,6,-,-,krośnieński
+17,śytowań RC,Z,6,-,-,krośnieński
 2,Danielów I,E,1,-,3,radomszczański
 3,Huta Porajska,E,137,85,2,".
 radomszczański"
 4,JeŜów,R,5,-,-,piotrkowski
 5,Napoleonów,Z,22,-,-,radomszczański
-6,Napoleonów I,Z,6,-,"v
+6,Napoleonów I,Z,6,-,"
 -",radomszczański
 7,Napoleonów III,Z,-,-,-,radomszczański
 8,Napoleonów IV,R,11,-,-,radomszczański
 9,Napoleonów VI,Z,5,-,-,radomszczański
 10,Piaszczyce,T,96,-,-,radomszczański
-11,Trząs I,R,100,"o
+11,Trząs I,R,100,"
 -",-,bełchatowski
 1,Pogórska Wola*,P,34,-,-,tarnowski
 2,Puścizna Wielka*,E,327,158,8,nowotarski
 1,Biernaty Stare,E,388,388,38,łosicki
-2,Hadynów,E,".
+2,Hadynów,E,"
 25",0,1,łosicki
 3,Kanał Bieliński*,P,358,-,-,sochaczewski
 4,Karaska I,E,1 820,1 809,167,ostrołęcki
-5,Kobierniki,R,"i
+5,Kobierniki,R,"
 171",-,-,płocki
 6,Pieróg,R,15,-,-,siedlecki
 7,Pieróg II,R,14,-,-,siedlecki
-8,Pieróg III,R,"g
+8,Pieróg III,R,"
 30",-,-,siedlecki
 9,Wyrzyki IV,E,251,44,20,łosicki
 10,Wyrzyki-Pólko,Z,4,-,-,łosicki
-1,Większyce*,"p
-P",288,-,-,"kędzierzyńsko-
+1,Większyce*,P,288,-,-,"kędzierzyńsko-
 kozielski"
 1,Podemszczyzna*,E,370,370,1,lubaczowski
 2,Rzemień,E,-,-,15,mielecki
 3,Sigiełki,R,35,-,1,niŜański
 4,Studzieniec,T,-,-,-,stalowowolski
-5,"w
-Wola Chorzelowska*",R,101,-,-,mielecki
+5,Wola Chorzelowska*,R,101,-,-,mielecki
 1,BerŜniki,P,431,-,-,sejneński
 2,Dubowo,P,1 055,-,-,sejneński
 3,Imszar II,E,494,86,11,białostocki
-4,"w
-Imszar III*",E,118,16,0,białostocki
+4,Imszar III*,E,118,16,0,białostocki
 5,Kolnica*,R,584,-,-,augustowski
 6,OŜarki,E,8,-,1,zambrowski
 8,Rabinówka,E,1 822,1 694,110,białostocki
@@ -143,42 +132,38 @@ grajewski"
 3,Jałowiec,E,125,125,2,kwidzyński
 4,Kaplica-Połęczyno,E,148,148,4,kartuski
 5,"Krakulice-Gać-Kompleks
-A",E,2 386,"o
+A",E,2 386,"
 707",44,słupski
 6,Łubiana I,R,9,-,-,kościerski
 7,Perlino,Z,6,-,-,wejherowski
 8,Postolin-Cygusy,Z,58,-,-,sztumski
-9,Roszczyce II,T,62,"g
+9,Roszczyce II,T,62,"
 -",-,lęborski
 10,RóŜyny III,R,16,-,-,gdański
 11,Trzebielino,M,-,-,-,bytowski
-12,Ustka*,R,".
+12,Ustka*,R,"
 196",-,-,słupski
 13,Wieliszewo,T,1 743,258,-,słupski
 14,Witanowo,R,198,-,-,bytowski
-15,Witanowo II,E,"i
+15,Witanowo II,E,"
 422",246,12,bytowski
-1,Babice,E,"g
+1,Babice,E,"
 74",58,11,raciborski
 2,Bronów A*,R,951,-,-,bielski
 3,Bronów B*,P,115,-,-,cieszyński
 4,Pawłówka A,Z,26,-,-,pszczyński
 5,Pawłówka B,R,27,-,-,pszczyński
-6,Rudołtowice*,"p
-E",104,104,0,pszczyński
+6,Rudołtowice*,E,104,104,0,pszczyński
 7,Smyków,R,111,-,-,częstochowski
 8,Zabłocie*,E,6,5,0,cieszyński
-9,".
-Zabłocie 4",R,6,-,-,cieszyński
+9,Zabłocie 4,R,6,-,-,cieszyński
 10,Zabłocie S,E,39,-,0,cieszyński
-1,"w
-Mosty III",R,105,-,-,kielecki
+1,Mosty III,R,105,-,-,kielecki
 2,Siwice*,Z,83,-,-,buski
 1,Biedkowo,Z,204,-,-,braniewski
 2,Bornity I,R,52,-,-,braniewski
 3,Budwity,E,1 357,1 009,22,ostródzki
-4,"w
-Florczaki",Z,8,-,-,ostródzki
+4,Florczaki,Z,8,-,-,ostródzki
 5,Frąknowo,R,27,-,-,nidzicki
 6,Józefowo,E,3 402,2 082,64,braniewski
 8,Lutek II,Z,-,-,-,olsztyński
@@ -186,51 +171,47 @@ Florczaki",Z,8,-,-,ostródzki
 olsztyński"
 10,Lutek V,Z,1,-,-,olsztyński
 11,Ługwałd,R,113,-,-,olsztyński
-12,Malinowo III,R,35,-,"v
+12,Malinowo III,R,35,-,"
 -",nidzicki
 13,Nibork Drugi,R,152,-,-,nidzicki
 14,Nibork Drugi 1,R,23,-,-,nidzicki
 15,Niedrzwica,E,1 005,740,8,gołdapski
 16,Niedrzwica II*,R,167,-,-,gołdapski
-17,Niedrzwica III*,T,1,"o
+17,Niedrzwica III*,T,1,"
 -",-,gołdapski
 18,Rapa,R,3,49,-,gołdapski
 19,Romoty,P,342,-,-,ełcki
 20,Rucianka,E,305,86,36,elbląski
 21,Skandawa-C*,P,629,-,-,kętrzyński
-22,Warkałki,Z,24,"g
+22,Warkałki,Z,24,"
 -",-,ostródzki
 23,Wiłkajcie-Niedrzwica III,R,945,611,-,gołdapski
 24,Wojciechy-B*,P,754,-,-,bartoszycki
-25,Zezuj,Z,".
+25,Zezuj,Z,"
 tylko pzb.",-,-,olsztyński
 1,BłaŜejewo-K*,P,120,-,-,śremski
 2,Borówiec,R,8,-,-,poznański
 3,Boruja Nowa AO,T,5,-,-,nowotomyski
-4,Brzeźno JŁ,R,"g
+4,Brzeźno JŁ,R,"
 20",-,-,wągrowiecki
 5,Byszki,P,79,-,-,pilski
 6,Chlebowo,E,8,-,1,obornicki
 7,Chorzemin II,E,15,15,1,wolsztyński
 8,Chorzemin III,R,12,-,-,wolsztyński
-9,Długa Goślina,"p
-T",10,-,-,poznański
+9,Długa Goślina,T,10,-,-,poznański
 10,Długa Goślina I,T,19,19,-,poznański
 11,DzierząŜno,R,20,20,-,złotowski
-12,".
-DzierząŜno 1 (pole A)",Z,4,-,-,złotowski
+12,DzierząŜno 1 (pole A),Z,4,-,-,złotowski
 13,DzierząŜno 2 (pole B),Z,20,-,-,złotowski
 14,DzierząŜno 3,R,212,190,17,złotowski
 15,Gorszewice AW,R,31,-,-,szamotulski
-16,"w
-Górsko",R,9,-,-,wolsztyński
+16,Górsko,R,9,-,-,wolsztyński
 17,Grąblin I,E,28,-,1,koniński
 18,Gruszczyn JK,R,15,-,-,poznański
 19,Gruszczyn WWJ,R,17,-,-,poznański
 20,Jastrzębsko II,R,7,-,-,nowotomyski
 21,Jastrzębsko Stare,T,274,274,-,nowotomyski
-22,"w
-Kiełpinek II",Z,34,-,-,złotowski
+22,Kiełpinek II,Z,34,-,-,złotowski
 23,Kiełpinek II/1,Z,31,-,-,złotowski
 24,Kuźnica Zbąska AO,R,7,-,-,grodziski
 26,Kuźnica Zbąska KP,Z,20,-,-,grodziski
@@ -238,52 +219,48 @@ Kiełpinek II",Z,34,-,-,złotowski
 grodziski"
 28,Kuźnica Zbąska MRD,M,-,-,-,grodziski
 29,Kuźnica Zbąska MRD I,R,15,-,-,grodziski
-30,Kuźnica Zbąska RG II,R,21,-,"v
+30,Kuźnica Zbąska RG II,R,21,-,"
 -",grodziski
 31,Kuźnica Zbąska RG III,R,12,-,-,grodziski
 32,Kuźnica Zbąska SR,Z,4,-,-,grodziski
 33,Kuźnica Zbąska SR II,Z,9,-,-,grodziski
-34,Kwiejce-Zbiornik D,R,118,"o
+34,Kwiejce-Zbiornik D,R,118,"
 -",-,"czarnkowsko-
 trzcianecki"
 35,Lędyczek,Z,82,-,-,złotowski
 36,Łękno,Z,242,-,-,wągrowiecki
 37,Nienawiszcz FP,T,90,90,-,obornicki
 38,Piecewo,R,59,-,-,złotowski
-39,Piecewo 1,R,30,"g
+39,Piecewo 1,R,30,"
 -",-,złotowski
 40,Podgaje,R,51,-,-,złotowski
 41,Potulice Stare,E,268,261,10,złotowski
-42,Rybowo,Z,".
+42,Rybowo,Z,"
 232",-,-,wągrowiecki
 43,Rybowo-I,E,35,36,1,wągrowiecki
-44,Samica-Marcin II,R,"i
+44,Samica-Marcin II,R,"
 80",-,-,leszczyński
 45,Skic,Z,78,-,-,złotowski
 46,Skic II,R,134,-,-,złotowski
 47,Skic-Kujan,R,831,-,-,"pilski, złotowski"
-48,Stawnica,R,"g
+48,Stawnica,R,"
 50",-,-,złotowski
 49,Stroszki,Z,31,-,-,wrzesiński
 50,StrzyŜewo Kościelne,Z,69,-,-,gnieźnieński
 51,Studzieniec-Boguniewo,R,96,-,-,obornicki
 52,Sypniewo I,Z,15,-,-,złotowski
-53,Sypniewo III,"p
-Z",10,-,-,złotowski
+53,Sypniewo III,Z,10,-,-,złotowski
 54,Władysławowo,Z,12,-,-,nowotomyski
 55,Wydorowo,E,44,-,10,kościański
-56,".
-Zbąszyń",T,85,77,-,nowotomyski
+56,Zbąszyń,T,85,77,-,nowotomyski
 1,Bronowo*,E,337,337,1,świdwiński
-2,"w
-Człopa",R,551,-,-,wałecki
+2,Człopa,R,551,-,-,wałecki
 3,"Dąbrowa Nowogardzka-
 Karsk",R,994,-,-,goleniowski
 4,Dziwogóra*,R,113,-,-,świdwiński
 5,Gąsierzyno,R,212,-,-,goleniowski
 6,Golin,Z,38,-,-,wałecki
-7,"w
-Gołańcz*",P,282,-,-,gryficki
+7,Gołańcz*,P,282,-,-,gryficki
 8,Grąbczyn,E,97,-,1,szczecinecki
 9,Hanki-Mirosławiec,T,243,196,-,wałecki
 11,Kazimierz III,E,139,139,19,szczecinecki
@@ -291,31 +268,31 @@ Gołańcz*",P,282,-,-,gryficki
 wałecki"
 13,Kołobrzeg*,E,2 823,2 823,1,kołobrzeski
 14,Kraśnik-Recz,P,1 021,-,-,choszczeński
-15,Łazice,T,760,180,"v
+15,Łazice,T,760,180,"
 -",drawski
 16,Łysinin,T,124,124,-,drawski
 17,Łysinin - pole C,E,35,-,6,drawski
 18,Łysinin-pole B,Z,25,-,-,drawski
 19,Malechowo,P,373,-,-,sławieński
-20,Międzyzdroje*,R,18,"o
+20,Międzyzdroje*,R,18,"
 -",-,m.Świnoujście
 21,Mirosławiec JS,R,58,-,-,wałecki
 22,Mirosławiec JS I,E,28,-,9,wałecki
 23,Mosina,E,1 518,951,62,szczecinecki
 24,Nosibądy,E,168,154,16,szczecinecki
-25,Nowy Chwalim,E,2 634,"g
+25,Nowy Chwalim,E,2 634,"
 2 509",40,szczecinecki
 26,Pęczerzyno-Rynowo,T,576,170,-,"łobeski,
 świdwiński"
-27,Pilchowo II,R,".
+27,Pilchowo II,R,"
 22",-,-,policki
 28,Porzecze*,R,70,-,-,sławieński
-29,Przybiernówko-Grądy II,E,"i
+29,Przybiernówko-Grądy II,E,"
 14 221",4 800,89,gryficki
 30,Reptowo,Z,1 666,-,-,stargardzki
 31,Rusinowo,T,54,54,-,świdwiński
 32,Samlino,T,584,584,-,kamieński
-33,Sławoszewo,R,"g
+33,Sławoszewo,R,"
 17",-,-,policki
 34,Sławoszewo II,T,9,-,-,policki
 35,Tanowo,E,10,-,0,policki

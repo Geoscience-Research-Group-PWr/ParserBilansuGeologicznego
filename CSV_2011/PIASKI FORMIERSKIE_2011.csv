@@ -1,20 +1,10 @@
 Lp.,Nazwa,Stan,Zasoby wydobywalne bilansowe,Zasoby przemyslowe,Wydobycie,Powiat
-ZASOBY OGÓŁEM,76,336.60,185.98,150.62,5.99,35.04
-Razem -,8,88.15,88.15,-,1.41,33.64
-1. ZłoŜa zakładów czynnych,6,75.00,75.00,-,0.44,28.29
-2. ZłoŜa eksploatowane okresowo,2,13.15,13.15,"o
--",0.97,5.35
-Razem -,38,192.07,45.22,146.85,2.23,1.40
-1. ZłoŜa rozpoz. szczegółowo,17,49.17,45.22,3.95,2.10,1.40
-2. ZłoŜa rozpoz. wstępnie,21,142.90,"g
--",142.90,0.13,-
-Razem -,30,56.38,52.61,3.77,2.35,-
 4,Ludwików p. B,E,1 124,515,27,tomaszowski
 5,Parczówek,Z,458,-,-,".
 opoczyński"
 6,Radonia,R,5 599,-,-,opoczyński
 7,Sobawiny,Z,736,-,-,opoczyński
-8,Unewel-Wschód,R,10 132,970,"v
+8,Unewel-Wschód,R,10 132,970,"
 -",opoczyński
 9,Unewel-Zachód,E,18 669,1 115,160,"opoczyński,
 tomaszowski"
@@ -23,31 +13,28 @@ tomaszowski"
 1,Bolesław,Z,-,-,-,olkuski
 2,Szczakowa,E,18 164,5 092,222,"będziński, olkuski"
 1,Zębiec,Z,5 781,-,-,radomski
-1,Dylaki,R,".
+1,Dylaki,R,"
 5 474",-,-,opolski
 2,Grodziec I,Z,23 100,-,-,opolski
-3,Krasiejów,Z,"i
+3,Krasiejów,Z,"
 470",-,-,opolski
 4,Myślina I,Z,383,-,-,oleski
 5,Myślina II,Z,544,-,-,oleski
-6,Myślina III,Z,"g
+6,Myślina III,Z,"
 1 344",-,-,oleski
 1,Niwki,P,15 509,-,-,lubaczowski
 1,Strzelno,P,185,-,-,pucki
-1,".
-Biskupice",P,133,-,-,częstochowski
+1,Biskupice,P,133,-,-,częstochowski
 2,Bobrowniki,R,389,-,-,tarnogórski
 3,Dąbrowno,P,290,-,-,myszkowski
 4,Gołuchowice,P,507,-,-,zawierciański
-5,"w
-Hucisko I",Z,132,-,-,częstochowski
+5,Hucisko I,Z,132,-,-,częstochowski
 6,Hucisko II,R,184,-,-,częstochowski
 7,Kąty Chorońskie,Z,1 957,-,-,częstochowski
 8,Kotysów,R,317,-,-,częstochowski
 9,Krasawa II,P,841,-,-,częstochowski
 10,Kroczyce I i II,R,230,-,-,zawierciański
-11,"w
-Krótka Wieś",P,17,-,-,częstochowski
+11,Krótka Wieś,P,17,-,-,częstochowski
 12,Kuźle I,P,240,-,-,częstochowski
 13,Lelonki,R,353,-,-,myszkowski
 15,Lusławice IV,Z,-,-,-,częstochowski
@@ -56,46 +43,42 @@ częstochowski"
 17,Masłońskie,P,12 614,-,-,myszkowski
 18,Niegowa (rej.),Z,321,-,-,"częstochowski,
 myszkowski"
-19,Niegowa XV,R,642,-,"v
+19,Niegowa XV,R,642,-,"
 -",myszkowski
 20,Niegowa-Postaszowice,Z,981,-,-,myszkowski
 21,Niegówka,Z,719,-,-,myszkowski
 22,Ogorzelnik I i II,R,242,-,-,myszkowski
-23,Olsztyn I - rej.,Z,588,"o
+23,Olsztyn I - rej.,Z,588,"
 -",-,częstochowski
 24,Olsztyn II,Z,448,-,-,częstochowski
 25,Olsztyn II - rej.,Z,593,-,-,częstochowski
 26,Piasek,P,41,-,-,częstochowski
 27,Podgrabie,P,93,-,-,częstochowski
-28,Poraj,Z,243,"g
+28,Poraj,Z,243,"
 -",-,myszkowski
 29,Przewodziszowice,Z,176,-,-,myszkowski
 30,Rej. Olsztyna,Z,137,-,-,częstochowski
-31,Rej. Złotego Potoku,Z,".
+31,Rej. Złotego Potoku,Z,"
 1 030",-,-,częstochowski
 32,Siedlec VII,P,164,-,-,częstochowski
 33,Siemierzyce,R,153,-,-,zawierciański
-34,Sieraków,P,"i
+34,Sieraków,P,"
 542",-,-,częstochowski
 35,Staszówka,Z,261,-,-,będziński
 36,Wolnica-Zapasieka,P,94,-,-,częstochowski
-37,Zaborze,P,"g
+37,Zaborze,P,"
 2 922",-,-,myszkowski
 38,Zawisna,Z,6 971,-,-,częstochowski
 39,Zawisna II,E,1 658,1 658,7,częstochowski
 40,Zawisna IV,Z,4 304,-,-,częstochowski
 41,Złoty Potok,Z,-,-,-,częstochowski
-42,Złoty Potok II,"p
-Z",1 079,-,-,częstochowski
+42,Złoty Potok II,Z,1 079,-,-,częstochowski
 43,Złoty Potok-Leśniczówka,R,492,-,-,częstochowski
 44,Zrębice,Z,2 871,-,-,częstochowski
-45,".
-Zrębice I",P,58,-,-,częstochowski
+45,Zrębice I,P,58,-,-,częstochowski
 1,Brzeście,P,7 599,-,-,włoszczowski
 2,Dąbrówka - pole II,Z,117,-,-,włoszczowski
-3,"w
-Posłowice",Z,637,-,-,kielecki
+3,Posłowice,Z,637,-,-,kielecki
 1,Rumin,R,13 070,-,-,koniński
-1,"w
-Sulechowo",R,4 451,-,-,sławieński
+1,Sulechowo,R,4 451,-,-,sławieński
 2,Węgorzewo Koszalińskie,P,7 596,-,-,koszaliński

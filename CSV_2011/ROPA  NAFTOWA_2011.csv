@@ -1,44 +1,41 @@
 Lp.,Nazwa,Stan,Zasoby wydobywalne bilansowe,Zasoby przemyslowe,Wydobycie,Powiat
 1,Biecz,E,tylko pzb.,-,0.27,gorlicki
 2,Bóbrka-Rogi,E,121.32,7.66,2.31,krośnieński
-3,Brzegi Dolne,E,1.04,0.51,"v
+3,Brzegi Dolne,E,1.04,0.51,"
 -",bieszczadzki
 4,Czarna,E,2.18,1.36,0.20,bieszczadzki
 5,Dominik.-Kob.-Kryg,E,2.79,2.79,0.60,gorlicki
 6,Dwernik,E,tylko pzb.,-,0.25,bieszczadzki
 7,Fellnerówka-Hanka,E,17.59,-,0.34,gorlicki
-8,Folusz-Pielgrzymka,E,tylko pzb.,-,"o
+8,Folusz-Pielgrzymka,E,tylko pzb.,-,"
 0.87",jasielski
 9,Gorlice,E,29.93,0.50,0.08,gorlicki
 10,Grabownica,E,8.78,8.78,2.88,brzozowski
 11,Harklowa,E,6.13,3.02,0.73,jasielski
 12,Iwonicz-Zdrój,E,0.07,0.07,0.47,krośnieński
-13,Jaszczew,E,39.26,"g
+13,Jaszczew,E,39.26,"
 3.93",0.86,"jasielski, krośnieński"
 14,Krościenko,E,18.20,2.83,0.03,"krośnieński, m.Krosno"
 15,Kryg-Libusza-Lipinki,E,18.56,6.40,1.63,gorlicki
-16,Łodyna,E,".
+16,Łodyna,E,"
 25.50",1.78,1.41,"bieszczadzki, leski"
 17,Magdalena,E,tylko pzb.,-,0.12,gorlicki
-18,Mrukowa,E,"i
+18,Mrukowa,E,"
 tylko pzb.",-,0.03,jasielski
 19,Osobnica,E,36.02,7.16,2.54,jasielski
 20,Potok,E,28.09,8.27,0.78,krośnieński
 21,Rej. Grabownica Wieś,E,10.92,6.16,0.03,brzozowski
-22,Roztoki,E,"g
+22,Roztoki,E,"
 16.74",3.54,0.93,jasielski
 23,Słopnice,T,1.63,-,-,limanowski
 24,Turaszówka,E,3.20,2.39,0.49,m.Krosno
 25,Turze Pole-Zmiennica,E,5.14,5.14,0.67,brzozowski
 26,Wańkowa,E,98.51,25.66,3.24,"bieszczadzki, leski"
-27,Węglówka,"p
-E",68.79,11.02,1.81,krośnieński
+27,Węglówka,E,68.79,11.02,1.81,krośnieński
 28,Wola Jasienicka,E,tylko pzb.,0.50,0.12,"brzozowski,
 krośnieński"
-29,".
-Zatwarnica",E,1.93,0.95,0.11,bieszczadzki
-1,"w
-Antonin 1",E,5.80,5.80,0.01,"ostrowski,
+29,Zatwarnica,E,1.93,0.95,0.11,bieszczadzki
+1,Antonin 1,E,5.80,5.80,0.01,"ostrowski,
 ostrzeszowski"
 2,Babimost,P,125.00,-,-,zielonogórski
 3,Białogóra-E,Z,tylko pzb.,0.38,-,pucki
@@ -47,8 +44,7 @@ ostrzeszowski"
 Mostno - Buszewo)",E,8 165.60,5 702.14,340.95,"gorzowski,
 myśliborski"
 6,Breslack-Kosarzyn,E,12.94,2.78,1.40,krośnieński
-7,"w
-Buk",E,32.93,29.45,1.25,"nowotomyski,
+7,Buk,E,32.93,29.45,1.25,"nowotomyski,
 poznański"
 8,Cychry,E,1 314.40,58.83,0.38,myśliborski
 10,Dębki,E,15.73,7.91,0.69,pucki
@@ -56,12 +52,12 @@ poznański"
 gorzowski"
 12,Gajewo,P,53.25,-,-,"gorzowski,
 myśliborski"
-13,Glinnik,E,tylko pzb.,0.02,"v
+13,Glinnik,E,tylko pzb.,0.02,"
 0.27","lubartowski,
 lubelski"
 14,Gomunice,Z,39.73,-,-,pajęczański
 15,Górzyca,E,216.93,188.49,6.26,słubicki
-16,Grotów,E,1 822.21,1 398.78,"o
+16,Grotów,E,1 822.21,1 398.78,"
 2.88","czarnkowsko-
 trzcianecki,
 międzychodzki,
@@ -69,52 +65,49 @@ strzelecko-
 drezdenecki"
 17,GryŜyna,R,72.33,-,-,"krośnieński,
 świebodziński"
-18,Jastrzębsko,R,19.00,"g
+18,Jastrzębsko,R,19.00,"
 -",-,nowotomyski
 19,Jeniniec,E,14.74,9.94,5.61,gorzowski
-20,Kamień Mały,B,".
+20,Kamień Mały,B,"
 709.07",-,-,"gorzowski,
 sulęciński"
 21,Kamień Pomorski,E,20.05,19.62,3.00,kamieński
 22,Kije,T,9.90,8.72,-,zielonogórski
-23,Kije NE,Z,"i
+23,Kije NE,Z,"
 -",-,-,zielonogórski
 24,Kosarzyn - N,E,11.60,10.59,0.69,krośnieński
 25,Kosarzyn (E),Z,61.96,-,-,krośnieński
-26,Kosarzyn (S),Z,"g
+26,Kosarzyn (S),Z,"
 35.64",-,-,krośnieński
 27,Lubiatów,T,5 397.57,3 319.40,0.36,"międzychodzki,
 strzelecko-
 drezdenecki"
 28,Lubiszyn,E,13.97,12.09,8.00,gorzowski
-29,Michorzewo,"p
-E",8.09,7.22,9.79,nowotomyski
+29,Michorzewo,E,8.09,7.22,9.79,nowotomyski
 30,Mozów S,E,1.14,1.39,1.09,zielonogórski
 31,Namyślin,R,16.96,-,-,myśliborski
-32,".
-Ołobok",T,30.56,25.89,-,świebodziński
+32,Ołobok,T,30.56,25.89,-,świebodziński
 33,Radoszyn,E,600.87,13.14,5.02,świebodziński
 34,Rekowo,E,1.52,1.52,0.67,kamieński
 35,Retno,E,tylko pzb.,0.44,4.77,krośnieński
 36,Rybaki,E,1.07,1.11,0.61,krośnieński
-37,"w
-Sławoborze",E,6.07,6.06,1.42,świdwiński
+37,Sławoborze,E,6.07,6.06,1.42,świdwiński
 38,StęŜyca,P,88.52,-,-,"garwoliński, rycki"
 39,Wysoka Kamieńska,E,41.99,41.97,4.28,goleniowski
 40,Zielin,E,13.18,1.04,3.57,gryfiński
-41,śarnowiec,E,42.77,2.12,0.11,pucki
-42,śarnowiec W,E,18.04,4.08,0.08,pucki
+41,iec,E,42.77,2.12,0.11,pucki
+42,iec W,E,18.04,4.08,0.08,pucki
 2,Cetynia,Z,tylko pzb.,-,-,lubaczowski
 3,Grobla,E,62.85,35.60,5.98,".
 bocheński"
 4,Jastrząbka Stara,E,46.53,6.90,1.84,dębicki
 5,Korzeniów,Z,tylko pzb.,-,-,dębicki
-6,Lubaczów,P,115.93,-,"v
+6,Lubaczów,P,115.93,-,"
 -",lubaczowski
 7,Łąkta,T,4.58,-,-,bocheński
 8,Mniszów,P,tylko pzb.,-,-,proszowicki
 9,Nosówka,E,0.15,0.15,7.31,rzeszowski
-10,Pławowice,E,106.31,33.95,"o
+10,Pławowice,E,106.31,33.95,"
 4.25","kazimierski,
 proszowicki"
 11,Tarnów,P,tylko pzb.,-,-,tarnowski
