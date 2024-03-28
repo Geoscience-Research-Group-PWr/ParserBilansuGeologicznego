@@ -1,7 +1,7 @@
 Lp.,Nazwa,Stan,Zasoby wydobywalne bilansowe,Zasoby przemyslowe,Wydobycie,Powiat
 1,Bytom Odrzański,R,"2 247
 93
-54","g
+54","
 -
 -
 -","-
@@ -10,18 +10,18 @@ Lp.,Nazwa,Stan,Zasoby wydobywalne bilansowe,Zasoby przemyslowe,Wydobycie,Powiat
 nowosolski"
 2,Gaworzyce,R,"54 389
 1 283
-1 926",".
+1 926","
 -
 -
 -","-
 -
 -","głogowski,
 polkowicki"
-3,Głogów,R,"i
+3,Głogów,R,"
 tylko pzb.",-,-,"głogowski,
 polkowicki"
 4,"Głogów Głęboki-
-Przemysłowy",E,"g
+Przemysłowy",E,"
 291 586
 6 998
 22 939","266 927
@@ -38,8 +38,7 @@ polkowicki"
 65
 345","lubiński,
 polkowicki"
-6,Polkowice,"p
-E","114 034
+6,Polkowice,E,"114 034
 2 666
 5 464","95 601
 2 181
@@ -47,16 +46,14 @@ E","114 034
 45
 108","lubiński,
 polkowicki"
-7,Radwanice-Wschód,".
-T","6 477
+7,Radwanice-Wschód,T,"6 477
 130
 182","6 477
 130
 182","-
 -
 -",polkowicki
-8,"w
-Radwanice-Zachód",R,"18 575
+8,Radwanice-Zachód,R,"18 575
 465
 795","-
 -
@@ -72,8 +69,7 @@ Radwanice-Zachód",R,"18 575
 -","głogowski,
 lubiński,
 polkowicki"
-10,"w
-Rudna",E,"397 625
+10,Rudna,E,"397 625
 6 758
 18 799","295 747
 5 086
@@ -94,7 +90,7 @@ polkowicki"
 141
 501","-
 -
--","v
+-","
 -
 -
 -","bolesławiecki,
@@ -111,7 +107,7 @@ złotoryjski"
 1 165
 4 260","-
 -
--","o
+-","
 -
 -
 -",bolesławiecki

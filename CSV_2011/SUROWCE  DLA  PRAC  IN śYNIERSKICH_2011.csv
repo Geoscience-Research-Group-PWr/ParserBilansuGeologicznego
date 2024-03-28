@@ -1,18 +1,14 @@
 Lp.,Nazwa,Stan,Zasoby wydobywalne bilansowe,Zasoby przemyslowe,Wydobycie,Powiat
 1,Golędzinów I,R,92,-,-,trzebnicki
-2,Kurowice,E,"i
-38",-,3,głogowski
+2,Kurowice,E,38,-,3,głogowski
 3,Wilczyn,R,315,-,-,trzebnicki
 1,Szczepanki I,T,90,-,-,grudziądzki
 1,Ciechanki Łańc. VI,T,83,53,-,łęczyński
-2,Hrebenne,"p
-R",46,-,-,tomaszowski
+2,Hrebenne,R,46,-,-,tomaszowski
 3,Rokitno I,E,26,26,16,lubartowski
-1,".
-Wiewiórów Rządowy II",R,49,-,-,radomszczański
+1,Wiewiórów Rządowy II,R,49,-,-,radomszczański
 1,Biecz-Belna,Z,30,-,-,gorlicki
-2,"w
-Biecz-Belna 1",E,2,-,4,gorlicki
+2,Biecz-Belna 1,E,2,-,4,gorlicki
 1,Góry VIII,E,79,-,-,miński
 2,Siedlin,E,12,6,11,płoński
 3,Zalesie I,E,13,-,-,miński

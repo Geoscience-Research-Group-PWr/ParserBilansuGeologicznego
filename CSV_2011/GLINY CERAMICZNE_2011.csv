@@ -1,45 +1,34 @@
 Lp.,Nazwa,Stan,Zasoby wydobywalne bilansowe,Zasoby przemyslowe,Wydobycie,Powiat
-1,Bolko II,Z,404,".
+1,Bolko II,Z,404,"
 -",-,bolesławiecki
 2,Janina,Z,150,-,-,bolesławiecki
-3,Janina I,E,"i
+3,Janina I,E,"
 2 194",629,131,bolesławiecki
 4,Janina-Zachód,R,567,-,-,bolesławiecki
 5,Nowe Jaroszowice,P,41 187,-,-,bolesławiecki
 6,Ocice,P,14 702,-,-,bolesławiecki
-ZASOBY OGÓŁEM,21,77.12,29.46,47.66,15.92,9.11
-Razem -,3,9.59,9.18,0.42,5.13,9.11
-1. ZłoŜa zakładów czynnych,3,9.59,9.18,0.42,5.13,9.11
-Razem -,10,57.88,"g
-12.15",45.73,8.40,-
-1. ZłoŜa rozpoz. szczegółowo,6,15.40,12.15,3.25,2.30,-
-2. ZłoŜa rozpoz. wstępnie,4,42.48,0.00,42.48,6.11,-
-Razem -,8,9.65,8.13,1.52,2.39,-
-1. Eksploatacja zaniechana,8,"i
-9.65",8.13,1.52,2.39,-
 2,Barbara-Sadlno (kop.),Z,320,-,-,ząbkowicki
-3,Gierałtów,Z,88,-,".
+3,Gierałtów,Z,88,-,"
 -",bolesławiecki
 4,Kleszczowa,Z,89,-,-,bolesławiecki
 5,Kraniec,Z,1 061,-,-,wołowski
-6,Nowogrodziec II,Z,26,-,"v
+6,Nowogrodziec II,Z,26,-,"
 -",bolesławiecki
 7,Ocice II,P,4 015,-,-,bolesławiecki
 8,Weronika II,Z,418,-,-,bolesławiecki
 9,Zebrzydowa,Z,117,-,-,bolesławiecki
-10,Zebrzydowa Zachód,E,4 212,"o
+10,Zebrzydowa Zachód,E,4 212,"
 4 074",177,zgorzelecki
 11,Zofia (Czerwona Woda),R,tylko pzb.,-,-,zgorzelecki
 1,Paszkowice,E,4 164,3 912,14,opoczyński
 1,Zawada,R,2 062,-,-,przysuski
-1,Patoka II,R,"i
+1,Patoka II,R,"
 1 304",-,-,lubliniecki
-1,Adamów,P,"g
+1,Adamów,P,"
 4 749",-,-,starachowicki
 2,Baranów,E,1 218,1 122,24,skarŜyski
 3,Majków,P,17 182,-,-,starachowicki
 4,Parszów-Szkleniec,R,3 935,-,-,starachowicki
 5,Wierzbka,R,7 180,-,-,skarŜyski
-6,Wierzbka 1,"p
-R",919,-,-,skarŜyski
+6,Wierzbka 1,R,919,-,-,skarŜyski
 7,Włochów,P,16 535,-,-,konecki

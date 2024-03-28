@@ -1,0 +1,425 @@
+Lp.,Nazwa,Stan,Zasoby wydobywalne bilansowe,Zasoby przemyslowe,Wydobycie,Powiat
+1,"
+B 3",E,922.40,922.40,16.88,Bałtyk (off shore)
+2,B 4,P,2 686.60,1 972.40,-,Bałtyk (off shore)
+3,B 6,P,1 792.85,1 792.85,-,Bałtyk (off shore)
+1,Bednarka,E,tylko pzb.,-,0.59,gorlicki
+2,Biecz,T,tylko pzb.,-,-,gorlicki
+3,Bóbrka-Rogi,T,tylko pzb.,-,"
+-",krośnieński
+4,Czarna,E,1.79,0.82,0.10,bieszczadzki
+5,Dąbrówka Tuchowska,E,11.01,12.89,4.81,tarnowski
+6,Dominik.-Kob.-Kryg,Z,-,-,-,gorlicki
+7,Dwernik,E,tylko pzb.,-,0.02,bieszczadzki
+8,Folusz-Pielgrzymka,E,tylko pzb.,-,"
+0.08",jasielski
+9,Gorlice,E,31.19,-,0.02,gorlicki
+10,Gorlice-Glinik,E,9.71,3.09,0.72,gorlicki
+11,Grabownica,E,4.29,-,0.45,brzozowski
+12,Harklowa,E,0.35,0.07,0.04,jasielski
+13,Iskrzynia,Z,tylko pzb.,"
+-",-,krośnieński
+14,Iwonicz-Zdrój,E,0.73,-,0.38,krośnieński
+15,Jaszczew,E,185.26,"
+33.72",4.79,"jasielski,
+krośnieński"
+16,Jurowce-Srogów,E,6.05,5.42,4.14,sanocki
+17,Kowale,E,96.60,40.50,1.70,bielski
+18,Krościenko,E,"
+1.08",0.33,0.02,"krośnieński,
+m.Krosno"
+19,Lachowice-Stryszawa,R,240.00,-,-,suski
+20,Łodyna,E,"
+1.07",-,0.41,"bieszczadzki, leski"
+21,Osobnica,E,45.39,9.75,0.66,jasielski
+22,Potok,T,7.72,-,-,krośnieński
+23,Rej. Grabownica Wieś,E,84.29,71.52,0.05,brzozowski
+24,Roztoki,E,138.25,53.10,9.08,jasielski
+25,Sanok-Zabłotce,"
+E",167.21,11.60,4.48,sanocki
+26,Słopnice,E,83.68,3.44,0.21,limanowski
+27,Strachocina,"
+G",121.50,121.50,-,"brzozowski,
+sanocki"
+28,Strzeszyn,T,2.70,2.33,-,gorlicki
+29,Szalowa,E,74.41,63.29,0.76,gorlicki
+30,Turze Pole-Zmiennica,E,0.25,0.25,0.04,brzozowski
+31,"
+Wańkowa",E,6.00,-,0.14,"bieszczadzki, leski"
+32,Wetlina,P,tylko pzb.,-,-,leski
+33,Węglówka,Z,-,-,-,krośnieński
+34,Wola Jasienicka,E,tylko pzb.,0.78,0.10,"brzozowski,
+krośnieński"
+35,Zatwarnica,E,0.28,-,0.02,bieszczadzki
+1,Aleksandrówka,E,210.57,128.68,10.21,górowski
+3,Babimost,P,910.00,-,-,zielonogórski
+4,Białogard,E,40.87,39.55,24.24,".
+białogardzki,
+świdwiński"
+5,Białogóra-E,Z,tylko pzb.,1.02,-,pucki
+6,Błotno,E,2.36,-,"
+0.09",goleniowski
+7,"BMB (Barnówko -
+Mostno - Buszewo)",E,5 064.40,1 900.32,351.43,"gorzowski,
+myśliborski"
+8,Bogdaj-Uciechów,E,4 012.35,2 789.20,113.97,"milicki, ostrowski"
+9,Bonikowo,G,328.63,-,"
+-","grodziski,
+kościański"
+10,Borowo,P,65.00,-,-,kościański
+11,Borzęcin,E,133.94,152.33,16.26,trzebnicki
+12,Breslack-Kosarzyn,E,9.16,0.92,0.07,krośnieński
+13,Brońsko,E,19 602.93,"
+10 350.79",590.05,"grodziski,
+kościański"
+14,Brzostowo,E,72.95,47.39,1.68,"milicki, oleśnicki"
+15,Buk,E,10.04,-,1.79,"nowotomyski,
+poznański"
+16,Bukowiec,E,69.66,"
+48.16",0.53,"grodziski,
+nowotomyski"
+17,Ceradz Dolny,Z,"
+85.27",-,-,"poznański,
+szamotulski"
+18,Ciechnowo,E,114.25,87.39,25.01,świdwiński
+19,Ciecierzyn,E,"
+535.73",323.29,15.81,"lubelski, m.Lublin"
+20,Czeklin,P,95.00,-,-,krośnieński
+21,Czeszów,E,432.23,334.70,4.70,"milicki, oleśnicki,
+trzebnicki"
+22,Daszewo,G,27.72,-,-,białogardzki
+23,Daszewo N,"
+E",1 051.38,277.65,6.49,kołobrzeski
+24,Dębina,R,189.71,-,-,"głogowski,
+wschowski"
+25,Dębki,E,0.96,5.48,0.41,pucki
+26,Duszniki E,"
+Z",-,-,-,szamotulski
+27,Dzieduszyce,E,72.91,-,0.37,gorzowski
+28,ElŜbieciny,R,160.00,160.00,-,grodziski
+29,"
+Glinnik",E,tylko pzb.,-,0.05,"lubartowski,
+lubelski"
+30,Gorzyce,P,tylko pzb.,-,-,kościański
+31,Gorzysław N,E,491.43,297.55,21.91,gryficki
+32,Gorzysław S,E,422.07,57.42,0.48,gryficki
+33,Góra,E,318.53,293.21,41.72,górowski
+34,Górzyca,E,614.64,579.61,55.34,słubicki
+35,"
+Grabówka E",P,60.00,-,-,milicki
+36,Grabówka W,P,170.00,-,-,milicki
+38,Grodzisk-26,P,2.36,-,-,grodziski
+39,Grotów,E,958.30,811.12,"
+0.11",".
+czarnkowsko-
+trzcianecki,
+międzychodzki,
+strzelecko-
+drezdenecki"
+40,GryŜyna,R,420.85,-,-,"krośnieński,
+świebodziński"
+41,Jabłonna,R,536.00,536.00,-,grodziski
+42,Jabłonna S,R,234.78,181.22,"
+-",grodziski
+43,Jabłonna W,R,322.00,321.30,-,grodziski
+44,Jankowice,E,24.92,23.58,0.48,"poznański,
+szamotulski"
+45,Jarocin,E,418.50,"
+170.72",7.77,"jarociński,
+pleszewski"
+46,Jastrzębsko,R,96.00,-,-,nowotomyski
+47,Jeniniec,E,0.08,-,0.47,gorzowski
+48,Kaleje,E,513.63,"
+366.49",33.79,"poznański,
+średzki, śremski"
+49,Kaleje-E,E,118.42,117.97,25.56,średzki
+50,Kamień Pomorski,E,"
+12.26",-,0.55,kamieński
+51,Kandlewo,R,239.53,-,-,"górowski,
+wschowski"
+52,Kargowa,R,"
+2 650.00",-,-,zielonogórski
+53,Kąkolewo,R,240.00,-,-,leszczyński
+54,Kije,T,4.06,1.87,-,zielonogórski
+55,Kije NE,Z,tylko pzb.,-,-,zielonogórski
+56,Klęka E,E,4.68,4.04,1.13,jarociński
+57,Kosarzyn - N,"
+E",2.87,1.21,0.04,krośnieński
+58,Kosarzyn (E),Z,9.24,-,-,krośnieński
+59,Kosarzyn (S),Z,5.46,-,-,krośnieński
+60,Kościan S,E,5 805.71,4 228.70,483.34,kościański
+61,Kościan S-Ca2,"
+P",tylko pzb.,-,-,kościański
+62,Kromolice,P,318.69,-,-,średzki
+63,Kromolice S,P,569.73,-,-,"poznański, średzki"
+64,Kulów,R,34.95,-,-,głogowski
+65,"
+Lipowiec",R,100.00,-,-,górowski
+66,Lipowiec el. E,E,462.77,157.07,0.38,górowski
+67,Lubiatów,T,1 798.29,1 256.96,-,"międzychodzki,
+strzelecko-
+drezdenecki"
+68,Lubiszyn,E,3.46,-,1.49,gorzowski
+69,"
+Łęki",E,94.29,94.29,9.71,grodziski
+70,"Mełgiew A i Mełgiew
+B",E,903.32,275.48,30.20,"lubelski,
+świdnicki"
+72,Międzychód,T,4 524.51,2 400.66,-,".
+międzychodzki,
+strzelecko-
+drezdenecki"
+73,Międzyzdroje E,P,300.00,-,-,kamieński
+74,Międzyzdroje W,P,300.00,-,-,kamieński
+75,Młodasko,E,78.38,67.50,"
+23.68","poznański,
+szamotulski"
+76,Mozów S,E,0.53,-,0.07,zielonogórski
+77,Namyślin,R,24.72,-,-,myśliborski
+78,Naratów,E,92.14,59.21,"
+31.57",górowski
+79,Niechlów,E,236.18,108.52,19.88,górowski
+80,Niemierzyce,Z,-,-,-,grodziski
+81,Nowa Sól,R,tylko pzb.,-,-,nowosolski
+82,Nowy Tomyśl,E,579.12,458.02,26.49,nowotomyski
+83,Ołobok,T,5.75,"
+-",-,świebodziński
+84,Pakosław,R,249.00,-,-,rawicki
+85,Paproć,E,4 267.31,"
+4 057.15",170.18,"grodziski,
+nowotomyski"
+86,Paproć W,E,2 858.23,2 678.27,172.93,nowotomyski
+87,Podrzewie,E,350.48,12.67,4.12,szamotulski
+88,PoraŜyn,E,"
+108.90",73.02,6.91,nowotomyski
+89,Przytór,P,360.00,-,-,m.Świnoujście
+90,Radlin,E,4 449.12,2 665.10,314.14,"jarociński, średzki"
+91,Radoszyn,E,"
+119.62",-,1.14,świebodziński
+92,Radziądz,E,260.44,93.38,16.17,trzebnicki
+93,Radziądz-W,R,40.00,-,-,trzebnicki
+94,Rawicz-dolomit główny,P,230.00,-,-,rawicki
+95,"Rawicz-wap.podst.-
+cz.spąg.","
+P",475.00,-,-,rawicki
+96,Rekowo,E,0.06,-,0.13,kamieński
+97,Retno,E,tylko pzb.,-,0.73,krośnieński
+98,Roszków,E,684.41,684.31,133.79,jarociński
+99,RóŜańsko,"
+T",2 231.52,744.49,-,myśliborski
+100,Ruchocice,E,786.21,754.51,46.79,grodziski
+101,Sędziny,P,80.00,-,-,szamotulski
+102,Sławoborze,E,3.81,-,0.45,świdwiński
+103,"
+Sławoborze",E,135.91,-,6.29,świdwiński
+104,Solec,P,76.00,-,-,śremski
+105,Stanowice,P,602.03,-,-,gorzowski
+106,Stęszew,E,29.77,24.13,0.18,poznański
+107,StęŜyca,E,411.44,105.98,1.16,"garwoliński, rycki"
+108,Strykowo,T,3.78,1.02,-,poznański
+109,"
+Szewce E",Z,53.21,-,-,"nowotomyski,
+poznański"
+111,Szlichtyngowa,E,321.55,296.30,28.18,wschowski
+112,Ślubów,E,5.75,5.51,10.40,".
+górowski"
+113,Środa Wielkopolska,E,284.44,284.41,0.20,średzki
+114,Tarchały (d.g.+cz.s.),E,1 621.50,513.91,18.56,ostrowski
+115,Trzebusz,E,35.19,12.13,"
+2.69",gryficki
+116,Turkowo,P,50.00,-,-,nowotomyski
+117,Ujazd,E,105.24,7.56,0.55,grodziski
+118,Uników,P,170.00,-,-,wieruszowski
+119,Wielichowo,E,1 333.90,1 323.14,66.10,grodziski
+120,Wierzchowice,G,5 557.12,-,"
+-",milicki
+121,Wierzchowice E,Z,14.68,-,-,milicki
+122,Wierzchowice W,Z,37.55,-,-,milicki
+123,Wierzchowo,E,32.19,3.38,7.52,"koszaliński,
+szczecinecki"
+124,Wierzowice,E,408.01,"
+110.84",1.76,górowski
+125,Wiewierz-element E,E,9.71,9.18,3.50,górowski
+126,Wiewierz-element W,E,2.95,1.76,2.56,górowski
+127,Wilcze-czerw.spąg.,R,498.73,"
+-",-,"wolsztyński,
+zielonogórski"
+128,Wilcze-dolomit główny,P,285.00,-,-,zielonogórski
+129,Wilga,Z,"
+-",-,-,otwocki
+130,Wilków,E,1 283.54,1 174.67,111.90,"głogowski,
+wschowski"
+131,Winna Góra,P,"
+203.87",-,-,"średzki,
+wrzesiński"
+132,Wrzosowo,P,600.00,-,-,kamieński
+133,Wysocko,E,7.44,4.74,1.46,ostrowski
+134,Wysocko Małe E,E,75.49,75.28,7.20,ostrowski
+135,Wysoka Kamieńska,"
+E",5.31,3.84,-,goleniowski
+136,Zakrzewo,P,210.00,-,-,rawicki
+137,Załęcze,E,1 147.63,769.88,181.05,"górowski, rawicki"
+138,Zaniemyśl,"
+E",432.71,431.35,93.09,średzki
+139,Zbąszyń,P,2 400.00,-,-,wolsztyński
+140,Zielin,E,18.33,18.21,20.68,gryfiński
+141,akowo,R,2 150.00,-,-,leszczyński
+142,"
+śarnowiec",E,7.32,1.76,0.07,pucki
+143,arnowiec W,E,5.43,0.17,0.80,pucki
+144,uchlów,E,2 450.12,1 926.00,349.08,górowski
+1,Biszcza,E,170.41,137.34,14.19,biłgorajski
+2,Blizna-Ocieka,P,120.00,-,-,mielecki
+3,"
+Brzezowiec I,II",E,113.25,44.70,0.29,brzeski
+4,Brzezówka,E,17.45,10.97,0.28,"ropczycko-
+sędziszowski"
+6,Brzóza Królewska,R,24.00,-,-,leŜajski
+7,"Buszkowiczki
+(Przemyśl)",E,398.74,92.44,14.69,".
+przemyski"
+8,Chałupki Dębniańskie,E,161.80,81.68,25.32,"leŜajski, przeworski"
+9,Chotyniec,P,40.00,-,"
+-",jarosławski
+10,Cierpisz,E,798.01,342.95,31.31,"ropczycko-
+sędziszowski"
+11,Czarna Sędziszowska,T,32.94,12.52,-,"ropczycko-
+sędziszowski"
+12,Dąbrówka,E,44.00,19.02,"
+3.57",bocheński
+13,Dębowiec Śląski,E,72.64,7.93,2.63,cieszyński
+14,Dzików,E,963.10,274.12,46.72,lubaczowski
+15,Góra Ropczycka,P,163.26,59.15,-,"ropczycko-
+sędziszowski"
+16,Grabina-Nieznanowice,E,338.50,"
+26.72",2.19,"bocheński, wielicki"
+17,"Grabina-Nieznanowice
+S",E,206.86,111.66,0.29,"bocheński, wielicki"
+18,Grądy Bocheńskie,E,42.33,17.21,2.15,"bocheński, brzeski"
+19,Grobla,E,55.68,"
+1.97",0.26,bocheński
+20,Grodzisko Dolne,E,135.49,86.92,4.38,leŜajski
+21,Gruszów,E,"
+34.61",-,-,dąbrowski
+22,Gubernia,E,1.03,-,0.89,"jarosławski,
+przemyski"
+23,Husów,G,"
+372.88",-,-,łańcucki
+24,"Husów-Albigowa-
+Krasne",E,599.45,157.94,15.42,"łańcucki,
+rzeszowski"
+25,Jadowniki,P,330.00,-,-,brzeski
+26,Jarosław,E,865.48,32.84,15.82,jarosławski
+27,Jasionka,"
+E",1 387.73,909.59,74.24,rzeszowski
+28,Jastrząbka Stara,E,1.16,0.87,0.07,dębicki
+29,Jaśniny Północ,E,257.20,75.81,12.01,tarnowski
+30,JeŜowe NW,P,24.74,21.05,-,niŜański
+31,Jodłówka,"
+E",1 012.73,101.94,11.64,jarosławski
+32,Kaczyce I,P,31.50,-,-,cieszyński
+33,Kańczuga,E,35.16,0.33,-,przeworski
+34,Kąty Rakszawskie,E,16.10,9.32,1.81,rzeszowski
+35,"
+Kielanówka-Rzeszów",E,2 565.72,313.64,78.10,"m.Rzeszów,
+rzeszowski"
+36,Korzeniów,Z,-,-,-,dębicki
+37,Korzeniów (gaz),Z,tylko pzb.,-,-,dębicki
+38,KsięŜpol,E,239.34,117.93,2.81,biłgorajski
+39,"
+Kupno",E,174.11,157.72,1.95,"kolbuszowski,
+rzeszowski"
+40,Kuryłówka,E,252.23,76.99,36.25,leŜajski
+41,Lipnica-Dzikowiec,R,154.00,-,-,kolbuszowski
+43,Lubliniec - Cieszanów,P,188.39,-,-,".
+biłgorajski,
+lubaczowski"
+44,Łapanów,P,79.55,71.83,-,bocheński
+45,Łapczyca,E,tylko pzb.,-,0.11,bocheński
+46,Łazy,T,27.52,15.93,"
+-",brzeski
+47,Łąkta,E,228.76,25.70,3.37,bocheński
+48,Łękawica,P,124.00,120.03,-,tarnowski
+49,"Łętowice-
+Bogumiłowice",E,113.80,24.08,2.67,"brzeski, tarnowski"
+50,Łukowa,E,369.91,328.27,"
+26.59",biłgorajski
+51,Markowice,R,74.00,-,-,biłgorajski
+52,Mirocin,E,693.26,131.58,35.96,"jarosławski,
+przeworski"
+53,Mołodycz,P,100.00,70.17,-,jarosławski
+54,Morawsko,E,222.58,"
+62.60",0.42,jarosławski
+55,Niwiska,Z,tylko pzb.,-,-,kolbuszowski
+56,Nosówka,E,8.47,8.46,0.99,rzeszowski
+57,Nosówka (gaz),E,437.95,"
+215.81",23.72,"ropczycko-
+sędziszowski,
+rzeszowski"
+58,Nowosielec,R,"
+83.00",-,-,niŜański
+59,Palikówka,E,721.18,232.07,18.25,"łańcucki,
+rzeszowski"
+60,Pilzno Południe,E,"
+799.63",244.19,101.57,dębicki
+61,Pogórska Wola,Z,tylko pzb.,-,-,tarnowski
+62,Pogórz,T,12.20,12.12,-,cieszyński
+63,Pogwizdów,P,82.00,-,-,łańcucki
+64,Pruchnik-Pantalowice,"
+E",588.22,144.45,21.75,"jarosławski,
+przeworski"
+65,Przemyśl,E,9 675.95,2 550.94,588.25,"jarosławski,
+przemyski"
+66,Przeworsk,E,189.43,6.18,1.48,przeworski
+67,Raciborsko,"
+E",432.83,17.49,0.26,wielicki
+68,Rajsko,R,163.00,-,-,brzeski
+69,Rączyna,E,239.77,131.70,10.14,"jarosławski,
+przeworski"
+70,"
+Rokietnica",P,109.53,-,-,jarosławski
+71,Rudka,E,224.12,142.86,2.46,"leŜajski,
+przeworski"
+72,Rudołowice,P,400.00,-,-,przeworski
+73,Rylowa,T,544.68,-,-,brzeski
+74,Rysie,E,19.22,3.57,1.26,"bocheński, brzeski"
+75,"
+Sarzyna",E,56.06,40.04,1.38,leŜajski
+76,Smolarzyny,E,181.79,45.03,1.31,łańcucki
+77,Sokołów,P,26.00,-,-,rzeszowski
+79,Swarzów,G,28.80,28.80,-,dąbrowski
+80,Szczepanów,E,230.01,161.67,14.26,".
+brzeski"
+81,"Tarnogród-Wola
+RóŜaniecka",E,346.22,181.96,38.48,"biłgorajski,
+przeworski"
+82,Tarnów (jura),E,360.54,296.35,"
+33.74","m.Tarnów,
+tarnowski"
+83,Tarnów (miocen),E,1 071.17,907.69,68.46,"m.Tarnów,
+tarnowski"
+84,Terliczka,E,420.51,341.87,3.41,rzeszowski
+85,Tryńcza,P,20.00,-,"
+-",przeworski
+86,Trzebownisko,E,350.83,164.98,12.81,rzeszowski
+87,Uszkowce,Z,-,-,-,lubaczowski
+88,Wierzchosławice,E,106.58,73.34,2.63,"bocheński,
+brzeski, tarnowski"
+89,Wola Obszańska,E,367.44,"
+308.41",25.98,"biłgorajski,
+lubaczowski"
+90,Wola Rokietnicka,R,109.53,-,-,"jarosławski,
+przemyski"
+91,Wola Zarczycka,P,16.00,"
+-",-,leŜajski
+92,Wygoda,E,7.28,1.13,0.63,dębicki
+93,Zagorzyce,E,"
+183.28",54.57,14.64,"ropczycko-
+sędziszowski"
+94,Zalesie,E,2 706.61,259.04,79.04,m.Rzeszów
+95,ZałęŜe,P,"
+152.31",-,-,"m.Rzeszów,
+rzeszowski"
+96,ołynia-LeŜajsk,E,746.07,222.07,42.77,"leŜajski,
+przeworski"
+97,ukowice,T,96.72,-,-,"dębicki, tarnowski"
