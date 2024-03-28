@@ -5,10 +5,15 @@ import pandas as pd
 import os
 import pymongo
 import shutil
+import logging
 
 
+logger=logging.getLogger(__name__)
 class Parser:
-    def __init__(self,file):
+    """
+    PDF parsing module.
+    """
+    def __init__(self,file:str):
         self.file=file
         self.path=os.getcwd()
         self.year=self.file[7:11]
@@ -21,9 +26,22 @@ class Parser:
         Creates necessary directories for organizing parsing results.
         :return:
         """
-        os.mkdir(f"{self.path}\Parsed_{self.year}")
-        os.mkdir(f"{self.path}\Split_{self.year}")
-        os.mkdir(f"{self.path}\CSV_{self.year}")
+        try:
+            os.mkdir(f"{self.path}\Parsed_{self.year}")
+            logger.info(f"Created directory{self.path}\Parsed_{self.year}")
+        except FileExistsError:
+            pass
+        try:
+            os.mkdir(f"{self.path}\Split_{self.year}")
+            logger.info(f"Created directory{self.path}\Split_{self.year}")
+        except FileExistsError:
+            pass
+        try:
+            os.mkdir(f"{self.path}\CSV_{self.year}")
+            logger.info(f"Created directory{self.path}\CSV_{self.year}")
+        except FileExistsError:
+            pass
+        logger.info("All dirs created")
 
     def parse(self):
         """
@@ -39,6 +57,7 @@ class Parser:
                 with open(f'{name}parsed.pdf', 'wb') as file:
                     writer.write(file)
         shutil.move(f'{name}parsed.pdf',f"{self.path}\Parsed_{self.year}")
+        logger.info(f"Created {name}parsed.pdf in {self.path}\Parsed_{self.year}")
 
     def headers(self,filename: str) -> list:
         """
@@ -106,6 +125,7 @@ class Parser:
                 writer.close()
                 new_file.close()
                 shutil.move(f'{header}_{year}.pdf',f"{self.path}\Split_{self.year}")
+                logger.info(f"Created {header}_{year}.pdf in {self.path}\Split_{self.year}")
 
     def export_data(self):
         """
@@ -124,6 +144,7 @@ class Parser:
                 df = pd.DataFrame(data)
             df.to_csv(f'{name}.csv', index=False)
             shutil.move(f'{name}.csv',f"{self.path}\CSV_{self.year}")
+            logger.info(f"Created {name}.csv in {self.path}\CSV_{self.year}")
 
     def clean_csv(self):
         """
@@ -158,6 +179,7 @@ class Parser:
             df.columns = new_column_names
             df = df.dropna()
             df.to_csv(filename, index=False)
+            logger.info(f"Added column headers in {filename}")
             
     def search_csv_for_errors(self):
         """
@@ -311,14 +333,14 @@ class Parser:
                     if df.at[i, "Wydobycie"][0].islower() or df.at[i, "Wydobycie"][0] == '.':
                         df.at[i, "Wydobycie"] = df.at[i, "Wydobycie"][1:]
             df.to_csv(filename, index=False)
-            
+            logger.info(f"Mistakes corrected in {filename}")
     def add_to_db(self):
         """
         Adds content of CSV files to MongoDB database.
         :return:
         """
         for files in os.listdir(f"{self.path}\CSV_{self.year}"):
-            print(files)
+            logger.info(f"Current CSV {files}")
             filename = f"{self.path}\CSV_{self.year}\{files}"
             df = pd.read_csv(filename, encoding='UTF-8')
             type = files[:-9]
@@ -393,8 +415,9 @@ class Parser:
                             'Powiat': df.at[i, 'Powiat']
                         }
                     }
-                print(d)
                 self.collection.insert_one(d)
+                logger.info(f"Added to database {d['Name']}")
+                logger.info(f"Completed {i}/{len(df)}  ({round(i/len(df),2)}%)")
 
 '''
 Przykład użycia:
