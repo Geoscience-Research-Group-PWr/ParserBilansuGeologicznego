@@ -9,6 +9,8 @@ import logging
 
 
 logger=logging.getLogger(__name__)
+
+
 class Parser:
     """
     PDF parsing module.
@@ -419,6 +421,235 @@ class Parser:
                 logger.info(f"Added to database {d['Name']}")
                 logger.info(f"Completed {i}/{len(df)}  ({round(i/len(df),2)}%)")
 
+    def parse_one(self,name:str):
+        """
+        Extract all tables belonging to mineral name
+        :param name:
+        :return: PDF with one mineral tables
+        """
+        for files in os.listdir(f"{self.path}\Parsed_{self.year}"):
+            filename=f"{self.path}\Parsed_{self.year}\\{files}"
+            reader = PdfReader(filename)
+            year = filename[-14:-10]
+            writer = PdfWriter()
+            header = name
+            limits = self.get_pages(filename, header)
+            pages = reader.pages[limits[0]:limits[-1] + 1]
+            if '/' in header:
+                header = header.replace('D/P', 'DO PROD.')
+            new_file = open(f'{header}_{year}.pdf', 'wb')
+            for page in pages:
+                writer.add_page(page)
+                writer.write(new_file)
+            writer.close()
+            new_file.close()
+            shutil.move(f'{header}_{year}.pdf',f"{self.path}\Split_{self.year}")
+            logger.info(f"Created {header}_{year}.pdf in {self.path}\Split_{self.year}")
+    def extract_one(self,filepath:str):
+        """
+        Extract CSV from one PDF file
+        :param filepath:
+        :return: CSV file
+        """
+        name = str(filepath)[:-4]
+        with pdfplumber.open(filepath) as pdf:
+            data = []
+            for page_number in range(1, len(pdf.pages) + 1):
+                table = pdf.pages[page_number - 1].extract_table()
+                d = [row for row in table if any(row)]
+                data.extend(d)
+            df = pd.DataFrame(data)
+        df.to_csv(f'{name}.csv', index=False)
+        shutil.move(f'{name}.csv', f"{self.path}\CSV_{self.year}")
+        logger.info(f"Created {name}.csv in {self.path}\CSV_{self.year}")
+
+    def clean_one_csv(self,filepath:str):
+        """
+        Add headers and clean empty cells in one CSV file
+        :param filepath:
+        :return:
+        """
+        df = pd.read_csv(filepath, encoding='UTF-8')
+        if 'H E L' in filepath:
+            new_column_names = ['Lp.', 'Nazwa', 'Stan', 'Zas. wyd. bil. Razem', 'Zas. wyd. bil. A+B',
+                                'Zas. wyd. bil. C', 'Wydobycie']
+        elif 'M E T A N  P O K Ł A D Ó W  W ĘG L A' in filepath:
+            new_column_names = ['Lp.', 'Nazwa', 'Stan', 'Zasoby wydobywalne bilansowe',
+                                'Zasoby wydobywalne pozabilansowe', 'Zasoby przemyslowe', 'Emisja z wentylacja',
+                                'Wydobycie']
+        elif 'WĘGLE  KAMIENNE' in filepath:
+            new_column_names = ['Lp.', 'Nazwa', 'Stan', 'Zasoby geologiczne bilansowe Razem',
+                                'Zasoby geologiczne bilansowe A+B+C1', 'Zasoby wydobywalne bilansowe C2+D',
+                                'Zasoby przemyslowe', 'Wydobycie']
+        elif 'SOLANKI, WODY LECZNICZE I TERMALNE' in filepath:
+            new_column_names = ['Lp.', 'Nazwa', 'Typ wody', 'Zasoby geologiczne bilansowe dyspozycyjne',
+                                'Zasoby geologiczne bilansowe eksploatacyjne', 'Pobor', 'Powiat']
+        elif "WODY PITNE I PRZEMYSŁOWE" in filepath:
+            new_column_names = ['Lp', 'Znak', 'Data', 'Nazwa', 'Powierzchnia', 'Modul']
+        else:
+            new_column_names = ['Lp.', 'Nazwa', 'Stan', 'Zasoby wydobywalne bilansowe', 'Zasoby przemyslowe',
+                                'Wydobycie', 'Powiat']
+        difference = abs(len(df.columns) - len(new_column_names))
+        if difference > 0:
+            new_column_names.extend('?')
+        df.columns = new_column_names
+        df = df.dropna()
+        df.to_csv(filepath, index=False)
+        logger.info(f"Added column headers in {filepath}")
+
+    def search_one_csv_for_errors(self,filepath:str):
+        """
+        Clean unwanted characters in one CSV file
+        :param filepath:
+        :return:
+        """
+        df = pd.read_csv(filepath, encoding='UTF-8')
+        if 'H E L' in filepath:
+            for i in range(0, len(df)):
+                if not df.at[i, "Nazwa"][0].isupper():
+                    df.at[i, "Nazwa"] = df.at[i, "Nazwa"][1:]
+
+                if not df.at[i, "Stan"][0].isupper():
+                    df.at[i, "Stan"] = df.at[i, "Stan"][1:]
+
+                if str(df.at[i, "Zas. wyd. bil. Razem"]) == "tylko pzb.":
+                    pass
+                elif str(df.at[i, "Zas. wyd. bil. Razem"])[0].islower() or str(df.at[i, "Zas. wyd. bil. Razem"])[
+                    0] == '.':
+                    df.at[i, "Zas. wyd. bil. Razem"] = df.at[i, "Zas. wyd. bil. Razem"][1:]
+
+                if df.at[i, "Zas. wyd. bil. A+B"] == "tylko pzb.":
+                    pass
+                elif str(df.at[i, "Zas. wyd. bil. A+B"])[0].islower() or str(df.at[i, "Zas. wyd. bil. A+B"])[0] == '.':
+                    df.at[i, "Zas. wyd. bil. A+B"] = df.at[i, "Zas. wyd. bil. A+B"][1:]
+
+                if df.at[i, "Zas. wyd. bil. C"] == "tylko pzb.":
+                    pass
+                elif str(df.at[i, "Zas. wyd. bil. C"])[0].islower() or str(df.at[i, "Zas. wyd. bil. C"])[0] == '.':
+                    df.at[i, "Zas. wyd. bil. C"] = df.at[i, "Zas. wyd. bil. C"][1:]
+
+                if df.at[i, "Wydobycie"][0].islower() or df.at[i, "Wydobycie"][0] == '.':
+                    df.at[i, "Wydobycie"] = df.at[i, "Wydobycie"][1:]
+
+        elif 'M E T A N  P O K Ł A D Ó W  W ĘG L A' in filepath:
+            for i in range(0, len(df)):
+                if not df.at[i, "Nazwa"][0].isupper():
+                    df.at[i, "Nazwa"] = df.at[i, "Nazwa"][1:]
+
+                if not df.at[i, "Stan"][0].isupper():
+                    df.at[i, "Stan"] = df.at[i, "Stan"][1:]
+
+                if str(df.at[i, "Zasoby wydobywalne bilansowe"]) == "tylko pzb.":
+                    pass
+                elif str(df.at[i, "Zasoby wydobywalne bilansowe"])[0].islower() or \
+                        str(df.at[i, "Zasoby wydobywalne bilansowe"])[0] == '.':
+                    df.at[i, "Zasoby wydobywalne bilansowe"] = df.at[i, "Zasoby wydobywalne bilansowe"][1:]
+
+                if df.at[i, "Zasoby wydobywalne pozabilansowe"] == "tylko pzb.":
+                    pass
+                elif df.at[i, "Zasoby wydobywalne pozabilansowe"][0].islower() or \
+                        df.at[i, "Zasoby wydobywalne pozabilansowe"][0] == '.':
+                    df.at[i, "Zasoby wydobywalne pozabilansowe"] = df.at[i, "Zasoby wydobywalne pozabilansowe"][1:]
+
+                if df.at[i, "Zasoby przemyslowe"] == "tylko pzb.":
+                    pass
+                elif df.at[i, "Zasoby przemyslowe"][0].islower() or df.at[i, "Zasoby przemyslowe"][0] == '.':
+                    df.at[i, "Zasoby przemyslowe"] = df.at[i, "Zasoby przemyslowe"][1:]
+
+                if df.at[i, "Emisja z wentylacja"][0].islower() or df.at[i, "Emisja z wentylacja"][0] == '.':
+                    df.at[i, "Emisja z wentylacja"] = df.at[i, "Emisja z wentylacja"][1:]
+
+                if df.at[i, "Wydobycie"][0].islower() or df.at[i, "Wydobycie"][0] == '.':
+                    df.at[i, "Wydobycie"] = df.at[i, "Wydobycie"][1:]
+
+
+        elif 'WĘGLE  KAMIENNE' in filepath:
+            for i in range(0, len(df)):
+                if not df.at[i, "Nazwa"][0].isupper():
+                    df.at[i, "Nazwa"] = df.at[i, "Nazwa"][1:]
+
+                if not df.at[i, "Stan"][0].isupper():
+                    df.at[i, "Stan"] = df.at[i, "Stan"][1:]
+
+                if str(df.at[i, "Zasoby geologiczne bilansowe Razem"]) == "tylko pzb.":
+                    pass
+                elif str(df.at[i, "Zasoby geologiczne bilansowe Razem"])[0].islower() or \
+                        str(df.at[i, "Zasoby geologiczne bilansowe Razem"])[0] == '.':
+                    df.at[i, "Zasoby geologiczne bilansowe Razem"] = df.at[i, "Zasoby geologiczne bilansowe Razem"][
+                                                                     1:]
+
+                if df.at[i, "Zasoby geologiczne bilansowe A+B+C1"] == "tylko pzb.":
+                    pass
+                elif str(df.at[i, "Zasoby geologiczne bilansowe A+B+C1"])[0].islower() or \
+                        str(df.at[i, "Zasoby geologiczne bilansowe A+B+C1"])[0] == '.':
+                    df.at[i, "Zasoby geologiczne bilansowe A+B+C1"] = df.at[
+                                                                          i, "Zasoby geologiczne bilansowe A+B+C1"][
+                                                                      1:]
+
+                if df.at[i, "Zasoby wydobywalne bilansowe C2+D"] == "tylko pzb.":
+                    pass
+                elif str(df.at[i, "Zasoby wydobywalne bilansowe C2+D"])[0].islower() or \
+                        str(df.at[i, "Zasoby wydobywalne bilansowe C2+D"])[0] == '.':
+                    df.at[i, "Zasoby wydobywalne bilansowe C2+D"] = df.at[i, "Zasoby wydobywalne bilansowe C2+D"][
+                                                                    1:]
+
+                if str(df.at[i, "Zasoby przemyslowe"])[0].islower() or str(df.at[i, "Zasoby przemyslowe"])[0] == '.':
+                    df.at[i, "Zasoby przemyslowe"] = df.at[i, "Zasoby przemyslowe"][1:]
+
+                if df.at[i, "Wydobycie"][0].islower() or df.at[i, "Wydobycie"][0] == '.':
+                    df.at[i, "Wydobycie"] = df.at[i, "Wydobycie"][1:]
+
+        elif 'SOLANKI, WODY LECZNICZE I TERMALNE' in filepath:
+            for i in range(0, len(df)):
+                if not df.at[i, "Nazwa"][0].isupper():
+                    df.at[i, "Nazwa"] = df.at[i, "Nazwa"][1:]
+
+                if not df.at[i, "Typ wody"][0].isupper():
+                    df.at[i, "Typ wody"] = df.at[i, "Typ wody"][1:]
+
+                if str(df.at[i, "Zasoby geologiczne bilansowe dyspozycyjne"]) == "nie ekspl.":
+                    pass
+                elif str(df.at[i, "Zasoby geologiczne bilansowe dyspozycyjne"])[0].islower() or \
+                        str(df.at[i, "Zasoby geologiczne bilansowe dyspozycyjne"])[0] == '.':
+                    df.at[i, "Zasoby geologiczne bilansowe dyspozycyjne"] = df.at[
+                                                                                i, "Zasoby geologiczne bilansowe dyspozycyjne"][
+                                                                            1:]
+
+                if str(df.at[i, "Zasoby geologiczne bilansowe eksploatacyjne"]) == "nie ekspl.":
+                    pass
+                elif str(df.at[i, "Zasoby geologiczne bilansowe eksploatacyjne"])[0].islower() or \
+                        str(df.at[i, "Zasoby geologiczne bilansowe eksploatacyjne"])[0] == '.':
+                    df.at[i, "Zasoby geologiczne bilansowe eksploatacyjne"] = df.at[
+                                                                                  i, "Zasoby geologiczne bilansowe eksploatacyjne"][
+                                                                              1:]
+
+                if str(df.at[i, "Pobor"]) == "nie ekspl." or df.at[i, "Pobor"] == "b.d.":
+                    pass
+                elif str(df.at[i, "Pobor"])[0].islower() or str(df.at[i, "Pobor"])[0] == '.':
+                    df.at[i, "Pobor"] = df.at[i, "Pobor"][1:]
+        else:
+            for i in range(0, len(df)):
+                if not df.at[i, "Nazwa"][0].isupper():
+                    df.at[i, "Nazwa"] = df.at[i, "Nazwa"][1:]
+
+                if not df.at[i, "Stan"][0].isupper():
+                    df.at[i, "Stan"] = df.at[i, "Stan"][1:]
+
+                if str(df.at[i, "Zasoby wydobywalne bilansowe"]) == "tylko pzb.":
+                    pass
+                elif str(df.at[i, "Zasoby wydobywalne bilansowe"])[0].islower() or \
+                        str(df.at[i, "Zasoby wydobywalne bilansowe"])[0] == '.':
+                    df.at[i, "Zasoby wydobywalne bilansowe"] = df.at[i, "Zasoby wydobywalne bilansowe"][1:]
+
+                if df.at[i, "Zasoby przemyslowe"] == "tylko pzb.":
+                    pass
+                elif str(df.at[i, "Zasoby przemyslowe"])[0].islower() or str(df.at[i, "Zasoby przemyslowe"])[0] == '.':
+                    df.at[i, "Zasoby przemyslowe"] = df.at[i, "Zasoby przemyslowe"][1:]
+
+                if df.at[i, "Wydobycie"][0].islower() or df.at[i, "Wydobycie"][0] == '.':
+                    df.at[i, "Wydobycie"] = df.at[i, "Wydobycie"][1:]
+        df.to_csv(filepath, index=False)
+        logger.info(f"Mistakes corrected in {filepath}")
 '''
 Przykład użycia:
 p=Parser("Bilans_2011.pdf")
