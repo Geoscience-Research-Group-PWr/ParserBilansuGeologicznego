@@ -355,10 +355,10 @@ class Parser:
                         'Type': type,
                         'More': {
                             'Stan': df.at[i, "Stan"],
-                            'Zas. wyd. bil. Razem': df.at[i, 'Zas. wyd. bil. Razem'],
-                            'Zas. wyd. bil. A+B': df.at[i, 'Zas. wyd. bil. A+B'],
-                            'Zas. wyd. bil. C': df.at[i, 'Zas. wyd. bil. C'],
-                            'Wydobycie': df.at[i, 'Wydobycie']
+                            'Zas. wyd. bil. Razem': str(df.at[i, 'Zas. wyd. bil. Razem']),
+                            'Zas. wyd. bil. A+B': str(df.at[i, 'Zas. wyd. bil. A+B']),
+                            'Zas. wyd. bil. C': str(df.at[i, 'Zas. wyd. bil. C']),
+                            'Wydobycie': str(df.at[i, 'Wydobycie'])
                         }
                     }
                 elif 'M E T A N  P O K Ł A D Ó W  W ĘG L A' in files:
@@ -368,11 +368,11 @@ class Parser:
                         'Type': type,
                         'More': {
                             'Stan': df.at[i, "Stan"],
-                            'Zasoby wydobywalne bilansowe': df.at[i, 'Zasoby wydobywalne bilansowe'],
-                            'Zasoby wydobywalne pozabilansowe': df.at[i, 'Zasoby wydobywalne pozabilansowe'],
-                            'Zasoby przemyslowe': df.at[i, 'Zasoby przemyslowe'],
-                            'Emisja z wentylacja': df.at[i, 'Emisja z wentylacja'],
-                            'Wydobycie': df.at[i, 'Wydobycie']
+                            'Zasoby wydobywalne bilansowe': str(df.at[i, 'Zasoby wydobywalne bilansowe']),
+                            'Zasoby wydobywalne pozabilansowe': str(df.at[i, 'Zasoby wydobywalne pozabilansowe']),
+                            'Zasoby przemyslowe': str(df.at[i, 'Zasoby przemyslowe']),
+                            'Emisja z wentylacja': str(df.at[i, 'Emisja z wentylacja']),
+                            'Wydobycie': str(df.at[i, 'Wydobycie'])
                         }
                     }
                 elif 'WĘGLE  KAMIENNE' in files:
@@ -382,11 +382,11 @@ class Parser:
                         'Type': type,
                         'More': {
                             'Stan': df.at[i, "Stan"],
-                            'Zasoby geologiczne bilansowe Razem': df.at[i, 'Zasoby geologiczne bilansowe Razem'],
-                            'Zasoby geologiczne bilansowe A+B+C1': df.at[i, 'Zasoby geologiczne bilansowe A+B+C1'],
-                            'Zasoby wydobywalne bilansowe C2+D': df.at[i, 'Zasoby wydobywalne bilansowe C2+D'],
-                            'Zasoby przemyslowe': df.at[i, 'Zasoby przemyslowe'],
-                            'Wydobycie': df.at[i, 'Wydobycie']
+                            'Zasoby geologiczne bilansowe Razem': str(df.at[i, 'Zasoby geologiczne bilansowe Razem']),
+                            'Zasoby geologiczne bilansowe A+B+C1': str(df.at[i, 'Zasoby geologiczne bilansowe A+B+C1']),
+                            'Zasoby wydobywalne bilansowe C2+D': str(df.at[i, 'Zasoby wydobywalne bilansowe C2+D']),
+                            'Zasoby przemyslowe': str(df.at[i, 'Zasoby przemyslowe']),
+                            'Wydobycie': str(df.at[i, 'Wydobycie'])
                         }
                     }
                 elif 'SOLANKI, WODY LECZNICZE I TERMALNE' in files:
@@ -396,11 +396,11 @@ class Parser:
                         'Type': type,
                         'More': {
                             'Typ wody': df.at[i, "Typ wody"],
-                            'Zasoby geologiczne bilansowe dyspozycyjne': df.at[
-                                i, 'Zasoby geologiczne bilansowe dyspozycyjne'],
-                            'Zasoby geologiczne bilansowe eksploatacyjne': df.at[
-                                i, 'Zasoby geologiczne bilansowe eksploatacyjne'],
-                            'Pobor': df.at[i, 'Pobor'],
+                            'Zasoby geologiczne bilansowe dyspozycyjne': str(df.at[
+                                i, 'Zasoby geologiczne bilansowe dyspozycyjne']),
+                            'Zasoby geologiczne bilansowe eksploatacyjne': str(df.at[
+                                i, 'Zasoby geologiczne bilansowe eksploatacyjne']),
+                            'Pobor': str(df.at[i, 'Pobor']),
                             'Powiat': df.at[i, 'Powiat']
                         }
                     }
@@ -413,7 +413,7 @@ class Parser:
                             'Stan': df.at[i, "Stan"],
                             'Zasoby wydobywalne bilansowe': str(df.at[i, 'Zasoby wydobywalne bilansowe']),
                             'Zasoby przemyslowe': str(df.at[i, 'Zasoby przemyslowe']),
-                            'Wydobycie': df.at[i, 'Wydobycie'],
+                            'Wydobycie': str(df.at[i, 'Wydobycie']),
                             'Powiat': df.at[i, 'Powiat']
                         }
                     }
