@@ -67,7 +67,7 @@ def results(request):
         headers2=list(output[0][0]["More"].keys())
         columns=headers1+headers2
         data=db.get_data(output, headers2)[0]
-        sums=[db.get_data(output, headers2)[1], db.get_data(output, headers2)[2], db.get_data(output, headers2)[3]]
+        sums=[db.get_data(output, headers2)[i] for i in range(1,len(db.get_data(output, headers2)))]
         return render(request, "MinesAPP/results.html",
                       {"items": output, "columns": columns, "data": data, "suma": sums, "name": output[1]})
     else:
