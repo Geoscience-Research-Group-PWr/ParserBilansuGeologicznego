@@ -2,12 +2,22 @@ import pymongo
 import datetime
 
 class Database:
+    """
+    MongoDB operations module.
+    """
     def __init__(self):
         self.connection=pymongo.MongoClient('mongodb+srv://mikolajsiewruk222:parser420@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority&appName=parser')
         self.db=self.connection['parser']
         self.collection=self.db['Kopalnie']
 
-    def search_by_name(self,name,start=0,end=datetime.date.today().year):
+    def search_by_name(self,name:str,start=0,end=datetime.date.today().year):
+        """
+        Querying by mine name.
+        :param t: name of a mine
+        :param start:
+        :param end:
+        :return: list of objects from the database searched by name in range given by start and end years.
+        """
         result=[]
         query={"$and":[{"Name":name},{"Year":{"$gte":str(start)}},{"Year":{"$lte":str(end)}}]}
         output=self.collection.find(query)
@@ -15,14 +25,27 @@ class Database:
             result.append(results)
         return result
 
-    def search_by_type(self,t,start=0,end=datetime.date.today().year):
+    def search_by_type(self,t:str,start=0,end=datetime.date.today().year)->list:
+        """
+        Querying by mineral type.
+        :param t: name of a type
+        :param start:
+        :param end:
+        :return: list of objects from the database searched by type in range given by start and end years.
+        """
         result = []
         query = {"$and": [{"ype": t}, {"Year": {"$gt": str(start)}}, {"Year": {"$lt": str(end)}}]}
         output = self.collection.find(query)
         for results in output:
             result.append(results)
         return result
-    def get_data(self,results,headers):
+    def get_data(self,results:list,headers:list)->tuple:
+        """
+        Retrieving row data from searching
+        :param results: list of results from searching
+        :param headers: list of column headers
+        :return: tuple(list,float,float,float)
+        """
         data=[]
         zas_wyd_bil=0 # suma zasobów wydobywalnych bilansowych
         zas_przem=0
