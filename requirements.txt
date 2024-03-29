@@ -1,0 +1,11 @@
+pip~=22.0.4
+cryptography~=42.0.5
+pillow~=10.2.0
+setuptools~=58.1.0
+packaging~=23.2
+zipp~=3.17.0
+Django~=4.2.11
+pymongo~=4.6.2
+pypdf~=4.1.0
+pandas~=2.2.1
+pdfplumber~=0.11.0

@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mine search</title>
+    <title>Search by type</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'MinesAPP/styles.css' %}">
 </head>
 <body>
     <div id="header">
-        <h1 align="center">Enter mine data</h1>
-        <p align="center">Select a mine and date range for production statistics.</p>
+        <h1 align="center">Enter mineral data</h1>
+        <p align="center">Select mineral type and date range for production statistics.</p>
         <p align="center">For a single year choose the same in both year fields.</p>
     </div>
     <div align="center">
-        <form action="{%  url 'name_search' %}" method="POST">
+        <form action="{%  url 'type_search' %}" method="POST">
             {% csrf_token %}
-            {{ form.name.label }}<br>
-            {{ form.name }}<br><br>
-            {{ form.start.label }}<br>
-            {{ form.start }}<br><br>
-            {{ form.end.label }}<br>
-            {{ form.end }}<br><br>
+            {{ form.types.label }}<br>
+            {{ form.types }}<br><br>
+            {{ form.start1.label }}<br>
+            {{ form.start1 }}<br><br>
+            {{ form.end1.label }}<br>
+            {{ form.end1 }}<br><br>
             <input type="submit" value="Submit">
         </form><br>
         <a href="/">Main menu</a>

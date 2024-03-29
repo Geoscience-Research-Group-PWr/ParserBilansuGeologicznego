@@ -34,7 +34,7 @@ class Database:
         :return: list of objects from the database searched by type in range given by start and end years.
         """
         result = []
-        query = {"$and": [{"ype": t}, {"Year": {"$gt": str(start)}}, {"Year": {"$lt": str(end)}}]}
+        query = {"$and": [{"Type": t}, {"Year": {"$gte": str(start)}}, {"Year": {"$lte": str(end)}}]}
         output = self.collection.find(query)
         for results in output:
             result.append(results)
@@ -50,6 +50,7 @@ class Database:
         zas_wyd_bil=0 # suma zasobów wydobywalnych bilansowych
         zas_przem=0
         wyd=0
+        # naprawić dla wyjątków
         for i in range(len(results[0])):
             temp=results[0]
             data.append((temp[i]["Name"],temp[i]["Year"],temp[i]["Type"],temp[i]["More"][headers[0]],temp[i]["More"][headers[1]],temp[i]["More"][headers[2]],temp[i]["More"][headers[3]],temp[i]["More"][headers[4]]))
