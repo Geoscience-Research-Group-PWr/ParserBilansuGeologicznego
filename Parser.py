@@ -116,6 +116,8 @@ class Parser:
             for i in range(0, len(z)):
                 writer = PdfWriter()
                 header = z[i]
+                if header==' ':
+                    pass
                 limits = self.get_pages(filename, header)
                 pages = reader.pages[limits[0]:limits[-1] + 1]
                 if '/' in header:
@@ -352,7 +354,7 @@ class Parser:
                     d = {
                         'Name': df.at[i, "Nazwa"],
                         'Year': year,
-                        'Type': type,
+                        'Type': 'HEL',
                         'More': {
                             'Stan': df.at[i, "Stan"],
                             'Zas. wyd. bil. Razem': str(df.at[i, 'Zas. wyd. bil. Razem']),
@@ -365,7 +367,7 @@ class Parser:
                     d = {
                         'Name': df.at[i, "Nazwa"],
                         'Year': year,
-                        'Type': type,
+                        'Type': 'METAN POKŁADÓW WĘGLA',
                         'More': {
                             'Stan': df.at[i, "Stan"],
                             'Zasoby wydobywalne bilansowe': str(df.at[i, 'Zasoby wydobywalne bilansowe']),
@@ -379,7 +381,7 @@ class Parser:
                     d = {
                         'Name': df.at[i, "Nazwa"],
                         'Year': year,
-                        'Type': type,
+                        'Type': 'WĘGLE KAMIENNE',
                         'More': {
                             'Stan': df.at[i, "Stan"],
                             'Zasoby geologiczne bilansowe Razem': str(df.at[i, 'Zasoby geologiczne bilansowe Razem']),
@@ -417,6 +419,24 @@ class Parser:
                             'Powiat': df.at[i, 'Powiat']
                         }
                     }
+                if "BENTONITY  I  IŁY  BENTONITOWE" in files:
+                    d["Type"]="BENTONITY I IŁY BENTONITOWE"
+                if "PIASKI I śWIRY" in files:
+                    d["Type"]="PIASKI I ŻWIRY"
+                if "KWARC  śYŁOWY" in files:
+                    d["Type"] = "KWARC ŻYŁOWY"
+                if "KWARCYTY  OGNI0TRWAŁE" in files:
+                    d["Type"] = "KWARCYTY OGNIOTRWAŁE"
+                if "R U D Y   Z Ł O T A,  A R S E N U   I   C Y N Y" in files:
+                    d["Type"] = "RUDY ZŁOTA, ARSENU I CYNY"
+                if 'R U D Y  M O L I B D E N O W O - W O L F R A M  O W O - M I E D Z I O W E' in files:
+                    d["Type"] = "RUDY MOLIBDENOWO-WOLFRAMOWO-MIEDZIOWE"
+                if 'S U R O W C E   I L A S T E' in files:
+                    d["Type"] = "SUROWCE ILASTE"
+                if 'S U R O W C E  D L A  P R A C  I N ś Y N I E R S K I C H' in files:
+                    d["Type"] = "SUROWCE DLA PRAC INŻYNIERSKICH"
+                if "K A L C Y T" in files:
+                    d["Type"] = "KALCYT"
                 self.collection.insert_one(d)
                 logger.info(f"Added to database {d['Name']}")
                 logger.info(f"Completed {i}/{len(df)}  ({round(i/len(df),2)}%)")
