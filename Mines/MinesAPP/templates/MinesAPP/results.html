@@ -12,33 +12,35 @@
         <a href="./">Back to search</a>
         <a href="/">Back to menu</a>
     </div><br>
-    <table>
-        <thead>
-            <tr>
-                {% for column in columns %}
-                    <th>{{ column }}</th>
-                {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            {% for row in data %}
+    {% for xd in data %}
+        <table>
+            <thead>
                 <tr>
-                    {% for element in row %}
-                        <td>{{ element }}</td>
+                    {% for column in columns %}
+                        <th>{{ column }}</th>
                     {% endfor %}
                 </tr>
-            {% endfor %}
-                <tr id="sum">
-                    <td>Sumy</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    {% for element in suma %}
-                        <td>{{ element }}</td>
-                    {% endfor %}
-                    <td></td>
-                </tr>
-        </tbody>
-    </table><br>
+            </thead>
+            <tbody>
+                {% for row in xd %}
+                    <tr>
+                        {% for element in row %}
+                            <td>{{ element }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                    <tr id="sum">
+                        <td>Sumy</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        {% for element in suma %}
+                            <td>{{ element }}</td>
+                        {% endfor %}
+                        <td></td>
+                    </tr>
+            </tbody>
+        </table><br>
+    {% endfor %}
 </body>
 </html>
