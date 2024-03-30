@@ -68,11 +68,15 @@ def results(request):
 
         data=db.get_data(output, headers2)[0]
         columns=db.get_data(output, headers2)[1]
+        tables=[]
+        for headers,rows in zip(columns,data):
+            table = {'headers': headers, 'rows': rows}
+            tables.append(table)
         '''for rows in data:
             data.remove([])'''
         #sums=[db.get_data(output, headers2)[i] for i in range(1,len(db.get_data(output, headers2)))]
         return render(request, "MinesAPP/results.html",
-                      {"items": output, "columns": columns, "data": data, "name": output[1]})
+                      {"items": output, "columns": columns, "tables": tables, "name": output[1]})
     else:
         columns=[]
         data=[[' ']]

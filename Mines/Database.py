@@ -44,7 +44,7 @@ class Database:
         Retrieving row data from searching
         :param results: list of results from searching
         :param headers: list of column headers
-        :return: tuple(list,float,float,float)
+        :return: tuple(list,list)
         """
         data=[]
         h=[]
@@ -60,9 +60,13 @@ class Database:
         coal=False
         water=False
         met=False
-        # naprawić dla wyjątków
-        # naprawić dla kopalni o różnych kopalinach zwłaszcza nieregularnych, najlepiej dla każdej kopaliny osobną tabelę bo to nie ma sensu inaczej
-        # fml
+
+        # dla typów - dodanie wykresów wydobycia w czasie, policzenie średniej wydobycia na rok
+        # dla nazw dodanie sumy wydobycia w czasie, wykres wydobycia (opcjonalnie)
+        # doprecyzowanie wyszukiwania po nazwach (dodać powiat)
+        # wyszukiwanie po powiecie, wykresy i sumy itd
+        # w js napisać coś do eksportu danych
+        # external js w folderze static
 
         for i in range(len(results[0])):
             temp=results[0]
@@ -145,23 +149,7 @@ class Database:
                 s.append((temp[i]["Name"], temp[i]["Year"], temp[i]["Type"], temp[i]["More"][headers[0]],
                              temp[i]["More"][headers[1]], temp[i]["More"][headers[2]], temp[i]["More"][headers[3]],
                              temp[i]["More"][headers[4]]))
-                zas_wyd_bil_col = str(temp[i]["More"][headers[1]])
-                zas_ab_col = str(temp[i]["More"][headers[2]])
-                zas_c_col = str(temp[i]["More"][headers[3]])
-                wyd_col = str(temp[i]["More"][headers[4]])
-                zas_wyd_bil_col = zas_wyd_bil_col.replace(" ", "")
-                zas_ab_col = zas_ab_col.replace(" ", "")
-                zas_c_col = zas_c_col.replace(" ", "")
-                wyd_col = wyd_col.replace(" ", "")
-                if str(zas_wyd_bil_col[0]).isnumeric():
-                    zas_wyd_bil += float(zas_wyd_bil_col)
-                if str(zas_ab_col[0]).isnumeric():
-                    zas_ab += float(zas_ab_col)
-                if str(zas_c_col[0]).isnumeric():
-                    zas_c += float(zas_c_col)
-                if wyd_col[0].isnumeric():
-                    wyd += float(wyd_col)
-                water=True
+
 
             else:
                 h_all=['Name', 'Year', 'Type', 'Stan', 'Zasoby wydobywalne bilansowe', 'Zasoby przemyslowe', 'Wydobycie', 'Powiat']
