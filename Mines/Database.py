@@ -63,7 +63,7 @@ class Database:
         # naprawić dla wyjątków
         # naprawić dla kopalni o różnych kopalinach zwłaszcza nieregularnych, najlepiej dla każdej kopaliny osobną tabelę bo to nie ma sensu inaczej
         # fml
-        print((results[0]))
+
         for i in range(len(results[0])):
             temp=results[0]
             if temp[i]["Type"]=="H E L":
@@ -114,7 +114,6 @@ class Database:
                     wyd += float(wyd_col)
                 met = True
             elif temp[i]["Type"]=="WĘGLE  KAMIENNE":
-                print(headers)
                 hw=['Name', 'Year', 'Type', 'Stan', 'Zasoby geologiczne bilansowe Razem', 'Zasoby geologiczne bilansowe A+B+C1', 'Zasoby wydobywalne bilansowe C2+D', 'Zasoby przemyslowe', 'Wydobycie']
                 w.append((temp[i]["Name"], temp[i]["Year"], temp[i]["Type"], temp[i]["More"]['Stan'],
                              temp[i]["More"]['Zasoby geologiczne bilansowe Razem'], temp[i]["More"]['Zasoby geologiczne bilansowe A+B+C1'], temp[i]["More"]['Zasoby wydobywalne bilansowe C2+D'],
@@ -180,18 +179,19 @@ class Database:
                 if wyd_col[0].isnumeric():
                     wyd+=float(wyd_col)
         ret = [data, h, w, s, m]
-        for l in ret:
-            print(l)
-            if not l:
-                ret.remove(l)
-                print(ret)
-        print(ret)
-        if hel:
-            return ret,zas_wyd_bil,zas_ab,zas_c,wyd
-        elif coal:
-            return ret,zas_wyd_bil,zas_ab,zas_c,zas_przem,wyd
-        elif water:
-            print("water")
-            return ret,zas_wyd_bil,zas_ab,zas_c,wyd
-        else:
-            return ret,zas_wyd_bil,zas_przem,wyd
+        heads=[]
+        for i in range(10):
+            if [] in ret:
+                ret.remove([])
+        if data in ret:
+            heads.append(h_all)
+        if h in ret:
+            heads.append(hh)
+        if w in ret:
+            heads.append(hw)
+        if s in ret:
+            heads.append(h_sol)
+        if m in ret:
+            heads.append(hm)
+
+        return ret,heads

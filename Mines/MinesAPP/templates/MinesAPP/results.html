@@ -7,16 +7,21 @@
     <link rel="stylesheet" href="{% static 'MinesAPP/styles.css' %}">
 </head>
 <body>
+    <script>
+        var data="{{ data }}";
+        console.log(data);
+    </script>
     <h1 align="center">Query results for {{ name }}</h1>
     <div align="center">
         <a href="./">Back to search</a>
         <a href="/">Back to menu</a>
     </div><br>
+
     {% for xd in data %}
         <table>
             <thead>
                 <tr>
-                    {% for column in columns %}
+                    {% for column in datas %}
                         <th>{{ column }}</th>
                     {% endfor %}
                 </tr>
@@ -29,18 +34,9 @@
                         {% endfor %}
                     </tr>
                 {% endfor %}
-                    <tr id="sum">
-                        <td>Sumy</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        {% for element in suma %}
-                            <td>{{ element }}</td>
-                        {% endfor %}
-                        <td></td>
-                    </tr>
             </tbody>
         </table><br>
-    {% endfor %}
+            {% endfor %}
+
 </body>
 </html>
