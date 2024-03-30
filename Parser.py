@@ -317,6 +317,8 @@ class Parser:
                         df.at[i, "Pobor"] = df.at[i, "Pobor"][1:]
             else:
                 for i in range(0, len(df)):
+                    if df.at[i, "Nazwa"][0]=="ś":
+                        df.at[i, "Nazwa"][0]="Ż"+df.at[i, "Nazwa"][1:]
                     if not df.at[i, "Nazwa"][0].isupper():
                         df.at[i, "Nazwa"] = df.at[i, "Nazwa"][1:]
 
@@ -350,6 +352,8 @@ class Parser:
             type = files[:-9]
             year = files[-8:-4]
             for i in range(0, df.shape[0]):
+                if "Ŝ" in df.at[i,"Nazwa"]:
+                    df.at[i,"Nazwa"]=df.at[i,"Nazwa"].replace("Ŝ","ż")
                 if 'H E L' in files:
                     d = {
                         'Name': df.at[i, "Nazwa"],
@@ -392,6 +396,8 @@ class Parser:
                         }
                     }
                 elif 'SOLANKI, WODY LECZNICZE I TERMALNE' in files:
+                    if "Ŝ" in df.at[i, "Powiat"]:
+                        df.at[i, "Powiat"] = df.at[i, "Powiat"].replace("Ŝ", "ż")
                     d = {
                         'Name': df.at[i, "Nazwa"],
                         'Year': year,
@@ -407,6 +413,8 @@ class Parser:
                         }
                     }
                 else:
+                    if "Ŝ" in df.at[i, "Powiat"]:
+                        df.at[i, "Powiat"] = df.at[i, "Powiat"].replace("Ŝ", "ż")
                     d = {
                         'Name': df.at[i, "Nazwa"],
                         'Year': year,
