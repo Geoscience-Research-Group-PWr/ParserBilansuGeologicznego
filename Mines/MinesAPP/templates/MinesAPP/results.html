@@ -7,40 +7,40 @@
     <link rel="stylesheet" href="{% static 'MinesAPP/styles.css' %}">
 </head>
 <body>
+<script>
+    var a='{{tables}}'
+    console.log(a)
+</script>
     <h1 align="center">Query results for {{ name }}</h1>
     <div align="center">
         <a href="./">Back to search</a>
         <a href="/">Back to menu</a>
     </div><br>
-    {% for xd in data %}
+
+
+    {% for table in tables %}
         <table>
             <thead>
                 <tr>
-                    {% for column in columns %}
-                        <th>{{ column }}</th>
+                    {% for header in table.headers %}
+                        <th>{{ header }}</th>
                     {% endfor %}
                 </tr>
             </thead>
             <tbody>
-                {% for row in xd %}
+                {% for row in table.rows %}
                     <tr>
                         {% for element in row %}
                             <td>{{ element }}</td>
                         {% endfor %}
                     </tr>
                 {% endfor %}
-                    <tr id="sum">
-                        <td>Sumy</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        {% for element in suma %}
-                            <td>{{ element }}</td>
-                        {% endfor %}
-                        <td></td>
-                    </tr>
             </tbody>
         </table><br>
     {% endfor %}
+
+</body>
+</html>
+
 </body>
 </html>
