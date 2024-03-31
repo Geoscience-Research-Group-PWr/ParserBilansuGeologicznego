@@ -6,4 +6,6 @@ urlpatterns=[path("",views.menu,name="menu"),
              path("name_search",views.name_search,name="name_search"),
              path("type_search",views.type_search,name="type_search"),
              path("type_search/",views.type_search,name="ts1"),
-             path("name_search/",views.name_search,name="ns1")]
+             path("name_search/",views.name_search,name="ns1"),
+             path("county_search",views.area_search,name="county_search"),
+             path("county_search/",views.area_search,name="cs1")]
