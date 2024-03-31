@@ -1,0 +1,225 @@
+Lp.,Nazwa,Stan,Zasoby wydobywalne bilansowe,Zasoby przemyslowe,Wydobycie,Powiat
+2,Chełm,E,192 741,174 948,2 600,chełmski
+3,Chełm I,R,159 167,-,-,".
+chełmski"
+4,Frampol II,P,97 095,-,-,biłgorajski
+5,Nikodemówka,P,91 900,-,-,chełmski
+6,Pokrówka,P,267 890,-,"
+-",chełmski
+7,Popów,P,63 830,-,-,"kraśnicki, opolski"
+8,Potok,P,166 816,-,-,janowski
+9,Rejowiec,E,38 425,4 060,211,chełmski
+10,Rejowiec I,R,41 354,-,-,chełmski
+11,Trawniki,R,200 832,-,"
+-","krasnostawski,
+świdnicki"
+12,awce,P,1 242 804,-,-,tomaszowski
+1,Działoszyn-Trębaczew,E,186 448,"
+26 127",2 043,pajęczański
+2,Goślub,R,456 118,-,-,łęczycki
+3,Granice,R,80 861,-,-,radomszczański
+4,Granice 1,R,"
+18 391",-,-,radomszczański
+5,Kodrąb,R,1 599,-,-,radomszczański
+6,Kodrąb-Dmenin,P,253 472,-,-,radomszczański
+7,Kule,P,"
+92 869",-,-,pajęczański
+8,Mariampol-Stok,P,209 423,-,-,opoczyński
+9,Mariampol-Stok I,R,80 954,-,-,opoczyński
+10,Niwiska Górne-Grądy,E,"
+30 538",7 364,947,pajęczański
+11,Pajęczno-Makowiska I,R,160 729,-,-,pajęczański
+12,Sulejów I,R,182 655,-,-,piotrkowski
+13,Wielka Wieś,R,92 761,-,-,łaski
+14,Wieluń,R,56 937,-,-,wieluński
+1,Grzmiączka,R,11 510,-,-,chrzanowski
+2,Wolbrom-Zarzecze,P,249 590,-,-,olkuski
+1,Bałtów-Tarnówek,R,469 004,-,-,lipski
+2,IłŜa-KrzyŜanowice,R,396 632,-,-,radomski
+3,"Kolonia Wierzbica - Pole
+B",R,167 239,-,-,radomski
+4,Marylin,Z,5 394,-,-,radomski
+5,Strzałków,R,166 615,-,-,radomski
+6,Wierzbica-Pole A,E,292 991,75 114,52,radomski
+1,Dobrzeń,R,13 800,-,-,opolski
+2,GóraŜdŜe,E,136 441,136 441,2 018,krapkowicki
+4,Odra II,E,56 772,19 532,640,m.Opole
+5,Opole-Folwark,E,435 004,283 582,2 066,".
+opolski"
+6,Strzelce Opolskie,E,169 617,164 914,849,strzelecki
+7,Strzelce Opolskie I,T,8 634,8 180,-,strzelecki
+8,"Tarnów Opolski-
+Wschód",R,23 607,-,"
+-","krapkowicki,
+strzelecki"
+1,Płazów,R,228 295,-,-,lubaczowski
+1,Cisownica,P,1 685,-,-,cieszyński
+2,Góra Siewierska,R,23 100,-,-,będziński
+3,Kamyce,R,27 000,-,-,będziński
+4,Latosówka-Rudniki II,E,76 798,"
+29 805",460,częstochowski
+5,Mstów,R,363 326,-,-,częstochowski
+6,Niegowonice II,R,158 608,-,-,zawierciański
+7,Rogoźnik,M,"
+-",-,-,będziński
+8,Rudniki-Jaskrów,E,68 996,10 410,187,częstochowski
+9,Sadowa Góra II,R,21 931,-,-,m.Jaworzno
+10,Wiek II,R,"
+39 546",-,-,zawierciański
+1,Bratkowszczyzna,P,"
+164 628",-,-,opatowski
+2,Brzozowa,R,117 822,-,-,opatowski
+3,Bukowa,E,31 783,13 545,182,włoszczowski
+4,Celiny,T,60 684,-,-,kielecki
+5,Cieśle,P,47 114,-,-,jędrzejowski
+6,Dębska Wola,R,31 866,-,-,kielecki
+7,Gliniany-Duranów,E,729 691,67 045,4 065,opatowski
+8,Gliniany-StróŜa,R,28 380,-,-,opatowski
+9,Kowala,E,135 011,84 080,1 746,kielecki
+10,Leśnica-Małogoszcz,E,269 340,251 348,2 156,jędrzejowski
+11,Nida-Lurowizna,R,231 194,-,-,kielecki
+12,Ptasznik,Z,1 602,-,-,kielecki
+13,"Suchowola-Kamienna
+Góra",R,185 567,-,-,kielecki
+1,Czarnogłowy-Kłęby,P,154 731,-,-,kamieński
+2,Czarnogłów,R,13 291,-,-,goleniowski
+1,"Duszniki-Zdrój (Kozicowa
+H.)",R,1 126,"
+-",-,kłodzki
+2,Gołogłowy,R,263,-,-,kłodzki
+3,Lutynia,R,86,-,-,kłodzki
+4,Niwnice,R,801,-,-,lwówecki
+5,Pilchowice,Z,1 313,-,-,lwówecki
+6,Połom,E,15 083,"
+15 083",412,złotoryjski
+7,Raciborowice,R,627,-,-,bolesławiecki
+8,Rochowice Nowe,Z,393,-,-,jaworski
+9,Silesia,Z,1 423,-,-,złotoryjski
+10,Sobocin,T,"
+3 886",2 892,-,jaworski
+11,Wojcieszów-Gruszka,Z,122,-,-,złotoryjski
+12,Wojcieszów-Miłek,Z,"
+8 562",-,-,złotoryjski
+1,Dyle Kąty,Z,"
+978",-,-,biłgorajski
+2,Kamień,Z,509,-,-,lubelski
+3,Kłodnica Górna,Z,17,-,-,lubelski
+4,Leszczany,R,753,-,-,chełmski
+5,Wilkołaz II,R,905,-,-,kraśnicki
+6,Zakącie,E,621,-,1,lubelski
+1,Bobrowniki,P,15 767,-,-,pajęczański
+2,Kodrąb-Dmenin,P,484 549,-,-,radomszczański
+3,"Ktery I,II",R,tylko pzb.,-,-,kutnowski
+4,Majaczewice,Z,16,-,-,sieradzki
+5,Niwiska Dolne,Z,39,-,-,pajęczański
+6,Pajęczno,P,63 741,-,-,pajęczański
+7,Przedbórz,R,3 120,-,-,radomszczański
+8,Sulejów,Z,9 208,8 559,-,piotrkowski
+9,Sulejów II,R,51 386,-,-,piotrkowski
+10,Wapiennik Lisowice,Z,1 810,-,-,pajęczański
+1,Czatkowice,E,145 875,34 855,2 210,krakowski
+2,Gołcza,Z,106,90,-,miechowski
+4,Kamienice,P,tylko pzb.,-,-,krakowski
+5,Młoszowa,R,1 269,-,-,".
+chrzanowski"
+6,Płaza,T,11 665,7 840,-,chrzanowski
+7,Płaza Południe,R,38 845,-,-,chrzanowski
+8,Wzgórze Św. Piotra,P,11 151,-,"
+-",m.Kraków
+1,IłŜa,Z,4 954,9 503,-,radomski
+2,IłŜa 1,E,5 804,1 880,51,radomski
+3,Marylin I,R,1 270,"
+-",-,szydłowiecki
+1,GóraŜdŜe,E,164 461,164 461,2 186,krapkowicki
+2,Izbicko II,E,106 869,37 863,551,strzelecki
+3,Izbicko-Nakło,P,139 417,"
+-",-,opolski
+4,Strzelce Opolskie I,T,17 450,15 908,-,strzelecki
+5,Strzelce Opolskie II,R,29 722,-,-,strzelecki
+6,Szymiszów,K,"
+-",-,-,strzelecki
+7,Tarnów Opolski,E,54 832,20 792,1 544,"krapkowicki,
+opolski"
+8,Tarnów Opolski-Wschód,R,"
+48 836",-,-,"krapkowicki,
+strzelecki"
+1,Łysaków,Z,16 619,-,-,stalowowolski
+2,Niechobrz Górny,R,670,-,-,rzeszowski
+3,Niechobrz II,R,1 367,-,-,rzeszowski
+4,Nowiny Horynieckie,R,10 932,-,-,lubaczowski
+5,Olimpów,Z,1 114,-,-,"ropczycko-
+sędziszowski"
+1,Brudzowice,R,36 811,-,-,będziński
+2,Calcium Brynica-Czeladź,Z,1 254,-,-,będziński
+3,Chełmno,Z,427,-,-,kłobucki
+4,Choroń,P,137 878,-,-,myszkowski
+5,Kielnik-Olsztyn,Z,320,-,-,częstochowski
+6,Kule I,Z,5,-,-,kłobucki
+7,Michałówek-Łazy,Z,132,-,-,zawierciański
+8,Miedźno,P,69 459,-,-,kłobucki
+9,Mokre Śląskie,Z,612,-,-,mikołowski
+10,Mokre Śląskie - zarej.,Z,2 221,-,-,mikołowski
+11,Mykanów,P,42 788,-,-,częstochowski
+12,Niegowonice-Rokitno,P,76 100,-,-,zawierciański
+13,Radonia,R,213,-,-,gliwicki
+15,Rudniki-Rędziny,R,69 351,-,-,częstochowski
+16,Rzeniszów,R,1 709,-,-,".
+myszkowski"
+17,Sosnowiec-Środula I,Z,6 500,-,-,m. Sosnowiec
+18,Sosnowiec-Środula II,Z,1 548,-,-,m. Sosnowiec
+19,Strzemieszyce,Z,112,-,"
+-","m. Dąbrowa
+Górn."
+20,Wąsosz,Z,250,-,-,kłobucki
+21,Zbrosławice,R,71,-,-,tarnogórski
+22,aw,P,138 196,-,-,częstochowski
+1,Anna,P,18 544,-,-,opatowski
+2,Anna 1,R,1 208,-,-,opatowski
+3,Bratkowszczyzna,P,51 647,-,-,opatowski
+4,Bukowa,E,273 458,"
+146 934",1 972,włoszczowski
+5,Chałupki,Z,-,-,-,kielecki
+6,Chęciny-Wolica,E,140 076,89 245,148,kielecki
+7,Drugnia Rządowa 1,E,"
+327",327,15,kielecki
+8,Drugnia-Rządowa,R,842,223,-,kielecki
+9,Gliniany StróŜa 1,R,3 831,-,-,opatowski
+10,Gliniany-StróŜa,R,"
+296 118",-,-,opatowski
+11,Gnieździska-G. Lipia,Z,1 086,-,-,kielecki
+12,"Gnieździska-Góra
+Poddańska",R,"
+2 807",-,-,kielecki
+13,Goździec,R,75 699,-,-,kielecki
+14,Góra Maćkowa,E,2 969,578,257,"jędrzejowski,
+kielecki"
+15,Górki Sowie,R,4 305,-,-,kielecki
+16,Janów,Z,31 336,-,-,kielecki
+17,Kaczyn-Borków,P,193 391,-,-,kielecki
+18,Krasocin,R,608 116,-,-,włoszczowski
+19,Krasocin I,T,11 619,11 626,-,włoszczowski
+20,Księska Góra,Z,636,-,-,kielecki
+21,Lipa,P,249 167,-,-,jędrzejowski
+22,Lipa 1,R,75 953,-,-,jędrzejowski
+23,Lipnik,Z,2 122,-,-,ostrowiecki
+24,Łagów,R,22 404,-,-,kielecki
+25,Małogoszcz-G. KrzyŜowa,Z,3 361,-,-,jędrzejowski
+26,Miedzianka,Z,tylko pzb.,-,-,kielecki
+27,Moczydło,R,15 136,-,-,kielecki
+28,Obice (Dębska Wola),R,782,-,-,kielecki
+29,Ostrówka i Ołowianka,E,205 565,119 525,5 869,kielecki
+30,OŜarów,Z,-,-,-,opatowski
+31,Piórków Zajasienie,R,110,-,-,opatowski
+33,Ruda Kościelna,R,87 935,-,-,ostrowiecki
+34,Siedlce,R,1 000,-,-,".
+kielecki"
+35,Sobiekurów,P,74 390,-,-,opatowski
+36,Sobków 84,Z,82 443,-,-,jędrzejowski
+37,Sokołów Górny,R,54 455,-,"
+-",jędrzejowski
+38,Tokarnia-Sierpka,Z,4 236,-,-,kielecki
+39,Trzuskawica,E,645 737,258 949,5 684,kielecki
+40,Wierzbica,E,51 510,28 094,726,jędrzejowski
+41,Wierzbie,E,1 216,1 048,77,kielecki
+42,Wymysłów (Stawiany),P,242 365,"
+-",-,pińczowski
