@@ -1,0 +1,222 @@
+Lp.,Nazwa,Typ wody,Zasoby geologiczne bilansowe dyspozycyjne,Zasoby geologiczne bilansowe eksploatacyjne,Pobor,Powiat
+1,Ustka*,Lz,-,31.00,nie ekspl.,słupski
+1,"
+Krynica Morska",T,-,44.70,nie ekspl.,nowodworski
+2,Sopot*,Lz,-,44.00,27 485.00,m. Sopot
+1,Konstancin Jeziorna*,Lz,-,9.12,3 872.00,piaseczyński
+2,"
+Marusza*",LzT,-,20.00,5 264.00,grudziądzki
+3,Mszczonów*,T,-,60.00,259 179.00,Ŝyrardowski
+4,Nałęczów*,Ls,-,26.00,2 837.00,puławski
+5,Skierniewice,T,-,86.60,nie ekspl.,m. Skierniewice
+1,Ciechocinek*,LzT,-,479.00,84 766.46,aleksandrowski
+2,Dziwnówek*,Lz,-,30.00,nie ekspl.,kamieński
+3,Kamień Pomorski*,Lz,-,15.00,1 544.00,kamieński
+4,Kołobrzeg*,Lz,-,98.52,16 269.00,kołobrzeski
+5,Kotuń,LzT,-,"
+15.70",nie ekspl.,pilski
+6,Międzywodzie,Lz,-,1.40,nie ekspl.,kamieński
+7,Połczyn-Zdrój*,Lz,-,2.80,1 211.00,świdwiński
+8,Wieniec-Zdrój*,Lz,-,27.00,7 615.00,włocławski
+1,Dobrów,T,-,60.00,nie ekspl.,kolski
+2,"Łódź (EC-2, otw. nr 3)",T,-,126.00,nie ekspl.,m. Łódź
+3,Pyrzyce*,T,"
+-",340.00,855 329.00,pyrzycki
+4,Stargard Szczeciński*,T,-,200.00,352 284.00,stargardzki
+5,Swarzędz,T,"
+-",76.00,nie ekspl.,m. Poznań
+6,Świnoujście*,Lz,-,23.80,12 334.00,m. Świnoujście
+7,Uniejów*,T,-,120.00,522 024.00,poddębicki
+1,Łagów,LzT,-,5.00,nie ekspl.,świebodziński
+2,Trzebnica,LzT,-,6.00,nie ekspl.,trzebnicki
+1,Krzeszowice*,Lz,-,7.21,2 477.27,krakowski
+1,Przerzeczyn-Zdrój*,Ls,-,7.67,5 873.00,dzierŜoniowski
+1,Cieplice Śląskie-Zdrój*,LsT,-,56.54,55 835.00,m. Jelenia Góra
+2,Czerniawa-Zdrój*,Ls,-,7.88,20.00,lubański
+3,Długopole-Zdrój*,Ls,-,1.95,13 285.00,kłodzki
+4,Duszniki-Zdrój*,LsT,-,107.48,329 172.77,kłodzki
+5,Gorzanów,Lz,-,30.06,b.d.,kłodzki
+6,"
+Jedlina-Zdrój*",Lz,-,5.66,24 823.06,wałbrzyski
+7,Jeleniów*,Lz,-,11.40,nie ekspl.,kłodzki
+8,Kudowa-Zdrój*,Lz,-,17.70,32 200.40,kłodzki
+9,Lądek-Zdrój*,LsT,-,59.85,344 724.00,kłodzki
+10,Polanica-Zdrój*,LsLz,-,46.42,361 918.36,kłodzki
+11,Stare Bogaczowice,Lz,-,0.62,b.d.,wałbrzyski
+12,Stare Rochowice,Lz,-,41.04,"
+b.d.",jaworski
+13,Stary Wielisław,Lz,-,20.80,b.d.,kłodzki
+14,Szczawina*,Ls,-,3.40,3 292.00,kłodzki
+15,Szczawno-Zdrój*,Lz,-,0.53,4 296.78,wałbrzyski
+16,Świeradów-Zdrój*,LzLs,-,"
+19.97",9 108.00,lubański
+1,Busko-Zdrój*,Lz,14.58,16.75,63 944.40,buski
+2,Busko-Północ*,Lz,-,"
+6.00",864.60,buski
+3,Dębowiec*,Lz,74.13,5.67,322.00,cieszyński
+4,Dobrowoda*,Lz,-,8.00,nie ekspl.,buski
+5,Goczałkowice-Zdrój*,Lz,"
+329.80",2.34,1 408.10,pszczyński
+6,Horyniec-Zdrój*,Ls,44.80,26.40,13 490.00,lubaczowski
+7,Kraków-Mateczny*,Lz,"
+-",8.50,4.23,m. Kraków
+8,Kraków-Swoszowice*,Lz,-,6.16,8 126.00,m. Kraków
+9,Las Winiarski*,Lz,-,3.11,18 238.80,buski
+10,Latoszyn,Lz,-,1.30,nie ekspl.,dębicki
+11,Solec-Zdrój*,Lz,"
+7.00",0.96,4 187.00,buski
+12,Wełnin*,Lz,-,3.00,1 318.89,buski
+13,Zabłocie*,Lz,-,0.64,18.20,cieszyński
+1,Andrzejówka*,Lz,-,14.60,15 394.60,nowosądecki
+2,"
+Głębokie",Lz,-,3.77,b.d.,nowosądecki
+3,Iwonicz-Zdrój*,LzLs,-,29.39,9 453.00,krośnieński
+4,Krościenko n/Dunajcem,Lz,-,3.00,nie ekspl.,nowotarski
+5,Krynica-Zdrój*,LzLs,57.40,33.66,55 896.00,nowosądecki
+6,Leluchów,Lz,0.84,0.40,b.d.,nowosądecki
+7,"
+Lubatówka*",LzT,-,11.70,3 309.00,krośnieński
+8,Łapczyca*,C,32 171.69**,6.20,4 310.00,bocheński
+9,Łomnica-Zdrój,Lz,32.70,20.47,nie ekspl.,nowosądecki
+10,Milik*,Lz,22.90,12.12,47 654.61,nowosądecki
+11,"
+Muszyna, Złockie,
+Powroźnik, Jastrzębik,
+Szczawnik*",LzLs,71.40,90.08,118 837.00,nowosądecki
+12,Piwniczna-Zdrój*,Lz,33.30,24.95,87 698.80,nowosądecki
+13,Polańczyk*,Lz,-,4.00,269.20,leski
+14,Rabka-Zdrój*,LzT,2.28,6.44,3 734.10,nowotarski
+15,Rymanów-Zdrój*,Lz,-,13.48,12 533.00,krośnieński
+16,Szczawa*,Lz,-,2.53,203.20,limanowski
+17,Szczawiczne*,Lz,6.03,3.69,"
+3 639.00",nowosądecki
+18,Szczawnica*,Lz,-,2.46,9 909.45,nowotarski
+19,Tylicz*,Lz,48.42,12.40,26 293.79,nowosądecki
+20,Ustroń*,LzT,25.00,2.20,4 806.00,cieszyński
+21,Wapienne*,Ls,-,"
+2.92",nie ekspl.,gorlicki
+22,Wojkowa*,Lz,-,2.10,nie ekspl.,nowosądecki
+23,Wysowa-Zdrój*,LzLs,-,11.93,15 256.70,gorlicki
+24,Zubrzyk*,Lz,-,3.60,6 396.00,nowosądecki
+25,egiestów-Zdrój*,Lz,3.40,4.90,8 113.00,nowosądecki
+1,Podhale*,T,-,670.00,3 407 688.00,nowotarski
+2,Białka Tatrzańska*,T,-,38.00,nie ekspl.,tatrzański
+3,Bukowina Tatrzańska*,T,-,40.00,273 610.00,tatrzański
+4,Furmanowa,T,"
+-",90.00,nie ekspl.,tatrzański
+5,Poronin,T,-,70.00,nie ekspl.,tatrzański
+6,Szymoszkowa*,T,-,80.00,159 876.00,tatrzański
+7,Witów,T,-,125.00,nie ekspl.,nowotarski
+8,Zakopane*,"
+T",-,130.00,418 772.00,tatrzański
+2,Czerniawa-Zdrój*,Ls,-,7.88,20.00,lubański
+3,Długopole-Zdrój*,Ls,-,1.95,13 285.00,kłodzki
+4,Duszniki-Zdrój*,LsT,-,107.48,"
+329 172.77",kłodzki
+5,Gorzanów,Lz,-,30.06,b.d.,kłodzki
+6,Jedlina-Zdrój*,Lz,-,5.66,24 823.06,wałbrzyski
+7,Jeleniów*,Lz,-,11.40,b.d.,kłodzki
+8,Kudowa-Zdrój*,Lz,-,17.70,"
+32 200.40",kłodzki
+9,Lądek-Zdrój*,LsT,-,59.85,344 724.00,kłodzki
+10,Polanica-Zdrój*,LsLz,-,46.42,361 918.36,kłodzki
+11,Przerzeczyn-Zdrój*,Ls,-,7.67,5 873.00,dzierŜoniowski
+12,Stare Bogaczowice,Lz,-,0.62,b.d.,wałbrzyski
+13,Stare Rochowice,Lz,-,"
+41.04",b.d.,jaworski
+14,Stary Wielisław,Lz,-,20.80,b.d.,kłodzki
+15,Szczawina*,Ls,-,3.40,3 292.00,kłodzki
+16,Szczawno-Zdrój*,Lz,"
+-",0.53,4 296.78,wałbrzyski
+17,Świeradów-Zdrój*,LzLs,-,19.97,9 108.00,lubański
+18,Trzebnica,LzT,-,6.00,nie ekspl.,trzebnicki
+1,Ciechocinek*,LzT,-,479.00,84 766.46,aleksandrowski
+2,Marusza*,LzT,"
+-",20.00,5 264.00,grudziądzki
+3,Wieniec-Zdrój*,Lz,-,27.00,7 615.00,włocławski
+1,Nałęczów*,Ls,-,26.00,2 837.00,puławski
+1,Łagów,LzT,-,5.00,nie ekspl.,świebodziński
+1,"Łódź (EC-2, otw. nr 3)","
+T",-,126.00,nie ekspl.,m. Łódź
+2,Skierniewice,T,-,86.60,nie ekspl.,m. Skierniewice
+3,Uniejów*,T,-,120.00,522 024.00,poddębicki
+1,Andrzejówka*,Lz,-,14.60,15 394.60,nowosądecki
+2,Podhale*,T,-,670.00,3 407 688.00,nowotarski
+3,Białka Tatrzańska*,T,-,38.00,nie ekspl.,tatrzański
+4,Bukowina Tatrzańska*,T,-,40.00,273 610.00,tatrzański
+5,Furmanowa,T,-,90.00,nie ekspl.,tatrzański
+6,"
+Głębokie",Lz,-,3.77,nie ekspl.,nowosądecki
+7,Kraków-Mateczny*,Lz,-,8.50,4.23,m. Kraków
+8,Kraków-Swoszowice*,Lz,-,6.16,8 126.00,m. Kraków
+9,Krościenko n/Dunajcem,Lz,-,3.00,nie ekspl.,nowotarski
+10,Krynica-Zdrój*,LzLs,57.40,33.66,55 896.00,nowosądecki
+11,Krzeszowice*,Lz,-,7.21,"
+2 477.27",krakowski
+12,Leluchów,Lz,0.84,0.40,b.d.,nowosądecki
+13,Łapczyca*,C,32 171.69**,6.20,4 310.00,bocheński
+14,Łomnica-Zdrój,Lz,32.70,20.47,nie ekspl.,nowosądecki
+15,Milik*,Lz,22.90,12.12,"
+47 654.61",nowosądecki
+16,"Muszyna, Złockie,
+Powroźnik, Jastrzębik,
+Szczawnik*",LzLs,71.40,90.08,118 837.00,nowosądecki
+17,Piwniczna-Zdrój*,Lz,33.30,24.95,87 698.80,nowosądecki
+18,Poronin,T,-,"
+70.00",nie ekspl.,tatrzański
+19,Rabka-Zdrój*,LzT,2.28,6.44,3 734.10,nowotarski
+20,Szczawa*,Lz,-,2.53,203.20,limanowski
+21,Szczawiczne*,Lz,6.03,3.69,3 639.00,nowosądecki
+22,Szczawnica*,Lz,"
+-",2.46,9 909.45,nowotarski
+23,Szymoszkowa*,T,-,80.00,159 876.00,tatrzański
+24,Tylicz*,Lz,"
+48.42",12.40,26 293.79,nowosądecki
+25,Wapienne*,Ls,-,2.92,nie ekspl.,gorlicki
+26,Witów,T,-,125.00,nie ekspl.,nowotarski
+27,Wojkowa*,Lz,"
+-",2.10,nie ekspl.,nowosądecki
+28,Wysowa-Zdrój*,LzLs,-,11.93,15 256.70,gorlicki
+29,Zakopane*,T,-,130.00,418 772.00,tatrzański
+30,Zubrzyk*,Lz,-,3.60,6 396.00,nowosądecki
+31,egiestów-Zdrój*,Lz,3.40,4.90,8 113.00,nowosądecki
+1,Konstancin-Jeziorna*,Lz,-,9.12,3 872.00,piaseczyński
+2,Mszczonów*,T,-,60.00,259 179.00,Ŝyrardowski
+1,Horyniec-Zdrój*,Ls,44.80,26.40,13 490.00,lubaczowski
+2,Iwonicz-Zdrój*,LzLs,-,29.39,9 453.00,krośnieński
+3,Latoszyn,Lz,-,1.30,nie ekspl.,dębicki
+4,Lubatówka*,LzT,-,11.70,3 309.00,krośnieński
+5,"
+Polańczyk*",Lz,-,4.00,269.20,leski
+6,Rymanów-Zdrój*,Lz,-,13.48,12 533.00,krośnieński
+1,Krynica Morska,T,-,44.70,"
+nie ekspl.",nowodworski
+2,Sopot*,Lz,-,44.00,27 485.00,m. Sopot
+3,Ustka*,Lz,-,31.00,nie ekspl.,słupski
+1,Dębowiec*,Lz,74.13,5.67,322.00,cieszyński
+2,Goczałkowice-Zdrój*,Lz,329.80,2.34,"
+1 408.10",pszczyński
+3,Ustroń*,LzT,25.00,2.20,4 806.00,cieszyński
+4,Zabłocie*,Lz,-,0.64,18.20,cieszyński
+1,Busko-Zdrój*,Lz,14.58,"
+16.75",63 944.40,buski
+2,Busko-Północ*,Lz,-,6.00,864.60,buski
+3,Dobrowoda*,Lz,-,8.00,nie ekspl.,buski
+4,Las Winiarski*,Lz,"
+-",3.11,18 238.80,buski
+5,Solec-Zdrój*,Lz,7.00,0.96,4 187.00,buski
+6,Wełnin*,Lz,-,3.00,1 318.89,buski
+1,Dobrów,T,-,60.00,nie ekspl.,kolski
+2,Kotuń,LzT,"
+-",15.70,nie ekspl.,pilski
+3,Swarzędz,T,-,76.00,nie ekspl.,m. Poznań
+1,Dziwnówek*,Lz,-,30.00,nie ekspl.,kamieński
+2,Kamień Pomorski*,"
+Lz",-,15.00,1 544.00,kamieński
+3,Kołobrzeg*,Lz,-,98.52,16 269.00,kołobrzeski
+4,Międzywodzie,Lz,-,1.40,nie ekspl.,kamieński
+5,Połczyn-Zdrój*,Lz,-,2.80,1 211.00,świdwiński
+6,Pyrzyce*,"
+T",-,340.00,855 329.00,pyrzycki
+7,Stargard Szczeciński*,T,-,200.00,352 284.00,stargardzki
+8,Świnoujście*,Lz,-,23.80,12 334.00,m. Świnoujście
