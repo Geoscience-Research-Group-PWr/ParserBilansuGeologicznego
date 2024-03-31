@@ -156,6 +156,8 @@ class Parser:
         :return:
         """
         for files in os.listdir(f"{self.path}\CSV_{self.year}"):
+            if files=="PIASKI I śWIRY.csv":
+                files="PIASKI I ŻWIRY.csv"
             filename=f"{self.path}\CSV_{self.year}\\{files}"
             df = pd.read_csv(filename, encoding='UTF-8')
             if 'H E L' in filename:
