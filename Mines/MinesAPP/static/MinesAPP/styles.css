@@ -1,0 +1,48 @@
+body{
+    background-color: rgb(237, 255, 239);
+    font-family: Calibri;
+}
+
+h1 {
+    color: green;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+
+}
+th{
+    color: rgb(9, 117, 34);
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+tr:nth-child(even) {
+  background-color:rgb(195, 227, 203);
+}
+#sum{
+    font-weight: bold;
+}
+a:link, a:visited {
+  background-color: rgb(237, 255, 239);
+  color: black;
+  border: 2px solid green;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    font-weight: bold;
+}
+
+a:hover, a:active {
+  background-color: green;
+  color: white;}
