@@ -19,7 +19,7 @@ python Use.py
 ```
 For working with specific files it is recommended to use _one() methods of the Parser class.
 
-Parser module was made with a goal of parsing Polish Geological Institute balance sheets and therefore it is customized to the templates used by this organization.
+Parser module was made with the aim of parsing Polish Geological Institute balance sheets and therefore it is customized to the templates used by this organization.
 
 ## Django Module
 This module creates a web application connected with MongoDB database using Django framework. 
