@@ -6,26 +6,7 @@ import datetime
 
 db=Database()
 output=[]
-
-
-class NameForm(forms.Form):
-    name=forms.CharField(label="Mine name :")
-    start=forms.CharField(label="From :",initial=str(datetime.date.today().year-14))
-    end=forms.CharField(label="To :",initial=str(datetime.date.today().year))
-
-
-# zrobić year jako wybieralną listę
-class TypeForm(forms.Form):
-    types=forms.CharField(label="Mineral type")
-    start1 = forms.CharField(label="From:", initial=str(datetime.date.today().year - 14))
-    end1 = forms.CharField(label="To:", initial=str(datetime.date.today().year))
-
-class Temp(forms.Form):
-    name=forms.CharField()
-    start=forms.CharField()
-    end=forms.CharField()
-class CountyForm(forms.Form):
-    county=forms.ChoiceField(choices=[
+counties=[ ('00',""),
     ('01', 'Wrocław'),
     ('02', 'Jelenia Góra'),
     ('03', 'Legnica'),
@@ -405,8 +386,28 @@ class CountyForm(forms.Form):
     ('377', 'stargardzki'),
     ('378', 'szczecinecki'),
     ('379', 'świdwiński'),
-    ('380', 'wałecki')
-])
+    ('380', 'wałecki')]
+
+
+class NameForm(forms.Form):
+    name=forms.CharField(label="Mine name :")
+    start=forms.CharField(label="From :",initial=str(datetime.date.today().year-14))
+    end=forms.CharField(label="To :",initial=str(datetime.date.today().year))
+    county=forms.ChoiceField(choices=counties,label="County:")
+
+
+# zrobić year jako wybieralną listę
+class TypeForm(forms.Form):
+    types=forms.CharField(label="Mineral type")
+    start1 = forms.CharField(label="From:", initial=str(datetime.date.today().year - 14))
+    end1 = forms.CharField(label="To:", initial=str(datetime.date.today().year))
+
+class Temp(forms.Form):
+    name=forms.CharField()
+    start=forms.CharField()
+    end=forms.CharField()
+class CountyForm(forms.Form):
+    county=forms.ChoiceField(choices=counties)
 
     def get_county_name(self, value):
         for code, name in self.fields['county'].choices:
@@ -425,6 +426,7 @@ def name_search(request):
         name=form.cleaned_data["name"]
         start=form.cleaned_data["start"]
         end=form.cleaned_data["end"]
+        county=form.cleaned_data["county"]
         output.clear()
         output.append(db.search_by_name(str(name), start, end))
         output.append(name)
@@ -453,14 +455,12 @@ def area_search(request):
     if request.method == "POST" and form.is_valid():
         num = form.cleaned_data["county"]
         county=form.get_county_name(num)
-        print(county)
         '''start = form.cleaned_data["start"]
         end = form.cleaned_data["end"]'''
 
         output.clear()
         output.append(db.search_by_county(str(county)))
         output.append(county)
-        print(output)
         return HttpResponseRedirect("county_search/results")
     else:
         return render(request, "MinesAPP/county_search.html", {"form": form})

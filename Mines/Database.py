@@ -10,15 +10,18 @@ class Database:
         self.db=self.connection['parser']
         self.collection=self.db['Kopalnie']
 
-    def search_by_name(self,name:str,start=0,end=datetime.date.today().year):
+    def search_by_name(self,name:str,start=0,end=datetime.date.today().year,county=""):
         """
         Querying by mine name.
         :param t: name of a mine
         :param start:
         :param end:
+        :param county:
         :return: list of objects from the database searched by name in range given by start and end years.
         """
         result=[]
+        if county: # dodać warunek że pole powiat istnieje
+            query = {"$and": [{"Name": name}, {"Year": {"$gte": str(start)}}, {"Year": {"$lte": str(end)}},{"More.Powiat":county}]}
         query={"$and":[{"Name":name},{"Year":{"$gte":str(start)}},{"Year":{"$lte":str(end)}}]}
         output=self.collection.find(query)
         for results in output:
