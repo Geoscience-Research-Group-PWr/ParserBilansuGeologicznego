@@ -461,7 +461,7 @@ def area_search(request):
         output.append(db.search_by_county(str(county)))
         output.append(county)
         print(output)
-        return HttpResponseRedirect("name_search/results")
+        return HttpResponseRedirect("county_search/results")
     else:
         return render(request, "MinesAPP/county_search.html", {"form": form})
     return render(request, "MinesAPP/county_search.html", {"form": CountyForm()})
