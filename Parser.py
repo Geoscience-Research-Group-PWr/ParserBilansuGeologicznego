@@ -120,9 +120,16 @@ class Parser:
                     pass
                 limits = self.get_pages(filename, header)
                 pages = reader.pages[limits[0]:limits[-1] + 1]
-                if '/' in header:
-                    header = header.replace('D/P', 'DO PROD.')
-                new_file = open(f'{header}_{year}.pdf', 'wb')
+                if self.year in ['2018','2019','2020','2021','2022']:
+                    res=re.sub(r' (?=[A-Z])', '', header)
+                    print(res)
+                    if '/' in res:
+                        res = res.replace('D/P', 'DO PROD.')
+                    new_file = open(f'{res}_{year}.pdf', 'wb')
+                else:
+                    if '/' in header:
+                        header = header.replace('D/P', 'DO PROD.')
+                    new_file = open(f'{header}_{year}.pdf', 'wb')
                 for page in pages:
                     writer.add_page(page)
                     writer.write(new_file)
@@ -606,7 +613,8 @@ class Parser:
             logger.info(f"Added to database {d['Name']}")
             logger.info(f"Completed {i}/{len(df)}  ({round(i / len(df), 2)}%)")
 
-
+p=Parser("Bilans_2015.pdf")
+p.clean_one_csv("D:\PyCharm\PyCharm 2023.2.4\ParserBilansuGeologicznego\CSV_2022\WĘGLE KAMIENNE_2022.csv")
 '''
 Przykład użycia:
 p=Parser("Bilans_2011.pdf")
