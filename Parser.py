@@ -28,19 +28,30 @@ class Parser:
         Creates necessary directories for organizing parsing results.
         :return:
         """
+        if self.year=="2010":
+            try:
+                os.mkdir(f"{self.path}\Parsed_{self.year}1")
+                logger.info(f"Created directory{self.path}\Parsed_{self.year}")
+            except FileExistsError:
+                pass
         try:
             os.mkdir(f"{self.path}\Parsed_{self.year}")
             logger.info(f"Created directory{self.path}\Parsed_{self.year}")
         except FileExistsError:
             pass
         try:
-            os.mkdir(f"{self.path}\Split_{self.year}")
+            os.mkdir(f"{self.path}\Split_{self.year}1")
             logger.info(f"Created directory{self.path}\Split_{self.year}")
         except FileExistsError:
             pass
         try:
             os.mkdir(f"{self.path}\CSV_{self.year}")
             logger.info(f"Created directory{self.path}\CSV_{self.year}")
+        except FileExistsError:
+            pass
+        try:
+            os.mkdir(f"{self.path}\Trash")
+            logger.info(f"Created directory{self.path}\Trash")
         except FileExistsError:
             pass
         logger.info("All dirs created")
@@ -120,31 +131,41 @@ class Parser:
                     pass
                 limits = self.get_pages(filename, header)
                 pages = reader.pages[limits[0]:limits[-1] + 1]
+                if header == "W\x08G L E   K A M I E N N E":
+                    header = "WĘGLE KAMIENNE"
                 if self.year in ['2018','2019','2020','2021','2022']:
                     res=re.sub(r' (?=[A-Z])', '', header)
-                    print(res)
+                    if res=="W\x08GLE   KAMIENNE":
+                        res="WeGLE KAMIENNE"
                     if '/' in res:
-                        res = res.replace('D/P', 'DO PROD.')
+                        res = res.replace('D /P', 'DO PROD.')
                     new_file = open(f'{res}_{year}.pdf', 'wb')
+                    for page in pages:
+                        writer.add_page(page)
+                        writer.write(new_file)
+                    writer.close()
+                    new_file.close()
+                    shutil.move(f'{res}_{year}.pdf', f"{self.path}\Split_{self.year}")
+                    logger.info(f"Created {res}_{year}.pdf in {self.path}\Split_{self.year}")
                 else:
                     if '/' in header:
                         header = header.replace('D/P', 'DO PROD.')
                     new_file = open(f'{header}_{year}.pdf', 'wb')
-                for page in pages:
-                    writer.add_page(page)
-                    writer.write(new_file)
-                writer.close()
-                new_file.close()
-                shutil.move(f'{header}_{year}.pdf',f"{self.path}\Split_{self.year}")
-                logger.info(f"Created {header}_{year}.pdf in {self.path}\Split_{self.year}")
+                    for page in pages:
+                        writer.add_page(page)
+                        writer.write(new_file)
+                    writer.close()
+                    new_file.close()
+                    shutil.move(f'{header}_{year}.pdf',f"{self.path}\Split_{self.year}1")
+                    logger.info(f"Created {header}_{year}.pdf in {self.path}\Split_{self.year}")
 
     def export_data(self):
         """
         Converts PDF files to CSV.
         :return:
         """
-        for files in os.listdir(f"{self.path}\Split_{self.year}"):
-            self.extract_one(files)
+        for files in os.listdir(f"{self.path}\Split_{self.year}1"):
+            self.extract_one(f"{self.path}\Split_{self.year}1\\{files}")
 
     def clean_csv(self):
         """
@@ -176,81 +197,22 @@ class Parser:
             type = files[:-9]
             year = files[-8:-4]
             for i in range(0, df.shape[0]):
-                if "Ŝ" in df.at[i,"Nazwa"]:
+                if "Ŝ" in str(df.at[i,"Nazwa"]):
                     df.at[i,"Nazwa"]=df.at[i,"Nazwa"].replace("Ŝ","ż")
-                if 'H E L' in files:
-                    d = {
-                        'Name': df.at[i, "Nazwa"],
-                        'Year': year,
-                        'Type': 'HEL',
-                        'More': {
-                            'Stan': df.at[i, "Stan"],
-                            'Zas. wyd. bil. Razem': str(df.at[i, 'Zas. wyd. bil. Razem']),
-                            'Zas. wyd. bil. A+B': str(df.at[i, 'Zas. wyd. bil. A+B']),
-                            'Zas. wyd. bil. C': str(df.at[i, 'Zas. wyd. bil. C']),
-                            'Wydobycie': str(df.at[i, 'Wydobycie'])
-                        }
+                if "Ŝ" in df.at[i, "Powiat"]:
+                    df.at[i, "Powiat"] = df.at[i, "Powiat"].replace("Ŝ", "ż")
+                d = {
+                    'Name': df.at[i, "Nazwa"],
+                    'Year': year,
+                    'Type': type,
+                    'More': {
+                        'Stan': df.at[i, "Stan"],
+                        'Zasoby wydobywalne bilansowe': str(df.at[i, 'Zasoby wydobywalne bilansowe']),
+                        'Zasoby przemyslowe': str(df.at[i, 'Zasoby przemyslowe']),
+                        'Wydobycie': str(df.at[i, 'Wydobycie']),
+                        'Powiat': df.at[i, 'Powiat']
                     }
-                elif 'M E T A N  P O K Ł A D Ó W  W ĘG L A' in files:
-                    d = {
-                        'Name': df.at[i, "Nazwa"],
-                        'Year': year,
-                        'Type': 'METAN POKŁADÓW WĘGLA',
-                        'More': {
-                            'Stan': df.at[i, "Stan"],
-                            'Zasoby wydobywalne bilansowe': str(df.at[i, 'Zasoby wydobywalne bilansowe']),
-                            'Zasoby wydobywalne pozabilansowe': str(df.at[i, 'Zasoby wydobywalne pozabilansowe']),
-                            'Zasoby przemyslowe': str(df.at[i, 'Zasoby przemyslowe']),
-                            'Emisja z wentylacja': str(df.at[i, 'Emisja z wentylacja']),
-                            'Wydobycie': str(df.at[i, 'Wydobycie'])
-                        }
-                    }
-                elif 'WĘGLE  KAMIENNE' in files:
-                    d = {
-                        'Name': df.at[i, "Nazwa"],
-                        'Year': year,
-                        'Type': 'WĘGLE KAMIENNE',
-                        'More': {
-                            'Stan': df.at[i, "Stan"],
-                            'Zasoby geologiczne bilansowe Razem': str(df.at[i, 'Zasoby geologiczne bilansowe Razem']),
-                            'Zasoby geologiczne bilansowe A+B+C1': str(df.at[i, 'Zasoby geologiczne bilansowe A+B+C1']),
-                            'Zasoby wydobywalne bilansowe C2+D': str(df.at[i, 'Zasoby wydobywalne bilansowe C2+D']),
-                            'Zasoby przemyslowe': str(df.at[i, 'Zasoby przemyslowe']),
-                            'Wydobycie': str(df.at[i, 'Wydobycie'])
-                        }
-                    }
-                elif 'SOLANKI, WODY LECZNICZE I TERMALNE' in files:
-                    if "Ŝ" in df.at[i, "Powiat"]:
-                        df.at[i, "Powiat"] = df.at[i, "Powiat"].replace("Ŝ", "ż")
-                    d = {
-                        'Name': df.at[i, "Nazwa"],
-                        'Year': year,
-                        'Type': type,
-                        'More': {
-                            'Typ wody': df.at[i, "Typ wody"],
-                            'Zasoby geologiczne bilansowe dyspozycyjne': str(df.at[
-                                i, 'Zasoby geologiczne bilansowe dyspozycyjne']),
-                            'Zasoby geologiczne bilansowe eksploatacyjne': str(df.at[
-                                i, 'Zasoby geologiczne bilansowe eksploatacyjne']),
-                            'Pobor': str(df.at[i, 'Pobor']),
-                            'Powiat': df.at[i, 'Powiat']
-                        }
-                    }
-                else:
-                    if "Ŝ" in df.at[i, "Powiat"]:
-                        df.at[i, "Powiat"] = df.at[i, "Powiat"].replace("Ŝ", "ż")
-                    d = {
-                        'Name': df.at[i, "Nazwa"],
-                        'Year': year,
-                        'Type': type,
-                        'More': {
-                            'Stan': df.at[i, "Stan"],
-                            'Zasoby wydobywalne bilansowe': str(df.at[i, 'Zasoby wydobywalne bilansowe']),
-                            'Zasoby przemyslowe': str(df.at[i, 'Zasoby przemyslowe']),
-                            'Wydobycie': str(df.at[i, 'Wydobycie']),
-                            'Powiat': df.at[i, 'Powiat']
-                        }
-                    }
+                }
                 if "BENTONITY  I  IŁY  BENTONITOWE" in files:
                     d["Type"]="BENTONITY I IŁY BENTONITOWE"
                 if "PIASKI I śWIRY" in files:
@@ -286,17 +248,34 @@ class Parser:
             writer = PdfWriter()
             header = name
             limits = self.get_pages(filename, header)
+            if header=="W\x08G L E   K A M I E N N E":
+                header="WĘGLE KAMIENNE"
             pages = reader.pages[limits[0]:limits[-1] + 1]
-            if '/' in header:
-                header = header.replace('D/P', 'DO PROD.')
-            new_file = open(f'{header}_{year}.pdf', 'wb')
-            for page in pages:
-                writer.add_page(page)
-                writer.write(new_file)
-            writer.close()
-            new_file.close()
-            shutil.move(f'{header}_{year}.pdf',f"{self.path}\Split_{self.year}")
-            logger.info(f"Created {header}_{year}.pdf in {self.path}\Split_{self.year}")
+            if self.year in ['2018', '2019', '2020', '2021', '2022']:
+                res = re.sub(r' (?=[A-Z])', '', header)
+                if res == "GLE  KAMIENNE":
+                    res = "WeGLE KAMIENNE"
+                if '/' in res:
+                    res = res.replace('D /P', 'DO PROD.')
+                new_file = open(f'{res}_{year}.pdf', 'wb')
+                for page in pages:
+                    writer.add_page(page)
+                    writer.write(new_file)
+                writer.close()
+                new_file.close()
+                shutil.move(f'{res}_{year}.pdf', f"{self.path}\Split_{self.year}")
+                logger.info(f"Created {res}_{year}.pdf in {self.path}\Split_{self.year}")
+            else:
+                if '/' in header:
+                    header = header.replace('D/P', 'DO PROD.')
+                new_file = open(f'{header}_{year}.pdf', 'wb')
+                for page in pages:
+                    writer.add_page(page)
+                    writer.write(new_file)
+                writer.close()
+                new_file.close()
+                shutil.move(f'{header}_{year}.pdf', f"{self.path}\Split_{self.year}")
+                logger.info(f"Created {header}_{year}.pdf in {self.path}\Split_{self.year}")
     def extract_one(self,filepath:str):
         """
         Extract CSV from one PDF file
@@ -321,10 +300,61 @@ class Parser:
         :param filepath:
         :return:
         """
-        if "PIASKI I śWIRY" in filepath:
-            filepath=filepath.replace("PIASKI I śWIRY","PIASKI I ŻWIRY")
+
         df = pd.read_csv(filepath, encoding='UTF-8')
-        if 'H E L' in filepath:
+        '''if "PIASKI I śWIRY" in filepath:
+            filepath=filepath.replace("PIASKI I śWIRY","PIASKI I ŻWIRY")'''
+        if len(df.columns)==6:
+            df.to_csv(filepath, index=False)
+            shutil.move(filepath,"D:\POBRANE")
+        elif "HEL" in filepath or "H E L" in filepath:
+            new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "?", "?","Wydobycie"]
+            df.columns = new_column_names
+            df["Zasoby przemyslowe"]='-'
+            df["Powiat"]='-'
+            df = df.dropna()
+        elif ("WĘGLE KAMIENNE" in filepath or "WĘGLE  KAMIENNE" in filepath) and self.year in ['2018','2019','2020','2021','2022','2017','2016']:
+            new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "?", "?", "?", "?",
+                                "?",
+                                "Zasoby przemyslowe",
+                                "Wydobycie"]
+            df.columns = new_column_names
+            df["Powiat"]="-"
+            df = df.dropna()
+        elif len(df.columns)==7:
+            new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "Zasoby przemyslowe",
+                                "Wydobycie", "Powiat"]
+            df.columns = new_column_names
+        elif len(df.columns)==8:
+            new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "?","?", "Zasoby przemyslowe",
+                                "Wydobycie",]
+            df.columns = new_column_names
+            df["Powiat"]="-"
+            df.dropna()
+        elif len(df.columns) == 9 :
+            new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "?", "?", "Zasoby przemyslowe",
+                                "Wydobycie",
+                                "Powiat"]
+            df.columns = new_column_names
+        elif len(df.columns) == 10:
+            new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "?", "?", "?",
+                                "Zasoby przemyslowe",
+                                "Wydobycie",
+                                "Powiat"]
+            df.columns = new_column_names
+        elif len(df.columns)==11:
+            new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "?", "?", "?", "?",
+                                "Zasoby przemyslowe",
+                                "Wydobycie",
+                                "Powiat"]
+            df.columns = new_column_names
+        elif len(df.columns)==12:
+            new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "?", "?", "?", "?", "?",
+                                "Zasoby przemyslowe",
+                                "Wydobycie",
+                                "Powiat"]
+            df.columns = new_column_names
+        '''if 'H E L' in filepath:
             new_column_names = ['Lp.', 'Nazwa', 'Stan', 'Zas. wyd. bil. Razem', 'Zas. wyd. bil. A+B',
                                 'Zas. wyd. bil. C', 'Wydobycie']
         elif 'M E T A N  P O K Ł A D Ó W  W ĘG L A' in filepath:
@@ -343,10 +373,35 @@ class Parser:
         else:
             new_column_names = ['Lp.', 'Nazwa', 'Stan', 'Zasoby wydobywalne bilansowe', 'Zasoby przemyslowe',
                                 'Wydobycie', 'Powiat']
-        difference = abs(len(df.columns) - len(new_column_names))
+        new_column_names=["Lp.","Nazwa","Stan","Zasoby wydobywalne bilansowe","Zasoby przemysłowe","Wydobycie","Powiat"]
+        new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe","?", "Zasoby przemysłowe", "Wydobycie",
+                            "Powiat"] # 8
+        new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe","?","?", "Zasoby przemysłowe", "Wydobycie",
+                            "Powiat"] #9
+        new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "?", "?","?", "Zasoby przemysłowe",
+                            "Wydobycie",
+                            "Powiat"]  # 10
+        new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "?", "?", "?","?", "Zasoby przemysłowe",
+                            "Wydobycie",
+                            "Powiat"]  # 11
+        new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "?", "?", "?", "?","?",
+                            "Zasoby przemysłowe",
+                            "Wydobycie",
+                            "Powiat"]  # 12
+        #wegle kam
+        new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "?", "?", "?", "?",
+                            "?",
+                            "Zasoby przemysłowe",
+                            "Wydobycie"]  # 11 dodac kolumne powiat i wypełnić "-"
+        # hel
+        new_column_names = ["Lp.", "Nazwa", "Stan", "Zasoby wydobywalne bilansowe", "?", "?",
+
+                            "Zasoby przemysłowe",
+                            "Wydobycie"]  # 11 dodac kolumne powiat i wypełnić "-" zas przem wypełnic -'''
+        '''difference = abs(len(df.columns) - len(new_column_names))
         if difference > 0:
             new_column_names.extend('?')
-        df.columns = new_column_names
+        df.columns = new_column_names'''
         df = df.dropna()
         df.to_csv(filepath, index=False)
         logger.info(f"Added column headers in {filepath}")
@@ -358,7 +413,29 @@ class Parser:
         :return:
         """
         df = pd.read_csv(filepath, encoding='UTF-8')
-        if 'H E L' in filepath:
+        for i in range(0, len(df)):
+            if df.at[i, "Nazwa"][0] == "ś":
+                df.at[i, "Nazwa"]="Ż"+df.at[i, "Nazwa"][1:]
+            if not df.at[i, "Nazwa"][0].isupper():
+                df.at[i, "Nazwa"] = df.at[i, "Nazwa"][1:]
+
+            if not df.at[i, "Stan"][0].isupper():
+                df.at[i, "Stan"] = df.at[i, "Stan"][1:]
+
+            if str(df.at[i, "Zasoby wydobywalne bilansowe"]) == "tylko pzb.":
+                pass
+            elif str(df.at[i, "Zasoby wydobywalne bilansowe"])[0].islower() or \
+                    str(df.at[i, "Zasoby wydobywalne bilansowe"])[0] == '.':
+                df.at[i, "Zasoby wydobywalne bilansowe"] = df.at[i, "Zasoby wydobywalne bilansowe"][1:]
+
+            if df.at[i, "Zasoby przemyslowe"] == "tylko pzb.":
+                pass
+            elif str(df.at[i, "Zasoby przemyslowe"])[0].islower() or str(df.at[i, "Zasoby przemyslowe"])[0] == '.':
+                df.at[i, "Zasoby przemyslowe"] = df.at[i, "Zasoby przemyslowe"][1:]
+
+            if str(df.at[i, "Wydobycie"])[0].islower() or str(df.at[i, "Wydobycie"])[0] == '.':
+                df.at[i, "Wydobycie"] = df.at[i, "Wydobycie"][1:]
+        '''if 'H E L' in filepath:
             for i in range(0, len(df)):
                 if not df.at[i, "Nazwa"][0].isupper():
                     df.at[i, "Nazwa"] = df.at[i, "Nazwa"][1:]
@@ -501,7 +578,7 @@ class Parser:
                     df.at[i, "Zasoby przemyslowe"] = df.at[i, "Zasoby przemyslowe"][1:]
 
                 if df.at[i, "Wydobycie"][0].islower() or df.at[i, "Wydobycie"][0] == '.':
-                    df.at[i, "Wydobycie"] = df.at[i, "Wydobycie"][1:]
+                    df.at[i, "Wydobycie"] = df.at[i, "Wydobycie"][1:]'''
         df.to_csv(filepath, index=False)
         logger.info(f"Mistakes corrected in {filepath}")
 
@@ -516,9 +593,23 @@ class Parser:
         type = filename[:-9]
         year = filename[-8:-4]
         for i in range(0, df.shape[0]):
-            if "Ŝ" in df.at[i, "Nazwa"]:
+            if "Ŝ" in str(df.at[i, "Nazwa"]):
                 df.at[i, "Nazwa"] = df.at[i, "Nazwa"].replace("Ŝ", "ż")
-            if 'H E L' in filename:
+            if "Ŝ" in str(df.at[i, "Powiat"]):
+                df.at[i, "Powiat"] = df.at[i, "Powiat"].replace("Ŝ", "ż")
+            d = {
+                'Name': df.at[i, "Nazwa"],
+                'Year': year,
+                'Type': type,
+                'More': {
+                    'Stan': df.at[i, "Stan"],
+                    'Zasoby wydobywalne bilansowe': str(df.at[i, 'Zasoby wydobywalne bilansowe']),
+                    'Zasoby przemyslowe': str(df.at[i, 'Zasoby przemyslowe']),
+                    'Wydobycie': str(df.at[i, 'Wydobycie']),
+                    'Powiat': df.at[i, 'Powiat']
+                }
+            }
+            '''if 'H E L' in filename:
                 d = {
                     'Name': df.at[i, "Nazwa"],
                     'Year': year,
@@ -590,7 +681,7 @@ class Parser:
                         'Wydobycie': str(df.at[i, 'Wydobycie']),
                         'Powiat': df.at[i, 'Powiat']
                     }
-                }
+                }'''
             if "BENTONITY  I  IŁY  BENTONITOWE" in filename:
                 d["Type"] = "BENTONITY I IŁY BENTONITOWE"
             if "PIASKI I śWIRY" in filename:
@@ -611,10 +702,8 @@ class Parser:
                 d["Type"] = "KALCYT"
             self.collection.insert_one(d)
             logger.info(f"Added to database {d['Name']}")
-            logger.info(f"Completed {i}/{len(df)}  ({round(i / len(df), 2)}%)")
+            logger.info(f"Completed {i}/{len(df)}  ({(round(i / len(df), 2))*100}%)")
 
-p=Parser("Bilans_2015.pdf")
-p.clean_one_csv("D:\PyCharm\PyCharm 2023.2.4\ParserBilansuGeologicznego\CSV_2022\WĘGLE KAMIENNE_2022.csv")
 '''
 Przykład użycia:
 p=Parser("Bilans_2011.pdf")

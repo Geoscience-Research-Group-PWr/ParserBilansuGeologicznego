@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 def main():
     logging.basicConfig(filename='parser.log', format='%(asctime)s - %(message)s',level=logging.INFO,filemode="w")
     logger.info("Parser started")
-    parser=Parser("Bilans_2012.pdf")
+    parser=Parser("C1/Bilans_2012.pdf")
     parser.add_to_db()
     logger.info("Parsing finished")
 def work(file:str):
@@ -21,12 +21,6 @@ def work(file:str):
     parser=Parser(file)
     logging.basicConfig(filename='parser.log', format='%(asctime)s - %(message)s',level=logging.INFO,filemode="w")
     logger.info("Parser started")
-    parser.make_directories()
-    parser.parse()
-    parser.parse_parsed()
-    parser.export_data()
-    parser.clean_csv()
-    parser.search_csv_for_errors()
     parser.add_to_db()
     logger.info("Parsing finished")
 
@@ -38,8 +32,8 @@ def multitask():
     :return:
     """
     directory = os.getcwd()
-    pdfs=[files for files in os.listdir(directory) if files.endswith(".pdf")]
-    with multiprocessing.Pool(4) as pool:
+    pdfs=[files for files in os.listdir(f"{directory}\C2") if files.endswith(".pdf")]
+    with multiprocessing.Pool(1) as pool:
             pool.map(work,pdfs)
 
 
