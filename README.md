@@ -28,7 +28,7 @@ If you've run
 ```bash
 pip install -r requirements.txt
 ```
-already, you have all dependencies installed. Otherwise run:
+already, you should have all dependencies installed. Otherwise run:
 ```
 pip install Django~=4.2.11
 ```
