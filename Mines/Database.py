@@ -1,5 +1,6 @@
 import pymongo
 import datetime
+import matplotlib.pyplot as plt
 
 class Database:
     """
@@ -88,102 +89,20 @@ class Database:
 
         for i in range(len(results[0])):
             temp=results[0]
-            if temp[i]["Type"]=="H E L":
-                hh=['Name', 'Year', 'Type', 'Stan', 'Zas. wyd. bil. Razem', 'Zas. wyd. bil. A+B', 'Zas. wyd. bil. C', 'Wydobycie']
-                h.append((temp[i]["Name"], temp[i]["Year"], temp[i]["Type"], temp[i]["More"]['Stan'],
-                             temp[i]["More"]['Zas. wyd. bil. Razem'], temp[i]["More"]['Zas. wyd. bil. A+B'], temp[i]["More"]['Zas. wyd. bil. C'],
-                             temp[i]["More"]['Wydobycie']))
-                '''zas_wyd_bil_col = str(temp[i]["More"][headers[1]])
-                zas_ab_col = str(temp[i]["More"][headers[2]])
-                zas_c_col= str(temp[i]["More"][headers[3]])
-                wyd_col = temp[i]["More"][headers[4]]
-                zas_wyd_bil_col = zas_wyd_bil_col.replace(" ", "")
-                zas_ab_col = zas_ab_col.replace(" ", "")
-                wyd_col = wyd_col.replace(" ", "")
-                if str(zas_wyd_bil_col[0]).isnumeric():
-                    zas_wyd_bil += float(zas_wyd_bil_col)
-                if str(zas_ab_col[0]).isnumeric():
-                    zas_ab += float(zas_ab_col)
-                if str(zas_c_col[0]).isnumeric():
-                    zas_c+=float(zas_c_col)
-                if wyd_col[0].isnumeric():
-                    wyd += float(wyd_col)'''
-                hel=True
-            elif temp[i]["Type"]=="M E T A N  P O K Ł A D Ó W  W ĘG L A":
-                hm=['Name', 'Year', 'Type', 'Stan', 'Zasoby wydobywalne bilansowe', 'Zasoby wydobywalne pozabilansowe', 'Zasoby przemyslowe', 'Emisja z wentylacja', 'Wydobycie']
-                m.append((temp[i]["Name"], temp[i]["Year"], temp[i]["Type"], temp[i]["More"]['Stan'],
-                          temp[i]["More"]['Zasoby wydobywalne bilansowe'], temp[i]["More"]['Zasoby wydobywalne pozabilansowe'], temp[i]["More"]['Zasoby przemyslowe'],
-                          temp[i]["More"]['Emisja z wentylacja'], temp[i]["More"]['Wydobycie']))
-                '''zas_wyd_bil_col = str(temp[i]["More"][headers[1]])
-                zas_ab_col = str(temp[i]["More"][headers[2]])
-                zas_c_col = str(temp[i]["More"][headers[3]])
-                zas_przem_col = str(temp[i]["More"][headers[4]])
-                wyd_col = temp[i]["More"][headers[5]]
-                zas_wyd_bil_col = zas_wyd_bil_col.replace(" ", "")
-                zas_ab_col = zas_ab_col.replace(" ", "")
-                zas_c_col = zas_c_col.replace(" ", "")
-                zas_przem_col = zas_przem_col.replace(" ", "")
-                wyd_col = wyd_col.replace(" ", "")
-                if str(zas_wyd_bil_col[0]).isnumeric():
-                    zas_wyd_bil += float(zas_wyd_bil_col)
-                if str(zas_ab_col[0]).isnumeric():
-                    zas_ab += float(zas_ab_col)
-                if str(zas_c_col[0]).isnumeric():
-                    zas_c += float(zas_c_col)
-                if zas_przem_col[0].isnumeric():
-                    zas_przem += float(zas_przem_col)
-                if wyd_col[0].isnumeric():
-                    wyd += float(wyd_col)'''
-                met = True
-            elif temp[i]["Type"]=="WĘGLE  KAMIENNE":
-                hw=['Name', 'Year', 'Type', 'Stan', 'Zasoby geologiczne bilansowe Razem', 'Zasoby geologiczne bilansowe A+B+C1', 'Zasoby wydobywalne bilansowe C2+D', 'Zasoby przemyslowe', 'Wydobycie']
-                w.append((temp[i]["Name"], temp[i]["Year"], temp[i]["Type"], temp[i]["More"]['Stan'],
-                             temp[i]["More"]['Zasoby geologiczne bilansowe Razem'], temp[i]["More"]['Zasoby geologiczne bilansowe A+B+C1'], temp[i]["More"]['Zasoby wydobywalne bilansowe C2+D'],
-                             temp[i]["More"]['Zasoby przemyslowe'],temp[i]["More"]['Wydobycie']))
-                '''zas_wyd_bil_col = str(temp[i]["More"]['Zasoby geologiczne bilansowe Razem'])
-                zas_ab_col = str(temp[i]["More"]['Zasoby geologiczne bilansowe A+B+C1'])
-                zas_c_col = str(temp[i]["More"]['Zasoby wydobywalne bilansowe C2+D'])
-                zas_przem_col = str(temp[i]["More"]['Zasoby przemyslowe'])
-                wyd_col = str(temp[i]["More"]['Wydobycie'])
-                zas_wyd_bil_col = zas_wyd_bil_col.replace(" ", "")
-                zas_ab_col = zas_ab_col.replace(" ", "")
-                zas_c_col=zas_c_col.replace(" ", "")
-                zas_przem_col = zas_przem_col.replace(" ", "")
-                wyd_col = wyd_col.replace(" ", "")
-                if str(zas_wyd_bil_col[0]).isnumeric():
-                    zas_wyd_bil += float(zas_wyd_bil_col)
-                if str(zas_ab_col[0]).isnumeric():
-                    zas_ab += float(zas_ab_col)
-                if str(zas_c_col[0]).isnumeric():
-                    zas_c += float(zas_c_col)
-                if zas_przem_col[0].isnumeric():
-                    zas_przem += float(zas_przem_col)
-                if wyd_col[0].isnumeric():
-                    wyd += float(wyd_col)'''
-                coal=True
-
-            elif temp[i]["Type"]=="SOLANKI, WODY LECZNICZE I TERMALNE":
-                h_sol=['Name', 'Year', 'Type', 'Typ wody', 'Zasoby geologiczne bilansowe dyspozycyjne', 'Zasoby geologiczne bilansowe eksploatacyjne', 'Pobor', 'Powiat']
-                s.append((temp[i]["Name"], temp[i]["Year"], temp[i]["Type"], temp[i]["More"][headers[0]],
-                             temp[i]["More"][headers[1]], temp[i]["More"][headers[2]], temp[i]["More"][headers[3]],
-                             temp[i]["More"][headers[4]]))
-
-
-            else:
-                h_all=['Name', 'Year', 'Type', 'Stan', 'Zasoby wydobywalne bilansowe', 'Zasoby przemyslowe', 'Wydobycie', 'Powiat']
-                data.append((temp[i]["Name"],temp[i]["Year"],temp[i]["Type"],temp[i]["More"]['Stan'],temp[i]["More"]['Zasoby wydobywalne bilansowe'],temp[i]["More"]['Zasoby przemyslowe'],temp[i]["More"]['Wydobycie'],temp[i]["More"]['Powiat']))
-                '''zas_wyd_bil_col=str(temp[i]["More"]['Zasoby wydobywalne bilansowe'])
-                zas_przem_col=str(temp[i]["More"]['Zasoby przemyslowe'])
-                wyd_col=str(temp[i]["More"]['Wydobycie'])
-                zas_wyd_bil_col=zas_wyd_bil_col.replace(" ","")
-                zas_przem_col=zas_przem_col.replace(" ","")
-                wyd_col = wyd_col.replace(" ", "")
-                if zas_wyd_bil_col[0].isnumeric():
-                    zas_wyd_bil+=float(zas_wyd_bil_col)
-                if zas_przem_col[0].isnumeric():
-                    zas_przem+=float(zas_przem_col)
-                if wyd_col[0].isnumeric():
-                    wyd+=float(wyd_col)'''
+            h_all=['Name', 'Year', 'Type', 'Stan', 'Zasoby wydobywalne bilansowe', 'Zasoby przemyslowe', 'Wydobycie', 'Powiat']
+            data.append((temp[i]["Name"],temp[i]["Year"],temp[i]["Type"],temp[i]["More"]['Stan'],temp[i]["More"]['Zasoby wydobywalne bilansowe'],temp[i]["More"]['Zasoby przemyslowe'],temp[i]["More"]['Wydobycie'],temp[i]["More"]['Powiat']))
+            '''zas_wyd_bil_col=str(temp[i]["More"]['Zasoby wydobywalne bilansowe'])
+            zas_przem_col=str(temp[i]["More"]['Zasoby przemyslowe'])
+            wyd_col=str(temp[i]["More"]['Wydobycie'])
+            zas_wyd_bil_col=zas_wyd_bil_col.replace(" ","")
+            zas_przem_col=zas_przem_col.replace(" ","")
+            wyd_col = wyd_col.replace(" ", "")
+            if zas_wyd_bil_col[0].isnumeric():
+                zas_wyd_bil+=float(zas_wyd_bil_col)
+            if zas_przem_col[0].isnumeric():
+                zas_przem+=float(zas_przem_col)
+            if wyd_col[0].isnumeric():
+                wyd+=float(wyd_col)'''
         ret = [data, h, w, s, m]
         heads=[]
         for i in range(10):
@@ -191,13 +110,38 @@ class Database:
                 ret.remove([])
         if data in ret:
             heads.append(h_all)
-        if h in ret:
-            heads.append(hh)
-        if w in ret:
-            heads.append(hw)
-        if s in ret:
-            heads.append(h_sol)
-        if m in ret:
-            heads.append(hm)
 
         return ret,heads
+
+    def statistics(self,results:list,start:str,end:str)->tuple:
+        """
+        Get chart data from query results.
+        :param results:
+        :param start:
+        :param end:
+        :return: (years,sums)
+        """
+        temp = results[0]
+        sums=[]
+        years=[i for i in range(int(start),int(end)+1)]
+        y=int(start)
+        j=0
+        while j<len(years):
+            s_temp = 0
+            for i in range(len(temp)):
+                if int(temp[i]["Year"])==y:
+                    wyd_column=str(temp[i]["More"]["Wydobycie"])
+                    wyd_column = wyd_column.replace(" ", "")
+                    if wyd_column[0].isnumeric():
+                        try:
+                            s_temp+=float(wyd_column)
+                        except ValueError:
+                            pass
+                    else:
+                        s_temp+=0
+            sums.append(round(s_temp,4))
+            y+=1
+            j+=1
+        print(sums,years)
+        d={"Years":years,"Sums":sums}
+        return years,sums

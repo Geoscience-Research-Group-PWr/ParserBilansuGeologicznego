@@ -6,6 +6,8 @@ import datetime
 
 db=Database()
 output=[]
+stats=None
+years=[]
 counties=[ ('00',""),
     ('01', 'Wrocław'),
     ('02', 'Jelenia Góra'),
@@ -430,6 +432,10 @@ def name_search(request):
         output.clear()
         output.append(db.search_by_name(str(name), start, end))
         output.append(name)
+        stats=db.statistics(output,start,end)
+        years.clear()
+        years.append(start)
+        years.append(end)
         return HttpResponseRedirect("name_search/results")
     else:
         return render(request,"MinesAPP/index1.html",{"form":form})
@@ -445,6 +451,10 @@ def type_search(request):
         output.clear()
         output.append(db.search_by_type(str(types), start1, end1))
         output.append(types)
+        stats = db.statistics(output, start1, end1)
+        years.clear()
+        years.append(start1)
+        years.append(end1)
         return HttpResponseRedirect("type_search/results")
     else:
         return render(request,"MinesAPP/type_search.html",{"form":form})
@@ -479,6 +489,8 @@ def results(request):
         data=db.get_data(output, headers2)[0]
         columns=db.get_data(output, headers2)[1]
         tables=[]
+        stats=db.statistics(output,years[0],years[1])
+        print(stats)
         for headers,rows in zip(columns,data):
             table = {'headers': headers, 'rows': rows}
             tables.append(table)
@@ -486,7 +498,7 @@ def results(request):
             data.remove([])'''
         #sums=[db.get_data(output, headers2)[i] for i in range(1,len(db.get_data(output, headers2)))]
         return render(request, "MinesAPP/results.html",
-                      {"items": output, "columns": columns, "tables": tables, "name": output[1]})
+                      {"items": output, "columns": columns, "tables": tables, "name": output[1],"sums":stats[1],"years":stats[0]})
     else:
         columns=[]
         data=[[' ']]
