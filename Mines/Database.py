@@ -21,9 +21,10 @@ class Database:
         :return: list of objects from the database searched by name in range given by start and end years.
         """
         result=[]
-        if county: # dodać warunek że pole powiat istnieje
-            query = {"$and": [{"Name": name}, {"Year": {"$gte": str(start)}}, {"Year": {"$lte": str(end)}},{"More.Powiat":county}]}
-        query={"$and":[{"Name":name},{"Year":{"$gte":str(start)}},{"Year":{"$lte":str(end)}}]}
+        if county:
+            query = {"$and": [{"Name": name},{"More.Powiat":county}, {"Year": {"$gte": str(start)}}, {"Year": {"$lte": str(end)}}]}
+        else:
+            query={"$and":[{"Name":name},{"Year":{"$gte":str(start)}},{"Year":{"$lte":str(end)}}]}
         output=self.collection.find(query)
         for results in output:
             result.append(results)
@@ -53,7 +54,7 @@ class Database:
         :return: list of objects where county field contains given county
         """
         result=[]
-        query={"More.Powiat":str(county)}
+        query={"$and": [{"More.Powiat": county}, {"Year": {"$gte": str(start)}}, {"Year": {"$lte": str(end)}}]}
         output = self.collection.find(query)
         for results in output:
             result.append(results)
@@ -142,6 +143,5 @@ class Database:
             sums.append(round(s_temp,4))
             y+=1
             j+=1
-        print(sums,years)
         d={"Years":years,"Sums":sums}
         return years,sums

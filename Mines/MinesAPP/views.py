@@ -8,6 +8,7 @@ db=Database()
 output=[]
 stats=None
 years=[]
+types=[('00',""),('01', 'BARYT I FLUORYT'), ('02', 'BENTONITY I IŁY BENTONITOWE'), ('03', 'BURSZTYNY'), ('04', 'DOLOMITY'), ('05', 'FOSFORYTY'), ('06', 'GAZ ZIEMNY'), ('07', 'GIPS I ANHYDRYT'), ('08', 'GLINY CERAMICZNE'), ('09', 'GLINY OGNIOTRWAŁE'), ('10', 'KALCYT'), ('11', 'KAMIENIE ŁAMANE I BLOCZNE'), ('12', 'KREDA'), ('13', 'KRZEMIENIE'), ('14', 'KWARC ŻYŁOWY'), ('15', 'KWARCYTY OGNIOTRW ŁE'), ('16', 'MAGNEZYTY'), ('17', 'OSADY GLAUKONITONOŚNE'), ('18', 'PIASKI FORMIERSKIE'), ('19', 'PIASKI I ŻWIRY'), ('20', 'PIASKI KWARCOWE'), ('21', 'PIASKI Z MINERAŁAMI CIĘŻKIMI'), ('22', 'ROPA NAFTOWA'), ('23', 'RUDY CYNKU I OŁOWIU'), ('24', 'RUDY MIEDZI I SREBRA'), ('25', 'RUDY MOLIBDENOWO-WOLFRAMOWO-MIEDZIOWE'), ('26', 'RUDY NIKLU'), ('27', 'RUDY ZŁOTA, ARSENU I CYNY'), ('28', 'RUDY ŻELAZA, TYTANU I WANADU'), ('29', 'SIARKA'), ('30', 'SKAŁA DIATOMITOWA'), ('31', 'SOLANKI, WODY LECZNICZE I TERMALNE'), ('32', 'SOLE POTASOWO-MAGNEZOWE'), ('33', 'SUROWCE DLA PRAC INŻYNIERSKICH'), ('34', 'SUROWCE ILASTE CERAMIKI BUDOWLANEJ'), ('35', 'SUROWCE ILASTE DO PROD. CEMENTU'), ('36', 'SUROWCE ILASTE DO PROD. KRUSZYWA LEKKIEGO'), ('37', 'SUROWCE ILASTE'), ('38', 'SUROWCE KAOLINOWE'), ('39', 'SUROWCE SKALENIOWE'), ('40', 'SUROWCE SZKLARSKIE'), ('41', 'SÓL KAMIENNA'), ('42', 'TORFY'), ('43', 'WAPIENIE I MARGLE'), ('44', 'WĘGLE BRUNATNE'), ('45', 'WĘGLE KAMIENNE'), ('46', 'ZIEMIA KRZEMIONKOWA'), ('47', 'ŁUPKI FYLLITOWE, KWARCYTOWE I ŁYSZCZYKOWE'), ('48', 'ŻWIRKI FILTRACYJNE')]
 counties=[ ('00',""),
     ('01', 'Wrocław'),
     ('02', 'Jelenia Góra'),
@@ -396,21 +397,30 @@ class NameForm(forms.Form):
     start=forms.CharField(label="From :",initial=str(datetime.date.today().year-14))
     end=forms.CharField(label="To :",initial=str(datetime.date.today().year))
     county=forms.ChoiceField(choices=counties,label="County:")
-
+    def get_county_name(self, value):
+        for code, name in self.fields['county'].choices:
+            if code == value:
+                return name
+        return None
 
 # zrobić year jako wybieralną listę
 class TypeForm(forms.Form):
-    types=forms.CharField(label="Mineral type")
+    types=forms.ChoiceField(choices=types,label="Mineral:")
     start1 = forms.CharField(label="From:", initial=str(datetime.date.today().year - 14))
     end1 = forms.CharField(label="To:", initial=str(datetime.date.today().year))
-
+    def get_type_name(self, value):
+        for code, name in self.fields['types'].choices:
+            if code == value:
+                return name
+        return None
 class Temp(forms.Form):
     name=forms.CharField()
     start=forms.CharField()
     end=forms.CharField()
 class CountyForm(forms.Form):
     county=forms.ChoiceField(choices=counties)
-
+    start = forms.CharField(label="From :", initial=str(datetime.date.today().year - 14))
+    end = forms.CharField(label="To :", initial=str(datetime.date.today().year))
     def get_county_name(self, value):
         for code, name in self.fields['county'].choices:
             if code == value:
@@ -428,9 +438,10 @@ def name_search(request):
         name=form.cleaned_data["name"]
         start=form.cleaned_data["start"]
         end=form.cleaned_data["end"]
-        county=form.cleaned_data["county"]
+        num=form.cleaned_data["county"]
+        county=form.get_county_name(num)
         output.clear()
-        output.append(db.search_by_name(str(name), start, end))
+        output.append(db.search_by_name(str(name), start, end,county))
         output.append(name)
         stats=db.statistics(output,start,end)
         years.clear()
@@ -445,12 +456,13 @@ def name_search(request):
 def type_search(request):
     form = TypeForm(request.POST or None)
     if request.method=="POST" and form.is_valid():
-        types=form.cleaned_data["types"]
+        num=form.cleaned_data["types"]
+        typess=form.get_type_name(num)
         start1=form.cleaned_data["start1"]
         end1=form.cleaned_data["end1"]
         output.clear()
-        output.append(db.search_by_type(str(types), start1, end1))
-        output.append(types)
+        output.append(db.search_by_type(str(typess), start1, end1))
+        output.append(typess)
         stats = db.statistics(output, start1, end1)
         years.clear()
         years.append(start1)
@@ -467,10 +479,14 @@ def area_search(request):
         county=form.get_county_name(num)
         '''start = form.cleaned_data["start"]
         end = form.cleaned_data["end"]'''
-
+        start = form.cleaned_data["start"]
+        end = form.cleaned_data["end"]
         output.clear()
-        output.append(db.search_by_county(str(county)))
+        output.append(db.search_by_county(str(county),start,end))
         output.append(county)
+        years.clear()
+        years.append(start)
+        years.append(end)
         return HttpResponseRedirect("county_search/results")
     else:
         return render(request, "MinesAPP/county_search.html", {"form": form})
