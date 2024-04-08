@@ -119,4 +119,5 @@ class Database:
             y += 1
             j += 1
         d = {"Years": years, "Sums": sums}
-        return years, sums
+        mean=round(sum(sums)/len(years),2)
+        return years, sums, mean

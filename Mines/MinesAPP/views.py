@@ -500,8 +500,6 @@ def area_search(request):
     if request.method == "POST" and form.is_valid():
         num = form.cleaned_data["county"]
         county = form.get_county_name(num)
-        '''start = form.cleaned_data["start"]
-        end = form.cleaned_data["end"]'''
         start = form.cleaned_data["start"]
         end = form.cleaned_data["end"]
         output.clear()
@@ -531,16 +529,12 @@ def results(request):
         columns = db.get_data(output, headers2)[1]
         tables = []
         stats = db.statistics(output, years[0], years[1])
-        print(stats)
         for headers, rows in zip(columns, data):
             table = {'headers': headers, 'rows': rows}
             tables.append(table)
-        '''for rows in data:
-            data.remove([])'''
-        # sums=[db.get_data(output, headers2)[i] for i in range(1,len(db.get_data(output, headers2)))]
         return render(request, "MinesAPP/results.html",
                       {"items": output, "columns": columns, "tables": tables, "name": output[1], "sums": stats[1],
-                       "years": stats[0]})
+                       "years": stats[0],"mean":stats[2]})
     else:
         columns = []
         data = [[' ']]

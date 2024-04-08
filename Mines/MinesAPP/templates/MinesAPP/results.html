@@ -17,9 +17,7 @@
     <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
     <script>
         x={{ years }};
-            console.log(x);
         y={{ sums }};
-            console.log(y);
         let  xValues = x;
         let yValues = y;
 
@@ -30,16 +28,21 @@
             datasets: [{
               fill: false,
               lineTension: 0,
-              backgroundColor: "rgba(0,0,255,1.0)",
-              borderColor: "rgba(0,0,255,0.1)",
+              backgroundColor: "rgba(9, 117, 34,1)",
+              borderColor: "rgba(9, 117, 34,0.3)",
               data: yValues
             }]
           },
           options: {
             legend: {display: false},
+            title: {
+                  display: true,
+                  text: "Mineral production"
+            }
           }
         });
     </script>
+        <p>Mean production: {{ mean }}</p>
     </div>
     <div>
     {% for table in tables %}
