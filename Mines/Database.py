@@ -121,3 +121,6 @@ class Database:
         d = {"Years": years, "Sums": sums}
         mean=round(sum(sums)/len(years),2)
         return years, sums, mean
+
+    def sum(self,a,b):
+        return a+b
