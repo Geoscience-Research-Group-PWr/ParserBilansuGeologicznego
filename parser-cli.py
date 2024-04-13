@@ -1,5 +1,7 @@
 import argparse
+import csv
 import sys
+import getpass
 
 import pymongo
 from tabulate import tabulate
@@ -22,9 +24,9 @@ def part_print(data, batch_size=25):
     for i in range(0, len(data), batch_size):
         print(
             tabulate(
-                data[i : i + batch_size - 1],
-                headers="firstrow",
-                tablefmt="pipe",
+                data[i : i + batch_size],
+                headers=["NAZWA", "ROK", "TYP", "WYDOBYCIE", "POWIAT"],
+                tablefmt="simple_grid",
                 stralign="center",
             )
         )
@@ -40,95 +42,96 @@ def part_print(data, batch_size=25):
                 print("\n")
 
 
-def export_to():
+def export_to(values):
+    # with open(f"", "w")
     ...
 
 
 def main():
     # parser part
     parser = argparse.ArgumentParser()
-    parser.add_argument(
+    obligatory_group = parser.add_argument_group(
+        title="obligatory argument (at least one is required)"
+    )
+    argument_group = parser.add_argument_group(
+        title="possible arguments to narrow results"
+    )
+    argument_group.add_argument(
         "-n",
         "--name",
         action="store",
         type=str,
-        metavar=("name"),
+        metavar=("NAME"),
         help="narrows the database search by name\n",
     )
-    parser.add_argument(
+    argument_group.add_argument(
         "-r",
         "--range",
-        type=int,
+        type=str,
         nargs=2,
-        metavar=("range from", "range to"),
+        metavar=("RANGE FROM", "RANGE TO"),
         help="narrows the database search by range of years from to",
     )
-    parser.add_argument(
+    argument_group.add_argument(
         "-y",
         "--year",
         type=str,
         nargs=1,
-        metavar=("year"),
+        metavar=("YEAR"),
         help="narrows the database search by given year",
     )
-    parser.add_argument(
-        "-e", "--export", action="store_true", help="export data to .xlsx"
+    obligatory_group.add_argument(
+        "-e", "--export", action="store_true", help="export data to .csv"
     )
-    parser.add_argument(
+    obligatory_group.add_argument(
         "-v", "--view", action="store_true", help="view the data in terminal"
     )
     # mongodb part
-    login = str(input("Please give your login to db: "))
-    password = str(input("Please give your passwort to db: "))
+
+    # cli options
+
+    args = parser.parse_args()
+    if not (args.export or args.view):
+        parser.error(
+            "No obligatory arguments provided (-e/-v)\nview --help for more information"
+        )
+
+    login = getpass.getpass(prompt="Login to data base: ")
+    password = getpass.getpass(prompt="Password to data base: ")
     client = pymongo.MongoClient(
         f"mongodb+srv://{login}:{password}@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority"
-    )  # zmienic password i username na swoje
+    )
     db = client["parser"]
     collection = db["Kopalnie"]
 
-    # cli options
-    if len(sys.argv) <= 1:
-        parser.print_help()
-        sys.exit()
-    else:
-        args = parser.parse_args()
-        print(f"ae = {args}")
-        query_dict = {}
+    print(f"ae = {args}")
+    query_dict = {}
 
-        if args.name is not None:
-            query_dict["Name"] = {"$eq": args.name}
+    if args.name is not None:
+        query_dict["Name"] = {"$eq": args.name}
 
-        if args.year is not None:
-            query_dict["Year"] = {"$eq": args.year[0]}
+    if args.year is not None:
+        query_dict["Year"] = {"$eq": args.year[0]}
 
-        if args.range is not None:
-            query_dict["Year"] = {
-                "$and": [
-                    {"Year": {"$gt": str(args.range[0] - 1)}},
-                    {
-                        "Year": {"$lt": args.range[1]}
-                    },  # sprawdzic jak to działa, poki co za malo danych
-                ]
-            }
+    if args.range is not None:
+        query_dict["Year"] = {"$gte": args.range[0], "$lte": args.range[1]}
 
-        results = collection.find(query_dict) if query_dict else collection.find()
+    results = collection.find(query_dict)
 
-        vals = [
-            [
-                *tuple(result.values())[1:4],
-                result["More"]["Wydobycie"] if "Wydobycie" in result["More"] else "-",
-                result["More"]["Powiat"] if "Powiat" in result["More"] else "-",
-            ]
-            for result in results
+    values = [
+        [
+            *tuple(result.values())[1:4],
+            result["More"]["Wydobycie"] if "Wydobycie" in result["More"] else "-",
+            result["More"]["Powiat"] if "Powiat" in result["More"] else "-",
         ]
-        values = [["Nazwa", "Rok", "Typ", "Wydobycie", "Powiat"]]
-        values.extend(vals)
+        for result in results
+    ]
 
-        if args.export:
-            print("export")
+    if args.export:
+        print("export")
 
-        if args.view:
-            part_print(values)
+    if args.view:
+        part_print(values)
 
 
 if __name__ == "__main__":
