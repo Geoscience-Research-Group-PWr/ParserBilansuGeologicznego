@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django import forms
+from django.forms import ModelForm
 from django.http import HttpResponseRedirect
 from Database import Database
 import datetime
+from .models import Fo
 
 db = Database()
 output = []
@@ -405,8 +407,16 @@ counties = [('00', ""),
             ('379', 'świdwiński'),
             ('380', 'wałecki')]
 
-
-class NameForm(forms.Form):
+class NameForm(ModelForm):
+    class Meta:
+        model = Fo
+        fields = ['name','start','end','county']
+    def get_county_name(self, value):
+        for code, name in self.fields['county'].choices:
+            if code == value:
+                return name
+        return None
+class a(forms.Form):
     name = forms.CharField(label="Mine name :")
     start = forms.CharField(label="From :", initial=str(datetime.date.today().year - 14))
     end = forms.CharField(label="To :", initial=str(datetime.date.today().year))
@@ -462,8 +472,10 @@ def name_search(request):
         end = form.cleaned_data["end"]
         num = form.cleaned_data["county"]
         county = form.get_county_name(num)
+        if county == '---------' :
+            county = None
         output.clear()
-        output.append(db.search_by_name(str(name), start, end, county))
+        output.append(db.search_by_name(str(name), str(start), str(end),county))
         output.append(name)
         stats = db.statistics(output, start, end)
         years.clear()

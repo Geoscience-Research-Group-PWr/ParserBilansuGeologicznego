@@ -31,7 +31,6 @@ class Database:
         output = self.collection.find(query)
         for results in output:
             result.append(results)
-        print(result)
         return result
 
     def search_by_type(self, t: str, start=0, end=datetime.date.today().year) -> list:
@@ -47,7 +46,6 @@ class Database:
         output = self.collection.find(query)
         for results in output:
             result.append(results)
-        print(result)
         return result
 
     def search_by_county(self, county: str, start=0, end=datetime.date.today().year) -> list:

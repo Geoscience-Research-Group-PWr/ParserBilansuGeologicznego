@@ -131,3 +131,10 @@ class Database:
 class XD:
     def s(self,a,b):
         return a+b
+
+class Fo(models.Model):
+    name = models.CharField(max_length=50)
+    start = models.CharField(max_length=50)
+    end = models.CharField(max_length=50)
+    c = [('00','xd'),('01','lol')]
+    county = models.CharField(choices=c,blank=True,max_length=50)
