@@ -1,7 +1,8 @@
 import argparse
 import csv
-import sys
 import getpass
+import os
+import sys
 
 import pymongo
 from tabulate import tabulate
@@ -20,6 +21,23 @@ need to be done:
 """
 
 
+def file_name(args):
+    if args.name:
+        if args.year:
+            return f"{args.name}_{args.year[0]}"
+        elif args.range:
+            return f"{args.name}_{args.range[0]}_{args.range[1]}"
+        else:
+            return f"{args.name}"
+    else:
+        if args.year:
+            return f"{args.year[0]}"
+        elif args.range:
+            return f"{args.range[0]}_{args.range[1]}"
+        else:
+            return "all_records"
+
+
 def part_print(data, batch_size=25):
     for i in range(0, len(data), batch_size):
         print(
@@ -36,15 +54,27 @@ def part_print(data, batch_size=25):
                     f"Do you want to print another part of data? {len(data)-i-batch_size} left. (y/n): "
                 )
             )
-            if not (flag == "y" or flag == "yes"):
+            if not (flag.lower() == "y" or flag.lower() == "yes"):
                 sys.exit()
             else:
                 print("\n")
 
 
-def export_to(values):
-    # with open(f"", "w")
-    ...
+def export_to(values, args):
+    working_dir = os.getcwd()
+    csv_documents_path = os.path.join(working_dir, "csv_documents")
+    if not os.path.exists(csv_documents_path):
+        os.mkdir(csv_documents_path)
+
+    os.chdir(csv_documents_path)
+    # filename = f"{args.name or ''}_{args.year[0] if args.year else ''}_{args.year[1] if args.year and len(args.year) >1 else ''}"
+    filename = file_name(args)
+    filename = filename.replace(" ", "_")
+
+    with open(filename, "w") as file:
+        csv_file = csv.writer(file)
+        csv_file.writerow(["NAZWA", "ROK", "TYP", "WYDOBYCIE", "POWIAT"])
+        csv_file.writerows(values)
 
 
 def main():
@@ -56,6 +86,7 @@ def main():
     argument_group = parser.add_argument_group(
         title="possible arguments to narrow results"
     )
+    exclusive_group = argument_group.add_mutually_exclusive_group()
     argument_group.add_argument(
         "-n",
         "--name",
@@ -64,7 +95,7 @@ def main():
         metavar=("NAME"),
         help="narrows the database search by name\n",
     )
-    argument_group.add_argument(
+    exclusive_group.add_argument(
         "-r",
         "--range",
         type=str,
@@ -72,7 +103,7 @@ def main():
         metavar=("RANGE FROM", "RANGE TO"),
         help="narrows the database search by range of years from to",
     )
-    argument_group.add_argument(
+    exclusive_group.add_argument(
         "-y",
         "--year",
         type=str,
@@ -86,9 +117,6 @@ def main():
     obligatory_group.add_argument(
         "-v", "--view", action="store_true", help="view the data in terminal"
     )
-    # mongodb part
-
-    # cli options
 
     args = parser.parse_args()
     if not (args.export or args.view):
@@ -96,13 +124,27 @@ def main():
             "No obligatory arguments provided (-e/-v)\nview --help for more information"
         )
 
-    login = getpass.getpass(prompt="Login to data base: ")
-    password = getpass.getpass(prompt="Password to data base: ")
-    client = pymongo.MongoClient(
-        f"mongodb+srv://{login}:{password}@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority"
-    )
-    db = client["parser"]
-    collection = db["Kopalnie"]
+    while True:
+        login = getpass.getpass(prompt="Login to data base: ")
+        password = getpass.getpass(prompt="Password to data base: ")
+
+        client = pymongo.MongoClient(
+            f"mongodb+srv://{login}:{password}@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority"
+        )
+        try:
+            client.admin.command("ping")
+            db = client["parser"]
+            collection = db["Kopalnie"]
+            break
+        except pymongo.errors.OperationFailure:
+            print("Wrong login/passowrd given")
+            response = input("Want try again? (yes/no): ")
+
+            if not (response.lower() == "y" or response.lower() == "yes"):
+                sys.exit()
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+            break
 
     print(f"ae = {args}")
     query_dict = {}
@@ -128,7 +170,7 @@ def main():
     ]
 
     if args.export:
-        print("export")
+        export_to(values, args)
 
     if args.view:
         part_print(values)
