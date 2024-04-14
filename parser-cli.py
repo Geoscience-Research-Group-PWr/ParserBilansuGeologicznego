@@ -68,8 +68,7 @@ def export_to(values, args):
 
     os.chdir(csv_documents_path)
     # filename = f"{args.name or ''}_{args.year[0] if args.year else ''}_{args.year[1] if args.year and len(args.year) >1 else ''}"
-    filename = file_name(args)
-    filename = filename.replace(" ", "_")
+    filename = file_name(args).replace(" ", "_")
 
     with open(filename, "w") as file:
         csv_file = csv.writer(file)
@@ -77,7 +76,34 @@ def export_to(values, args):
         csv_file.writerows(values)
 
 
-def main():
+def db_connect():
+    while True:
+        login = getpass.getpass(prompt="Login to data base: ")
+        password = getpass.getpass(prompt="Password to data base: ")
+
+        client = pymongo.MongoClient(
+            f"mongodb+srv://{login}:{password}@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority"
+        )
+        try:
+            client.admin.command("ping")
+            db = client["parser"]
+            collection = db["Kopalnie"]
+            break
+
+        except pymongo.errors.OperationFailure:
+            print("Wrong login/passowrd given")
+            response = input("Want try again? (yes/no): ")
+
+            if not (response.lower() == "y" or response.lower() == "yes"):
+                sys.exit()
+
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+            break
+    return collection
+
+
+def parser_args():
     # parser part
     parser = argparse.ArgumentParser()
     obligatory_group = parser.add_argument_group(
@@ -119,34 +145,17 @@ def main():
     )
 
     args = parser.parse_args()
+
     if not (args.export or args.view):
         parser.error(
             "No obligatory arguments provided (-e/-v)\nview --help for more information"
         )
+    return args
 
-    while True:
-        login = getpass.getpass(prompt="Login to data base: ")
-        password = getpass.getpass(prompt="Password to data base: ")
 
-        client = pymongo.MongoClient(
-            f"mongodb+srv://{login}:{password}@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority"
-        )
-        try:
-            client.admin.command("ping")
-            db = client["parser"]
-            collection = db["Kopalnie"]
-            break
-        except pymongo.errors.OperationFailure:
-            print("Wrong login/passowrd given")
-            response = input("Want try again? (yes/no): ")
-
-            if not (response.lower() == "y" or response.lower() == "yes"):
-                sys.exit()
-        except Exception as e:
-            print(f"Unexpected error: {e}")
-            break
-
-    print(f"ae = {args}")
+def main():
+    args = parser_args()
+    data = db_connect()
     query_dict = {}
 
     if args.name is not None:
@@ -158,13 +167,13 @@ def main():
     if args.range is not None:
         query_dict["Year"] = {"$gte": args.range[0], "$lte": args.range[1]}
 
-    results = collection.find(query_dict)
+    results = data.find(query_dict)
 
     values = [
         [
             *tuple(result.values())[1:4],
-            result["More"]["Wydobycie"] if "Wydobycie" in result["More"] else "-",
-            result["More"]["Powiat"] if "Powiat" in result["More"] else "-",
+            result["More"].get("Wydobycie", "-"),
+            result["More"].get("Powiat", "-"),
         ]
         for result in results
     ]
