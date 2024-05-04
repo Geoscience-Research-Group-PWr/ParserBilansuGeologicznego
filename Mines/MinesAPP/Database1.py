@@ -122,3 +122,4 @@ class Database:
         mean=round(sum(sums)/len(years),2)
         return years, sums, mean
 
+
