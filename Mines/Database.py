@@ -1,5 +1,7 @@
 import pymongo
 import datetime
+import logging
+
 
 
 class Database:
@@ -12,6 +14,8 @@ class Database:
             'mongodb+srv://mikolajsiewruk222:parser420@parser.1gvwkzh.mongodb.net/?retryWrites=true&w=majority&appName=parser')
         self.db = self.connection['parser']
         self.collection = self.db['Kopalnie']
+        self.logger = logging.getLogger(__name__)
+
 
     def search_by_name(self, name: str, start=0, end=datetime.date.today().year, county="") -> list:
         """
@@ -31,6 +35,7 @@ class Database:
         output = self.collection.find(query)
         for results in output:
             result.append(results)
+        self.logger.info(f"Method: search_by_name, parameters: {name},{start},{end},{county},  results:{result}")
         return result
 
     def search_by_type(self, t: str, start=0, end=datetime.date.today().year) -> list:
@@ -46,6 +51,7 @@ class Database:
         output = self.collection.find(query)
         for results in output:
             result.append(results)
+        self.logger.info(f"Method: search_by_type, parameters: {t},{start},{end},  results:{result}")
         return result
 
     def search_by_county(self, county: str, start=0, end=datetime.date.today().year) -> list:
@@ -61,6 +67,7 @@ class Database:
         output = self.collection.find(query)
         for results in output:
             result.append(results)
+        self.logger.info(f"Method: search_by_county, parameters: {county},{start},{end},  results:{result}")
         return result
 
     def get_data(self, results: list, headers: list) -> tuple:
@@ -86,7 +93,7 @@ class Database:
                 ret.remove([])
         if data in ret:
             heads.append(h_all)
-
+        self.logger.info(f"Method: get data, parameters:{results},\n {headers},  output:{ret},\n {heads}")
         return ret, heads
 
     def statistics(self, results: list, start: str, end: str) -> tuple:
@@ -120,5 +127,6 @@ class Database:
             j += 1
         d = {"Years": years, "Sums": sums}
         mean=round(sum(sums)/len(years),2)
+        self.logger.info(f"Method: get data, parameters:{results}, {start},{end},  output:{years},\n {sums},{mean}")
         return years, sums, mean
 

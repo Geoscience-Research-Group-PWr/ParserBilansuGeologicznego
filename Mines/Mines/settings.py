@@ -134,3 +134,30 @@ SWAGGER_SETTINGS = {
     }
 }
 REST_FRAMEWORK = {'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'Django.log',
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(asctime)s [%(levelname)s] %(module)s.%(funcName)s: %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+        },},
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}

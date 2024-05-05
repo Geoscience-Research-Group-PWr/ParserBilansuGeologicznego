@@ -6,10 +6,11 @@ from Database import Database
 import datetime
 from .models import Fo
 from rest_framework.decorators import api_view
+import logging
 
 
-
-
+logger=logging.getLogger('django')
+logging.basicConfig(filename="Django.log",format='%(asctime)s - %(message)s',filemode="w")
 db = Database()
 output = []
 stats = None
@@ -467,7 +468,7 @@ class CountyForm(forms.Form):
 def menu(request):
     return render(request, "MinesAPP/menu.html")
 
-@api_view(["GET"])
+@api_view(["POST","GET"])
 def name_search(request):
     form = NameForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
@@ -480,6 +481,7 @@ def name_search(request):
             county = None
         output.clear()
         output.append(db.search_by_name(str(name), str(start), str(end),county))
+        logger.info(f"Method: search_by_name, params:{name, start, end, county}, \noutput: {output}")
         output.append(name)
         stats = db.statistics(output, start, end)
         years.clear()
@@ -490,7 +492,7 @@ def name_search(request):
         return render(request, "MinesAPP/index1.html", {"form": form})
     return render(request, "MinesAPP/index1.html", {"form": NameForm()})
 
-@api_view(["GET"])
+@api_view(["POST","GET"])
 def type_search(request):
     form = TypeForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
@@ -500,6 +502,7 @@ def type_search(request):
         end1 = form.cleaned_data["end1"]
         output.clear()
         output.append(db.search_by_type(str(typess), start1, end1))
+        logger.info(f"Method: search_by_type, params:{typess, start1, end1}, \noutput: {output}")
         output.append(typess)
         stats = db.statistics(output, start1, end1)
         years.clear()
@@ -510,8 +513,10 @@ def type_search(request):
         return render(request, "MinesAPP/type_search.html", {"form": form})
     return render(request, "MinesAPP/type_search.html", {"form": TypeForm()})
 
-@api_view(["GET"])
+@api_view(["POST","GET"])
 def area_search(request):
+    logger.info("xdxd")
+
     form = CountyForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
         num = form.cleaned_data["county"]
@@ -520,6 +525,7 @@ def area_search(request):
         end = form.cleaned_data["end"]
         output.clear()
         output.append(db.search_by_county(str(county), start, end))
+        logger.info(f"Method: search_by_county, params:{county, start, end}, \noutput: {output}")
         output.append(county)
         years.clear()
         years.append(start)
@@ -529,7 +535,7 @@ def area_search(request):
         return render(request, "MinesAPP/county_search.html", {"form": form})
     return render(request, "MinesAPP/county_search.html", {"form": CountyForm()})
 
-@api_view(["GET"])
+@api_view(["POST","GET"])
 def results(request):
     data = []
     sums = []
