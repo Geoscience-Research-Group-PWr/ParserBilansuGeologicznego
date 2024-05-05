@@ -5,6 +5,10 @@ from django.http import HttpResponseRedirect
 from Database import Database
 import datetime
 from .models import Fo
+from rest_framework.decorators import api_view
+
+
+
 
 db = Database()
 output = []
@@ -459,11 +463,11 @@ class CountyForm(forms.Form):
                 return name
         return None
 
-
+@api_view(['GET'])
 def menu(request):
     return render(request, "MinesAPP/menu.html")
 
-
+@api_view(["GET"])
 def name_search(request):
     form = NameForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
@@ -486,7 +490,7 @@ def name_search(request):
         return render(request, "MinesAPP/index1.html", {"form": form})
     return render(request, "MinesAPP/index1.html", {"form": NameForm()})
 
-
+@api_view(["GET"])
 def type_search(request):
     form = TypeForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
@@ -506,7 +510,7 @@ def type_search(request):
         return render(request, "MinesAPP/type_search.html", {"form": form})
     return render(request, "MinesAPP/type_search.html", {"form": TypeForm()})
 
-
+@api_view(["GET"])
 def area_search(request):
     form = CountyForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
@@ -525,7 +529,7 @@ def area_search(request):
         return render(request, "MinesAPP/county_search.html", {"form": form})
     return render(request, "MinesAPP/county_search.html", {"form": CountyForm()})
 
-
+@api_view(["GET"])
 def results(request):
     data = []
     sums = []
